@@ -138,7 +138,7 @@ document.querySelectorAll(".js-form").forEach(form => {
       const res = await fetch(FORM_ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } });
       if (!res.ok) throw new Error(res.status);
       form.reset();
-      say("Thanks. I’ll be in touch within one working day.", "ok");
+      window.location.href = "thanks.html";
     } catch {
       say(`That didn’t send. Please try again, or email ${CONTACT_EMAIL}.`, "err");
     } finally { btn.disabled = false; btn.textContent = label; }
