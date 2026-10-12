@@ -5,7 +5,7 @@
 
 // ---- Settings -------------------------------------------------------------
 // Paste your Formspree endpoint here (e.g. "https://formspree.io/f/abcdwxyz"). Leave empty to use email instead.
-const FORM_ENDPOINT = "";
+const FORM_ENDPOINT = "https://formspree.io/f/xyekdlbg";
 const CONTACT_EMAIL = "hello@iterramaps.com";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
