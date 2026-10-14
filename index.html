@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Iterra Maps - Animated route maps for tour operators</title>
+<title>Iterra Maps — Animated route maps for tour operators</title>
 <meta name="description" content="Short animated map videos of your tours: the route draws itself along real roads, trails and ferry crossings, in your brand. For tour operators, walking and cycling holidays and events.">
 <link rel="canonical" href="https://iterramaps.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:type" content="website">
-<meta property="og:title" content="Iterra Maps - Your itineraries, in motion">
+<meta property="og:title" content="Iterra Maps — Your itineraries, in motion">
 <meta property="og:description" content="Animated route map videos for tour operators, walking and cycling holidays and events.">
 <meta property="og:url" content="https://iterramaps.com/">
 <meta property="og:image" content="https://iterramaps.com/og-image.png">
@@ -49,7 +49,7 @@
         <h1 id="hero-title">Your itineraries, in motion.</h1>
         <p class="lead">We turn your tours into short animated map videos. The route draws itself along real roads, walking trails, ferry crossings and mountain passes, with your stops, your logo and your colours. Ready for your tour pages, Instagram, YouTube and email.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="sample.html">Send an itinerary - free sample</a>
+          <a class="btn btn-primary" href="sample.html">Send an itinerary — free sample</a>
           <a class="btn btn-outline" href="#showreel"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg>See the showreel</a>
         </div>
         <p class="facts"><span>16:9 · 9:16 · 1:1</span><span>First draft in 5 working days</span></p>
@@ -118,19 +118,19 @@
   </section>
 
   <section class="band-white" aria-label="Who it's for">
-    <ul class="wrap for-list"  style="margin:0 auto;">
+    <ul class="wrap for-list">
       <li>Made for</li><li>Tour operators</li><li>Travel agencies</li><li>Walking &amp; cycling holidays</li><li>Coach tours</li><li>Cruise &amp; ferry lines</li><li>Events &amp; sportives</li>
     </ul>
   </section>
 
-  <!-- SHOWREEL: each card can take a video later (see README) -->
+  <!-- SHOWREEL: each card shows its <img> at rest and plays the file in data-video on hover / in the pop-up. If an image is missing, a frame of the video is shown instead (data-thumb="12" picks the second; default is near the end). See DEPLOY.md step 8. -->
   <section class="section" id="showreel" aria-labelledby="reel-title">
     <div class="wrap">
       <div class="section-head">
         <div><p class="eyebrow plain">Showreel</p><h2 class="h2" id="reel-title">Every kind of journey.</h2></div>
         <div class="filters" role="group" aria-label="Filter the showreel">
           <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
-          <button class="chip" type="button" data-filter="road" aria-pressed="false">Road trips</button>
+          <button class="chip" type="button" data-filter="road" aria-pressed="false">Road &amp; rail</button>
           <button class="chip" type="button" data-filter="active" aria-pressed="false">Walking &amp; cycling</button>
           <button class="chip" type="button" data-filter="sea" aria-pressed="false">Islands &amp; sea</button>
           <button class="chip" type="button" data-filter="air" aria-pressed="false">Flights</button>
@@ -138,52 +138,60 @@
       </div>
 
       <div class="reels">
-        <article class="reel" data-cat="road" data-video="">
-          <div class="reel-media" style="background:#cfe0e6">
-            <svg viewBox="0 0 320 180" aria-hidden="true"><path d="M140 0H320V180H150C140 150 120 140 128 118C136 96 104 86 112 64C120 42 96 30 140 0Z" fill="#f7f5ef"/><path class="route" pathLength="1" d="M150 14C130 40 118 56 124 74C130 96 112 110 134 126C150 140 136 160 160 172" fill="none" stroke="#0b7a75" stroke-width="4" stroke-linecap="round"/></svg>
-            <span class="reel-len">1:07</span>
+        <article class="reel" data-cat="road" data-video="media/connemara-day-tour_1280x720_30fps.mp4">
+          <div class="reel-media">
+            <img src="media/connemara-day-tour.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="reel-len">0:30</span>
           </div>
-          <div class="reel-body"><h3>Wild Atlantic Way</h3><p>A 2,500 km coast road in four chapters, flying between regions.</p><ul class="tags"><li>Road trip</li><li>Chapters</li></ul></div>
+          <div class="reel-body"><h3>Connemara Day Tour</h3><p>Galway to Clifden and Kylemore Abbey and back, on one coach day out.</p><ul class="tags"><li>Coach tour</li><li>Day trip</li></ul></div>
         </article>
-        <article class="reel" data-cat="active" data-video="">
-          <div class="reel-media" style="background:#e3e8e2">
-            <svg viewBox="0 0 320 180" aria-hidden="true"><g fill="none" stroke="#cbd2c8"><path d="M0 50C60 30 120 70 180 46S300 40 320 30"/><path d="M0 90C60 70 120 110 180 86S300 80 320 70"/><path d="M0 130C60 110 120 150 180 126S300 120 320 110"/></g><path class="route" pathLength="1" d="M80 120C70 90 100 70 140 72C180 74 200 50 236 60C270 70 262 110 232 126C200 142 150 150 110 140C96 136 86 130 80 120" fill="none" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/></svg>
-            <span class="reel-len">0:50</span>
+        <article class="reel" data-cat="active" data-video="media/tour-du-mont-blanc-the-first-two-days_1280x720_30fps.mp4">
+          <div class="reel-media">
+            <img src="media/tour-du-mont-blanc.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="reel-len">0:23</span>
           </div>
-          <div class="reel-body"><h3>Tour du Mont Blanc</h3><p>The real trail through three countries, in 3D with the climbs.</p><ul class="tags"><li>Walking</li><li>3D terrain</li><li>GPX</li></ul></div>
+          <div class="reel-body"><h3>Tour du Mont Blanc, days 1–2</h3><p>The real trail from Les Houches to Les Chapieux, in 3D with the climb.</p><ul class="tags"><li>Walking</li><li>3D terrain</li><li>GPX</li></ul></div>
         </article>
-        <article class="reel" data-cat="road sea" data-video="media/tour-du-mont-blanc_1280x720_30fps_COMPRESSED.mp4">
-          <div class="reel-media" style="background:#cfe0e6">
-            <svg viewBox="0 0 320 180" aria-hidden="true"><path d="M60 0H320V180H190C170 150 150 120 120 100C100 86 80 60 60 0Z" fill="#f7f5ef"/><path class="route" pathLength="1" d="M40 40C60 46 80 50 100 54C130 60 150 80 170 104C190 128 210 150 226 172" fill="none" stroke="#2f6fde" stroke-width="4" stroke-linecap="round"/></svg>
-            <span class="reel-len">0:50</span>
+        <article class="reel" data-cat="active" data-video="media/great-western-greenway_1280x720_30fps.mp4">
+          <div class="reel-media">
+            <img src="media/great-western-greenway.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="reel-len">0:27</span>
           </div>
-          <div class="reel-body"><h3>Dublin to Rome by rail &amp; sail</h3><p>The icon switches to a ferry and a train by itself.</p><ul class="tags"><li>Rail &amp; ferry</li><li>Vertical</li></ul></div>
+          <div class="reel-body"><h3>Great Western Greenway</h3><p>Westport to Achill on the old railway line: 42 km by bike.</p><ul class="tags"><li>Cycling</li><li>Hillshade</li></ul></div>
         </article>
-        <article class="reel" data-cat="sea" data-video="">
-          <div class="reel-media" style="background:#1b2433">
-            <svg viewBox="0 0 320 180" aria-hidden="true"><path d="M0 0H90C80 40 60 60 40 90L0 100ZM150 60C160 54 172 60 168 70C164 78 150 76 150 68ZM190 100C200 94 214 100 208 110C202 118 190 114 190 106ZM110 160C150 150 220 154 260 166V180H110Z" fill="#2a3650"/><path class="route" pathLength="1" d="M70 40C110 50 140 58 158 66C176 76 190 90 198 104C206 124 196 146 180 162" fill="none" stroke="#f2c14e" stroke-width="4" stroke-linecap="round"/></svg>
-            <span class="reel-len">0:40</span>
+        <article class="reel" data-cat="road sea" data-aspect="9:16" data-video="media/dublin-to-london-by-sail-rail_720x1280_30fps.mp4">
+          <div class="reel-media">
+            <img src="media/dublin-to-london.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="reel-len">0:20</span>
           </div>
-          <div class="reel-body"><h3>Greek island hopping</h3><p>Piraeus to Crete by ferry, on a night-time map.</p><ul class="tags"><li>Islands &amp; sea</li></ul></div>
+          <div class="reel-body"><h3>Dublin to London by sail &amp; bus</h3><p>The ferry to Holyhead, then the bus to London Euston. Made for Reels.</p><ul class="tags"><li>Ferry &amp; bus</li><li>Vertical 9:16</li></ul></div>
         </article>
-        <article class="reel" data-cat="air" data-video="">
-          <div class="reel-media" style="background:#cfe0e6">
-            <svg viewBox="0 0 320 180" aria-hidden="true"><path d="M20 40C60 20 110 30 130 60C140 80 110 100 80 96C50 92 20 70 20 40ZM170 30C220 20 290 30 300 70C306 100 260 110 230 100C200 90 170 70 170 30ZM240 130C260 124 284 130 280 146C276 160 250 160 240 150Z" fill="#f7f5ef"/><path class="route" pathLength="1" d="M70 54C110 20 160 30 200 60C230 84 250 110 262 140C220 170 120 170 70 54" fill="none" stroke="#d6336c" stroke-width="4" stroke-linecap="round"/></svg>
-            <span class="reel-len">0:40</span>
+        <article class="reel" data-cat="sea" data-video="media/cyclades-island-hop_1280x720_30fps.mp4">
+          <div class="reel-media">
+            <img src="media/cyclades-island-hop.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="reel-len">0:23</span>
           </div>
-          <div class="reel-body"><h3>Round-the-world honeymoon</h3><p>Six flights, one loop of the planet.</p><ul class="tags"><li>Flights</li></ul></div>
+          <div class="reel-body"><h3>Cyclades island hop</h3><p>Mykonos to Naxos to Santorini by ferry, on a night-time map.</p><ul class="tags"><li>Islands &amp; sea</li><li>Night map</li></ul></div>
         </article>
-        <article class="reel" data-cat="road" data-video="">
-          <div class="reel-media" style="background:#1b2433">
-            <svg viewBox="0 0 320 180" aria-hidden="true"><path d="M40 70C60 30 120 20 170 30C230 20 290 50 290 90C290 130 240 156 170 150C110 160 50 140 40 70Z" fill="#2a3650"/><path class="route" pathLength="1" d="M70 96C66 66 100 48 150 46C200 42 250 60 262 90C270 118 230 136 180 136C130 140 84 126 70 96" fill="none" stroke="#4dabf7" stroke-width="4" stroke-linecap="round"/></svg>
-            <span class="reel-len">0:40</span>
+        <article class="reel" data-cat="air" data-video="media/honeymoon-dublin-to-the-maldives_1280x720_30fps.mp4">
+          <div class="reel-media">
+            <img src="media/dublin-to-the-maldives.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="reel-len">0:16</span>
           </div>
-          <div class="reel-body"><h3>Iceland Ring Road</h3><p>1,300 km around the island, glaciers in relief.</p><ul class="tags"><li>Road trip</li><li>Relief</li></ul></div>
+          <div class="reel-body"><h3>Dublin to the Maldives</h3><p>A honeymoon in two flights, via Dubai.</p><ul class="tags"><li>Flights</li><li>Long haul</li></ul></div>
         </article>
       </div>
-      <p class="note">Showreel videos are on their way. Want to see one of your own tours? <a href="#contact">Ask for a free sample</a>.</p>
+      <p class="note"><span class="js-reel-hint">Hover over a reel to preview it, or click to watch it full size.</span> Want to see one of your own tours? <a href="sample.html">Ask for a free sample</a>.</p>
     </div>
   </section>
+
+  <dialog class="reel-player" id="reel-player" aria-labelledby="reel-player-title">
+    <div class="reel-player-head">
+      <h2 id="reel-player-title">Showreel</h2>
+      <button class="reel-player-close" type="button" aria-label="Close video"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    </div>
+    <video controls playsinline preload="none"></video>
+  </dialog>
 
   <section class="section" style="padding-top:0" aria-labelledby="diff-title">
     <div class="wrap">
@@ -248,10 +256,9 @@
           <h3>Whole catalogue</h3>
           <p class="price"><b>€1,950</b><span>per season, up to 20 tours</span></p>
           <ul><li>Every tour in your brochure</li><li>A house style shared across them all</li><li>Updates when itineraries change</li><li>Priority turnaround</li></ul>
-          <a class="btn btn-outline" href="#contact">Talk to us</a>
+          <a class="btn btn-outline" href="#contact">Talk to me</a>
         </div>
       </div>
-      <p class="founding">Founding-client offer: 30% off for our first five clients, in return for a short testimonial.</p>
       <p class="small" style="margin-top:14px">Prices in euro. UK and US clients are quoted in £ and $. Monthly plan also available: 3 new reels a month for €249. You can use the videos in your own marketing on any channel.</p>
     </div>
   </section>
@@ -276,7 +283,7 @@
   <section class="section" id="faq" aria-labelledby="faq-title">
     <div class="faq wrap">
       <h2 class="h2" id="faq-title" style="margin-bottom:28px">Questions</h2>
-      <details><summary>What do you need from me?</summary><p>Just the itinerary: a link, a PDF or a list of stops. For walking and cycling tours, a GPX file gives the most exact line; for waymarked trails we can usually find the official route. Send your logo and brand colours if you have them.</p></details>
+      <details><summary>What do you need from me?</summary><p>Just the itinerary: a link, a PDF or a list of stops. For walking and cycling tours, a GPX file gives the most exact line; for waymarked trails I can usually find the official route myself. Send your logo and brand colours if you have them.</p></details>
       <details><summary>How long does it take?</summary><p>A first draft within 5 working days of receiving the itinerary. Larger packs are scheduled together, and rush delivery in 48 hours is available.</p></details>
       <details><summary>Can it match our brand?</summary><p>Yes. Route colours, map style, font, panel colours, your logo and your own vehicle icons can all be set to match, and they’re saved as your house style for every future video.</p></details>
       <details><summary>Who owns the videos?</summary><p>You can use them in your own marketing, on any channel, for as long as you like. The map data credit (© OpenStreetMap contributors) stays in the corner, as the map licence requires.</p></details>

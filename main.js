@@ -1,6 +1,7 @@
 /* Iterra Maps — site script
    1. Hero: a looping mini version of the product (route draws, van drives, signs pop up, distance counts).
-   2. Showreel: filters; draws each card's route when it scrolls into view; plays a video if a card has one.
+   2. Showreel: filters. Each card shows its image with a play button; on a computer, the mouse resting on a card
+      plays the video silently in the card (nothing plays by itself); clicking or tapping opens it full size in a pop-up.
    3. Forms: send to Formspree when FORM_ENDPOINT is set, otherwise open the visitor's email app. */
 
 // ---- Settings -------------------------------------------------------------
@@ -79,6 +80,9 @@ document.querySelectorAll(".js-year").forEach(el => { el.textContent = new Date(
 })();
 
 // ---- 2. Showreel --------------------------------------------------------------
+// Each card: <img> (shown at rest) + data-video="media/name.mp4". Optional: data-aspect="9:16" for vertical videos.
+// If a card's image is missing, a frame of its video is shown instead: data-thumb="12" picks the second
+// (default: just before the end, with the whole route drawn).
 (function showreel() {
   const chips = [...document.querySelectorAll(".chip[data-filter]")], reels = [...document.querySelectorAll(".reel")];
   chips.forEach(ch => ch.addEventListener("click", () => {
@@ -86,25 +90,146 @@ document.querySelectorAll(".js-year").forEach(el => { el.textContent = new Date(
     chips.forEach(c => c.setAttribute("aria-pressed", String(c === ch)));
     reels.forEach(r => { r.hidden = f !== "all" && !r.dataset.cat.split(" ").includes(f); });
   }));
-  // a card with data-video="media/name.mp4" shows that video instead of the drawing
+
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const hoverPlay = canHover && !reduceMotion;
+  const saveData = navigator.connection?.saveData;
+  const PLAY = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg>';
+  const hint = document.querySelector(".js-reel-hint");
+  if (hint && !hoverPlay) hint.textContent = canHover ? "Click a reel to watch it full size." : "Tap a reel to watch it full size.";
+
+  // ---- the pop-up player
+  const dlg = document.getElementById("reel-player");
+  const dv = dlg?.querySelector("video"), dTitle = dlg?.querySelector("#reel-player-title");
+  let opener = null;
+  function openPlayer(r) {
+    if (r.classList.contains("video-missing")) return;
+    const src = r.dataset.video, title = r.querySelector("h3")?.textContent || "Showreel";
+    stopPreview(r);
+    if (!dlg || typeof dlg.showModal !== "function") { window.open(src, "_blank", "noopener"); return; }
+    const [aw, ah] = (r.dataset.aspect || "16:9").split(":").map(Number);
+    dlg.classList.toggle("vertical", ah > aw);
+    dlg.style.setProperty("--ar", `${aw} / ${ah}`);
+    dlg.style.setProperty("--arw", String(aw / ah));
+    dTitle.textContent = title;
+    dv.setAttribute("aria-label", title);
+    const img = r.querySelector(".reel-media img");
+    if (img && !r.classList.contains("no-image") && ah <= aw) dv.poster = img.currentSrc || img.src; else dv.removeAttribute("poster");
+    dv.src = src;
+    opener = r.querySelector(".reel-open");
+    dlg.showModal();
+    dv.play().catch(() => {}); // the visitor clicked play, so playback with sound is allowed
+  }
+  if (dlg) {
+    dlg.querySelector(".reel-player-close").addEventListener("click", () => dlg.close());
+    dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); }); // click on the dark backdrop
+    dlg.addEventListener("close", () => {
+      dv.pause(); dv.removeAttribute("src"); dv.load(); // stop downloading
+      opener?.focus(); opener = null;
+    });
+  }
+
+  // ---- fallback still (only used when a card's image is missing)
+  const thumbTime = r => {
+    if (r.dataset.thumb) return Math.max(0, parseFloat(r.dataset.thumb) || 0);
+    const v = r._video, len = (r.querySelector(".reel-len")?.textContent || "").split(":").map(Number);
+    const d = v && isFinite(v.duration) ? v.duration : len.length === 2 ? len[0] * 60 + len[1] : 0;
+    return Math.max(0, d - 0.6);
+  };
+  const showStill = r => { const v = r._video; if (v.readyState >= 1) { try { v.currentTime = Math.min(thumbTime(r), v.duration - 0.05); } catch {} } };
+
+  function load(r) {
+    const v = r._video;
+    if (v.getAttribute("src")) return;
+    // with no image, the #t= part makes phones (iOS Safari in particular) show that frame instead of a blank box
+    v.src = r.classList.contains("no-image") ? `${r.dataset.video}#t=${thumbTime(r).toFixed(1)}` : r.dataset.video;
+  }
+
+  // ---- hover preview: muted, from the start, looping while the pointer stays on the card
+  function startPreview(r) {
+    const v = r._video;
+    if (!v || r.classList.contains("video-missing")) return;
+    r.classList.add("previewing");
+    load(r);
+    try { v.currentTime = 0; } catch {}
+    v.play().catch(() => {});
+  }
+  function stopPreview(r) {
+    const v = r._video;
+    r.classList.remove("previewing", "video-on");
+    if (!v) return;
+    v.pause();
+    if (r.classList.contains("no-image")) showStill(r);
+    else setTimeout(() => { if (!r.classList.contains("previewing")) { try { v.currentTime = 0; } catch {} } }, 320); // after the fade
+  }
+
+  function noImage(r) {
+    if (r.classList.contains("no-image")) return;
+    r.classList.add("no-image");
+    const v = r._video;
+    if (!v) return;
+    v.preload = hoverPlay && !saveData ? "auto" : "metadata";
+    if (r._seen) load(r);
+  }
+
   reels.forEach(r => {
-    const src = r.dataset.video;
-    if (!src) return;
+    if (!r.dataset.video) return;
+    r.classList.add("has-video");
+    const media = r.querySelector(".reel-media"), title = r.querySelector("h3")?.textContent || "showreel";
     const v = document.createElement("video");
-    Object.assign(v, { muted: true, loop: true, playsInline: true, preload: "none" });
-    v.setAttribute("aria-label", r.querySelector("h3")?.textContent || "Showreel video");
-    v.src = src;
-    r.querySelector(".reel-media svg")?.replaceWith(v);
+    Object.assign(v, { muted: true, loop: true, playsInline: true, preload: "none", tabIndex: -1, disablePictureInPicture: true });
+    v.setAttribute("muted", ""); v.setAttribute("aria-hidden", "true");
+    v.addEventListener("playing", () => { if (r.classList.contains("previewing")) r.classList.add("video-on"); });
+    v.addEventListener("loadedmetadata", () => {
+      if (!r.classList.contains("no-image") || r.classList.contains("previewing")) return;
+      showStill(r);
+      // Phones (Android Chrome especially) don't paint a frame until the video has played: play it silently for a
+      // moment, then put it back on the still.
+      if (!hoverPlay) {
+        const back = () => { v.removeEventListener("timeupdate", back); v.pause(); showStill(r); };
+        v.addEventListener("timeupdate", back);
+        v.play().catch(() => v.removeEventListener("timeupdate", back));
+      }
+    });
+    v.addEventListener("error", () => { // file not uploaded yet (or misnamed): no play button on this card
+      r.classList.add("video-missing"); r.classList.remove("has-video", "previewing", "video-on");
+      media.querySelector(".reel-open")?.remove(); media.querySelector(".reel-hover")?.remove();
+      console.warn(`Showreel: couldn't load ${r.dataset.video}`);
+    });
+    r._video = v;
+    const img = media.querySelector("img");
+    if (img) img.after(v); else media.prepend(v);
+
+    if (hoverPlay) media.insertAdjacentHTML("beforeend", '<span class="reel-hover" aria-hidden="true">Click to watch</span>');
+    const btn = document.createElement("button");
+    btn.type = "button"; btn.className = "reel-open";
+    btn.setAttribute("aria-label", `Play video: ${title}`);
+    btn.innerHTML = `<span class="reel-play">${PLAY}</span>`;
+    btn.addEventListener("click", () => openPlayer(r));
+    media.append(btn);
+    r.querySelector(".reel-body").addEventListener("click", () => openPlayer(r));
+    if (hoverPlay) {
+      r.addEventListener("mouseenter", () => startPreview(r));
+      r.addEventListener("mouseleave", () => stopPreview(r));
+    }
+
+    // a missing image falls back to a frame of the video
+    if (!img) noImage(r);
+    else {
+      img.addEventListener("error", () => { console.warn(`Showreel: couldn't load ${img.getAttribute("src")}; showing a frame of the video instead`); noImage(r); });
+      if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) noImage(r);
+    }
   });
-  // routes are drawn at rest; they animate in the first time a card is seen, and again on hover
-  const replay = r => { if (reduceMotion) return; r.classList.remove("drawing"); void r.offsetWidth; r.classList.add("drawing"); };
-  reels.forEach(r => r.addEventListener("mouseenter", () => replay(r)));
-  const seen = new WeakSet();
+
+  // shortly before a card scrolls into view: on a computer, let the browser start buffering its video so the hover
+  // preview starts at once (not on data saver). Phones load only the image, and the video when it's tapped.
   const io = new IntersectionObserver(entries => entries.forEach(en => {
-    if (en.isIntersecting && !seen.has(en.target)) { seen.add(en.target); replay(en.target); }
-    const v = en.target.querySelector("video");
-    if (v && !reduceMotion) { if (en.isIntersecting) v.play().catch(() => {}); else v.pause(); }
-  }), { threshold: 0.5 });
+    const r = en.target;
+    if (!en.isIntersecting || !r._video) return;
+    r._seen = true; io.unobserve(r);
+    if (hoverPlay && !saveData) { r._video.preload = "auto"; load(r); }
+    else if (r.classList.contains("no-image")) load(r);
+  }), { rootMargin: "400px 0px" });
   reels.forEach(r => io.observe(r));
 })();
 
