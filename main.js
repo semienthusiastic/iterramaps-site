@@ -217,7 +217,13 @@ document.querySelectorAll(".js-year").forEach(el => { el.textContent = new Date(
     if (!img) noImage(r);
     else {
       img.addEventListener("error", () => { console.warn(`Showreel: couldn't load ${img.getAttribute("src")}; showing a frame of the video instead`); noImage(r); });
-      if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) noImage(r);
+      // an image that already failed before this script ran: confirm with a fresh request, so a lazy image that
+      // simply hasn't loaded yet is never mistaken for a missing one
+      if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) {
+        const probe = new Image();
+        probe.onerror = () => noImage(r);
+        probe.src = img.src;
+      }
     }
   });
 
