@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Embed code maker · Iterra Maps</title>
+<!-- Internal tool: makes the embed code and the email for a hosting client's web developer. Not linked from the site. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .ec { padding-block: clamp(32px, 5vw, 56px) 80px; display: grid; gap: 28px; }
+  .ec h1 { font-weight: 800; font-size: clamp(32px, 4.4vw, 48px); letter-spacing: -.03em; line-height: 1.05; margin: 0; }
+  .ec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 28px; align-items: start; }
+  .ec .form { border: 1px solid var(--line); }
+  .ec-out { display: grid; gap: 22px; min-width: 0; }
+  .ec-block { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: clamp(18px, 2.4vw, 26px); display: grid; gap: 12px; min-width: 0; }
+  .ec-block h2 { font-weight: 700; font-size: 20px; margin: 0; letter-spacing: -.01em; }
+  .ec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+  .ec pre { margin: 0; padding: 14px; background: var(--ink); color: #e8eef0; border-radius: 10px; overflow: auto; font: 13px/1.55 var(--mono); white-space: pre-wrap; word-break: break-word; max-height: 360px; }
+  .ec-copy { min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--line-strong); background: #fff; font: 600 14px/1 var(--sans); cursor: pointer; color: var(--ink); }
+  .ec-copy:hover { border-color: var(--ink); }
+  .ec-preview { border: 1px dashed var(--line-strong); border-radius: 12px; padding: 16px; background: #fff; }
+  .ec .field select { font: 400 16px/1.4 var(--sans); padding: 12px 14px; border: 1px solid var(--line-strong); border-radius: 8px; background: #fff; color: var(--ink); }
+  .ec-check { font-size: 14px; color: var(--muted); margin: 0; }
+  .ec-check b { color: var(--ink); }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Iterra Maps home">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#0e1b24" stroke-width="3"/><ellipse cx="32" cy="32" rx="12" ry="27" fill="none" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M5 32H59" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M11 46C22 50 30 30 38 28C46 26 46 18 50 14" fill="none" stroke="#ff5a36" stroke-width="5.5" stroke-linecap="round"/><circle cx="11" cy="46" r="4.5" fill="#0e1b24"/><circle cx="50" cy="14" r="5.5" fill="#fff" stroke="#0e1b24" stroke-width="3.5"/></svg>
+      <span class="brand-name">Iterra <span>Maps</span></span>
+    </a>
+  </div>
+</header>
+
+<main id="main" class="wrap ec">
+  <div>
+    <p class="eyebrow">Internal tool</p>
+    <h1>Embed code maker</h1>
+    <p class="lead" style="margin-top:12px">For hosting clients. Upload the video to R2 first, at <code>clients/&lt;client&gt;/&lt;tour&gt;/16x9.mp4</code> (and <code>9x16.mp4</code>, <code>1x1.mp4</code>), with a still of each as <code>16x9.jpg</code> and so on, then fill this in.</p>
+  </div>
+
+  <div class="ec-grid">
+    <form class="form" id="ec-form" autocomplete="off">
+      <div class="row2">
+        <label class="field" for="c">Client ID <small>As in the register, e.g. wildrover</small><input id="c" name="c" type="text" value="wildrover" pattern="[a-z0-9-]+" required></label>
+        <label class="field" for="tr">Tour ID <small>The R2 folder, e.g. dingle-way</small><input id="tr" name="tr" type="text" value="dingle-way" pattern="[a-z0-9-]+" required></label>
+      </div>
+      <label class="field" for="title">Video title <small>Read out by screen readers</small><input id="title" name="title" type="text" value="Animated route map: the Dingle Way"></label>
+      <fieldset>
+        <legend>Shapes they'll embed</legend>
+        <div class="pills">
+          <label><input type="checkbox" name="shape" value="16x9" checked> Widescreen 16:9</label>
+          <label><input type="checkbox" name="shape" value="9x16"> Vertical 9:16</label>
+          <label><input type="checkbox" name="shape" value="1x1"> Square 1:1</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>How it plays</legend>
+        <div class="pills">
+          <label><input type="radio" name="mode" value="click" checked> Click to play, with sound controls</label>
+          <label><input type="radio" name="mode" value="auto"> Plays by itself, muted, on a loop</label>
+        </div>
+      </fieldset>
+      <div class="row2">
+        <label class="field" for="company">Client company <small>For the email</small><input id="company" name="company" type="text" value="Wild Rover Walks"></label>
+        <label class="field" for="dev">Developer's first name <small>Optional</small><input id="dev" name="dev" type="text"></label>
+      </div>
+      <p class="ec-check">The credit line <b>Route map by Iterra Maps</b> goes below the video in their page, outside the iframe, so it counts as a link from their site.</p>
+    </form>
+
+    <div class="ec-out" id="out"></div>
+  </div>
+</main>
+
+<script>
+(function () {
+  var SHAPES = {
+    "16x9": { r: "16 / 9", max: 960, name: "Widescreen (16:9)" },
+    "9x16": { r: "9 / 16", max: 360, name: "Vertical (9:16)" },
+    "1x1":  { r: "1 / 1",  max: 540, name: "Square (1:1)" },
+  };
+  var form = document.getElementById("ec-form"), out = document.getElementById("out");
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var clean = function (s) { return String(s || "").toLowerCase().trim().replace(/[^a-z0-9-]+/g, "-").replace(/^-|-$/g, ""); };
+
+  function snippet(id, shape, title, auto) {
+    var s = SHAPES[shape];
+    var src = "https://iterramaps.com/embed/?v=" + id + "/" + shape + (title ? "&t=" + encodeURIComponent(title) : "") + (auto ? "&autoplay=1" : "");
+    return [
+      "<!-- Iterra Maps video" + (title ? ": " + title.replace(/--/g, "-") : "") + ". Please keep the credit line under the video. -->",
+      '<div class="iterra-video" style="max-width:' + s.max + 'px;margin:0 auto">',
+      '  <div style="position:relative;width:100%;aspect-ratio:' + s.r + '">',
+      '    <iframe src="' + esc(src) + '" title="' + esc(title || "Route map video") + '" style="position:absolute;inset:0;width:100%;height:100%;border:0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+      "  </div>",
+      '  <p class="iterra-credit" style="margin:6px 0 0;font-size:13px">Route map by <a href="https://iterramaps.com/">Iterra Maps</a></p>',
+      "</div>",
+    ].join("\n");
+  }
+
+  function email(company, dev, codes) {
+    var lines = [
+      (dev ? "Hi " + dev + "," : "Hi,"),
+      "",
+      "We make the animated route maps for " + (company || "your client") + " and host the videos for them. Here's the embed code. Paste it into the page wherever the video should go: in WordPress use a Custom HTML block, in Squarespace or Wix a Code or Embed block.",
+      "",
+    ];
+    codes.forEach(function (c) { lines.push(c.name + ":", "", c.code, ""); });
+    lines.push(
+      "A few notes:",
+      "- It's responsive: it fills the width of its container, up to the maximum width set on the outer div. Change that number if you like.",
+      "- The video streams from our servers and sets no cookies, so it doesn't need to go in your cookie banner.",
+      "- When the route changes, we replace the video at the same address, so you won't need to change anything.",
+      "- Please keep the credit line \"Route map by Iterra Maps\" visible under the video: it's part of the hosting agreement. You're welcome to restyle it (font, colour, size) to match the site.",
+      "",
+      "If anything doesn't work, just reply to this email.",
+      "",
+      "Thanks,",
+      "Patrick",
+      "Iterra Maps · hello@iterramaps.com"
+    );
+    return lines.join("\n");
+  }
+
+  function block(h, text, extra) {
+    var div = document.createElement("section");
+    div.className = "ec-block";
+    div.innerHTML = '<div class="ec-head"><h2>' + esc(h) + '</h2><button type="button" class="ec-copy">Copy</button></div><pre></pre>' + (extra || "");
+    div.querySelector("pre").textContent = text;
+    div.querySelector(".ec-copy").addEventListener("click", function (e) {
+      var b = e.currentTarget;
+      navigator.clipboard.writeText(text).then(function () { b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500); },
+        function () { b.textContent = "Select and copy by hand"; });
+    });
+    return div;
+  }
+
+  function render() {
+    var c = clean(form.c.value), t = clean(form.tr.value);
+    var title = form.title.value.trim(), auto = form.mode.value === "auto";
+    var shapes = [].slice.call(form.querySelectorAll("input[name=shape]:checked")).map(function (i) { return i.value; });
+    out.innerHTML = "";
+    if (!c || !t || !shapes.length) { out.innerHTML = '<p class="small">Fill in the client ID, the tour ID and at least one shape.</p>'; return; }
+    var id = c + "/" + t;
+    var codes = shapes.map(function (s) { return { name: SHAPES[s].name, code: snippet(id, s, title, auto) }; });
+    codes.forEach(function (x) {
+      out.appendChild(block("Embed code: " + x.name, x.code, '<div class="ec-preview">' + x.code + "</div>"));
+    });
+    out.appendChild(block("Email to their web developer", email(form.company.value.trim(), form.dev.value.trim(), codes)));
+    var check = document.createElement("p");
+    check.className = "small";
+    check.innerHTML = "Video files this expects on R2: " + shapes.map(function (s) { return "<code>clients/" + esc(id) + "/" + s + ".mp4</code>"; }).join(", ") + ", each with an optional still of the same name ending <code>.jpg</code>. Record the address in the register's Projects tab.";
+    out.appendChild(check);
+  }
+
+  var timer;
+  form.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(render, 300); });
+  render();
+})();
+</script>
+</body>
+</html>

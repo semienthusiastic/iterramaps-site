@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Route map video · Iterra Maps</title>
+<!-- The player that hosting clients embed in an iframe:
+     https://iterramaps.com/embed/?v=<client>/<tour>/<shape>   e.g. ?v=wildrover/dingle-way/16x9
+     It plays https://media.iterramaps.com/clients/<client>/<tour>/<shape>.mp4, with <shape>.jpg as its poster if there is one.
+     Optional: &t=Title (for screen readers), &autoplay=1 (muted, looping; for hero banners).
+     Keep this page free of cookies and tracking: it runs on our clients' sites. -->
+<meta name="robots" content="noindex">
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+  .badge { position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px 5px 6px;
+           border-radius: 999px; background: rgba(14, 27, 36, .78); color: #fff; text-decoration: none;
+           font: 600 12px/1 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; letter-spacing: .01em;
+           transition: opacity .3s ease; }
+  .badge:hover, .badge:focus-visible { background: rgba(14, 27, 36, .95); }
+  .badge:focus-visible { outline: 2px solid #ff5a36; outline-offset: 2px; }
+  .playing .badge { opacity: 0; pointer-events: none; }
+  .playing:hover .badge { opacity: 1; pointer-events: auto; }
+  .note { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center; color: #c9d3d8;
+          font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  .note a { color: #fff; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<video id="v" controls playsinline preload="metadata"></video>
+<a class="badge" id="badge" href="https://iterramaps.com/" target="_blank" rel="noopener" aria-label="Made with Iterra Maps (opens in a new tab)">
+  <svg width="16" height="16" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#fff" stroke-width="4"/><path d="M11 46C22 50 30 30 38 28C46 26 46 18 50 14" fill="none" stroke="#ff5a36" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="14" r="6" fill="#0e1b24" stroke="#fff" stroke-width="4"/></svg>
+  Iterra Maps
+</a>
+<p class="note" id="note" hidden>This video isn’t available right now.</p>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var id = (q.get("v") || "").toLowerCase();
+  var v = document.getElementById("v"), note = document.getElementById("note");
+  // only our own client videos: <client>/<tour>/<shape>
+  if (!/^[a-z0-9-]+\/[a-z0-9-]+\/(16x9|9x16|1x1|4x5)$/.test(id)) { v.hidden = true; note.hidden = false; return; }
+  var title = (q.get("t") || "").slice(0, 120);
+  if (title) { v.setAttribute("aria-label", title); document.title = title + " · Iterra Maps"; }
+  // poster image, only if it exists (otherwise the first frame shows)
+  var img = new Image();
+  img.onload = function () { if (!v.currentTime) v.poster = img.src; };
+  img.src = "https://media.iterramaps.com/clients/" + id + ".jpg";
+  if (q.get("autoplay") === "1") { v.muted = true; v.loop = true; v.autoplay = true; v.preload = "auto"; }
+  v.src = "https://media.iterramaps.com/clients/" + id + ".mp4";
+  v.addEventListener("error", function () { v.hidden = true; note.hidden = false; });
+  var body = document.body;
+  v.addEventListener("play", function () { body.classList.add("playing"); });
+  v.addEventListener("pause", function () { body.classList.remove("playing"); });
+  v.addEventListener("ended", function () { body.classList.remove("playing"); });
+})();
+</script>
+</body>
+</html>
