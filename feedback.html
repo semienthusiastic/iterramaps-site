@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your feedback — Iterra Maps</title>
+<meta name="description" content="Tell us what you thought of your Iterra Maps sample video.">
+<!-- only reached from sample pages: keep it out of Google -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#0e1b24">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .fb-part { font: 700 13px/1.2 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 10px 0 -4px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .fb-part:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+  .fb-q legend { font-size: 15px; }
+  .fb-q legend small, .fb-opt { font-weight: 400; color: var(--muted); }
+  .fb-done { flex: 1.4 1 520px; background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--route); border-radius: 16px; padding: clamp(22px, 3vw, 32px); display: grid; gap: 14px; }
+  .fb-done[hidden] { display: none; }
+  .fb-done h2 { font-weight: 700; font-size: clamp(26px, 3vw, 34px); letter-spacing: -.02em; margin: 0; }
+  .fb-done p { margin: 0; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Iterra Maps home">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#0e1b24" stroke-width="3"/><ellipse cx="32" cy="32" rx="12" ry="27" fill="none" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M5 32H59" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M11 46C22 50 30 30 38 28C46 26 46 18 50 14" fill="none" stroke="#ff5a36" stroke-width="5.5" stroke-linecap="round"/><circle cx="11" cy="46" r="4.5" fill="#0e1b24"/><circle cx="50" cy="14" r="5.5" fill="#fff" stroke="#0e1b24" stroke-width="3.5"/></svg>
+      <span class="brand-name">Iterra <span>Maps</span></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="javascript:history.back()" class="js-back">← Back to your sample</a></nav>
+  </div>
+</header>
+
+<main id="main" class="page-split">
+  <div class="wrap">
+    <div class="side">
+      <p class="eyebrow">Your feedback</p>
+      <h1>What did you think?</h1>
+      <p class="lead">We’re asking a few tour operators for honest opinions before we launch. The first three questions take under a minute; the rest are optional.</p>
+      <p>Whatever you say, the sample video is yours to keep and use. Short answers are fine, and criticism is the most useful kind.</p>
+      <p class="small">Prefer to talk? Reply to our email or write to <a href="mailto:hello@iterramaps.com">hello@iterramaps.com</a>.</p>
+    </div>
+
+    <form class="form js-form" novalidate data-subject="Sample feedback" data-done="fb-done" data-invalid="Please answer question 1, your first impression.">
+      <input type="hidden" name="tour">
+      <input type="hidden" name="page">
+
+      <p class="fb-part">The quick three</p>
+
+      <fieldset class="fb-q">
+        <legend>1. Your first impression of the sample?</legend>
+        <div class="pills">
+          <label><input type="radio" name="first_impression" value="We'd use it as it is" required> We’d use it as it is</label>
+          <label><input type="radio" name="first_impression" value="Useful, with some changes"> Useful, with some changes</label>
+          <label><input type="radio" name="first_impression" value="Not for us"> Not for us</label>
+        </div>
+      </fieldset>
+
+      <label class="field" for="f-missing">2. What’s missing, or not right about the route? <small>Anything you’d add, change or correct</small><textarea id="f-missing" name="missing_or_wrong" rows="4"></textarea></label>
+
+      <fieldset class="fb-q">
+        <legend>3. If this were a paid service, what would feel fair for one tour’s video?</legend>
+        <div class="pills">
+          <label><input type="radio" name="fair_price" value="Under €100"> Under €100</label>
+          <label><input type="radio" name="fair_price" value="€100–200"> €100–200</label>
+          <label><input type="radio" name="fair_price" value="€200–400"> €200–400</label>
+          <label><input type="radio" name="fair_price" value="More than €400"> More than €400</label>
+          <label><input type="radio" name="fair_price" value="We wouldn't pay for this"> We wouldn’t pay for this</label>
+        </div>
+      </fieldset>
+
+      <p class="fb-part">A few more, if you have two minutes</p>
+
+      <fieldset class="fb-q">
+        <legend>4. How do you show a tour’s route to customers today? <small>Tick any</small></legend>
+        <div class="pills">
+          <label><input type="checkbox" name="route_today" value="Static map"> Static map</label>
+          <label><input type="checkbox" name="route_today" value="A map for each day"> A map for each day</label>
+          <label><input type="checkbox" name="route_today" value="Written itinerary only"> Written itinerary only</label>
+          <label><input type="checkbox" name="route_today" value="Video"> Video</label>
+          <label><input type="checkbox" name="route_today" value="Nothing yet"> Nothing yet</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="fb-q">
+        <legend>5. Where do customers usually first see your tours? <small>Tick any</small></legend>
+        <div class="pills">
+          <label><input type="checkbox" name="first_seen" value="Our website"> Our website</label>
+          <label><input type="checkbox" name="first_seen" value="Booking sites"> Booking sites (Viator, TripAdvisor…)</label>
+          <label><input type="checkbox" name="first_seen" value="Social media"> Social media</label>
+          <label><input type="checkbox" name="first_seen" value="Agents or brochures"> Agents or brochures</label>
+          <label><input type="checkbox" name="first_seen" value="Word of mouth"> Word of mouth</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="fb-q">
+        <legend>6. What would make the video more useful? <small>Tick any</small></legend>
+        <div class="pills">
+          <label><input type="checkbox" name="would_add" value="Distance per day"> Distance per day</label>
+          <label><input type="checkbox" name="would_add" value="Elevation profile"> Elevation profile</label>
+          <label><input type="checkbox" name="would_add" value="Overnight stops named"> Overnight stops named</label>
+          <label><input type="checkbox" name="would_add" value="Photos at stops"> Photos at stops</label>
+          <label><input type="checkbox" name="would_add" value="Day labels"> Day labels</label>
+          <label><input type="checkbox" name="would_add" value="Transport type shown"> Transport shown (bike, bus, ferry)</label>
+          <label><input type="checkbox" name="would_add" value="Our logo and colours"> Our logo and colours</label>
+          <label><input type="checkbox" name="would_add" value="Music"> Music</label>
+          <label><input type="checkbox" name="would_add" value="Shorter"> Shorter</label>
+          <label><input type="checkbox" name="would_add" value="Longer"> Longer</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="fb-q">
+        <legend>7. Which format would you use most?</legend>
+        <div class="pills">
+          <label><input type="radio" name="format" value="Widescreen (16:9)"> Widescreen</label>
+          <label><input type="radio" name="format" value="Vertical (9:16)"> Vertical (Reels, TikTok)</label>
+          <label><input type="radio" name="format" value="Square (1:1)"> Square</label>
+          <label><input type="radio" name="format" value="All of them"> All of them</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="fb-q">
+        <legend>8. Where would you put it? <small>Tick any</small></legend>
+        <div class="pills">
+          <label><input type="checkbox" name="would_use_on" value="Tour pages"> Tour pages</label>
+          <label><input type="checkbox" name="would_use_on" value="Social media"> Social media</label>
+          <label><input type="checkbox" name="would_use_on" value="Newsletters"> Newsletters</label>
+          <label><input type="checkbox" name="would_use_on" value="Agent or trade presentations"> Agent or trade presentations</label>
+          <label><input type="checkbox" name="would_use_on" value="Booking sites"> Booking sites</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="fb-q">
+        <legend>9. In the last year, have you paid for video, photography or design for your marketing?</legend>
+        <div class="pills">
+          <label><input type="radio" name="paid_for_content" value="Yes"> Yes</label>
+          <label><input type="radio" name="paid_for_content" value="No"> No</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="fb-q">
+        <legend>10. Who decides on things like this in your company?</legend>
+        <div class="pills">
+          <label><input type="radio" name="decides" value="Just me"> Just me</label>
+          <label><input type="radio" name="decides" value="Me and a partner"> Me and a partner</label>
+          <label><input type="radio" name="decides" value="A marketing person"> A marketing person</label>
+          <label><input type="radio" name="decides" value="Someone else"> Someone else</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="fb-q">
+        <legend>11. Tick any that apply</legend>
+        <div class="pills">
+          <label><input type="checkbox" name="next" value="Follow up when you launch"> Follow up when you launch</label>
+          <label><input type="checkbox" name="next" value="Send us a version with our changes"> Send us a version with our changes</label>
+          <label><input type="checkbox" name="next" value="You may show this sample in your showreel"> You may show this sample in your showreel</label>
+        </div>
+      </fieldset>
+
+      <p class="fb-part">Who you are <span class="fb-opt">(so we know whose feedback this is)</span></p>
+      <div class="row2">
+        <label class="field" for="f-name">Your name<input id="f-name" name="name" type="text" autocomplete="name"></label>
+        <label class="field" for="f-company">Company<input id="f-company" name="company" type="text" autocomplete="organization"></label>
+      </div>
+      <label class="field" for="f-email">Email <small>Only if you’d like a reply, or ticked a box in question 11</small><input id="f-email" name="email" type="email" autocomplete="email"></label>
+
+      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary" type="submit">Send feedback</button>
+      <p class="form-status" role="status" hidden></p>
+      <p class="small">We use your answers to improve the service, and only quote you publicly if you say we can. <a href="privacy.html">Privacy notice</a></p>
+    </form>
+
+    <div class="fb-done" id="fb-done" tabindex="-1" hidden>
+      <p class="eyebrow">Feedback received</p>
+      <h2>Thank you. That really helps.</h2>
+      <p>We read every answer ourselves. If you asked for a version with your changes, we’ll be in touch by email.</p>
+      <p class="cta-row"><a class="btn btn-ink" href="./">See what we do</a><a class="btn btn-outline js-back" href="javascript:history.back()">Back to your sample</a></p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <span class="brand-name">Iterra <span>Maps</span></span>
+      <span>Animated route maps</span>
+      <a href="mailto:hello@iterramaps.com">hello@iterramaps.com</a>
+    </div>
+    <div class="cols">
+      <a href="privacy.html">Privacy notice</a>
+      <span>Map data in videos © OpenStreetMap contributors</span>
+      <span>© <span class="js-year">2026</span> Iterra Maps</span>
+    </div>
+  </div>
+</footer>
+<script>
+  // "Back to your sample" goes to the sample page this form was opened from
+  (function () {
+    var p = new URLSearchParams(location.search).get("page");
+    if (p && /^https:\/\/(www\.)?iterramaps\.com\/for\//.test(p)) document.querySelectorAll(".js-back").forEach(function (a) { a.href = p; });
+    else document.querySelectorAll(".js-back").forEach(function (a) { if (history.length < 2) a.hidden = true; });
+  })();
+</script>
+<script src="main.js" defer></script>
+</body>
+</html>

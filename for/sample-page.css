@@ -41,3 +41,6 @@
 .sp-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
 .sp-sign { font-size: 15px; color: var(--muted) !important; margin: 0 !important; }
 .sp-private { margin-top: 40px; max-width: 46em; }
+
+/* feedback mode */
+.sp-time { font-weight: 400; opacity: .85; }

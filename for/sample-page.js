@@ -5,14 +5,24 @@
   const S = Object.assign({
     company: "your company", firstName: "", tour: "your tour", intro: "", accent: "#0b7a75", logo: "", media: "",
     videos: [], offer: "", from: "Patrick", email: "hello@iterramaps.com",
-    includes: [
-      "Every stop on the itinerary, on the real roads, trails and sea crossings",
-      "Your logo and route colours",
-      "Widescreen and vertical versions (square too, in the tour pack)",
-      "One round of changes (two in the tour pack)",
-      "First draft within 5 working days (a tour pack within 3 weeks)",
-    ],
+    mode: "feedback",   // "feedback": ask for their opinion (no prices); "sale": show the offer and pricing
+    note: "",         // feedback mode: text above the feedback button ("" = standard text)
   }, window.SAMPLE || {});
+  S.note = S.note || "We’re getting Iterra Maps ready for the 2027 season and asking a few tour operators for honest feedback first. The video is yours to keep and use, whatever you think of it.";
+  // what a finished video includes: sales wording only on "sale" pages
+  S.includes = S.includes || (S.mode === "sale" ? [
+    "Every stop on the itinerary, on the real roads, trails and sea crossings",
+    "Your logo and route colours",
+    "Widescreen and vertical versions (square too, in the tour pack)",
+    "One round of changes (two in the tour pack)",
+    "First draft within 5 working days (a tour pack within 3 weeks)",
+  ] : [
+    "Every stop on the itinerary, on the real roads, trails and sea crossings",
+    "Your logo and route colours",
+    "Widescreen, vertical and square versions",
+    "Stop names, and an elevation profile for hilly routes",
+    "Your corrections, so the route matches the tour exactly",
+  ]);
 
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const slug = s => String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -30,9 +40,26 @@
     ? `<img class="sp-logo" src="${esc(S.logo)}" alt="${esc(S.company)}">`
     : `<strong class="sp-client-name">${esc(S.company)}</strong>`;
 
-  const subject = `Full reel: ${S.tour} (${S.company})`;
-  const body = `Hi ${S.from},\n\nThanks for the sample. We'd like to talk about the full reel for ${S.tour}.\n\n`;
+  const feedback = S.mode !== "sale";
+  const subject = feedback ? `Feedback: ${S.tour} (${S.company})` : `Full reel: ${S.tour} (${S.company})`;
+  const body = feedback ? `Hi ${S.from},\n\nThanks for the sample. Here's what we think:\n\n`
+    : `Hi ${S.from},\n\nThanks for the sample. We'd like to talk about the full reel for ${S.tour}.\n\n`;
   const mailto = `mailto:${S.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  // feedback form on the main site, with this prospect's details filled in
+  const formUrl = "../../feedback.html?" + new URLSearchParams({ company: S.company, tour: S.tour, page: location.href.split(/[?#]/)[0] });
+  const cta = feedback ? `
+        <h2>What do you think?</h2>
+        <p>${esc(S.note)}</p>
+        <div class="sp-buttons">
+          <a class="btn btn-primary" href="${esc(formUrl)}">Give us your feedback <span class="sp-time">(2 minutes)</span></a>
+          <a class="btn btn-outline" href="${esc(mailto)}">${MAIL}Reply by email</a>
+        </div>` : `
+        <h2>Like it?</h2>
+        ${S.offer ? `<p>${esc(S.offer)}</p>` : ""}
+        <div class="sp-buttons">
+          <a class="btn btn-primary" href="${esc(mailto)}">${MAIL}Email us about the full reel</a>
+          <a class="btn btn-outline" href="../../index.html#pricing">See pricing and FAQ</a>
+        </div>`;
 
   // video files live on R2 (media.iterramaps.com); a plain file name is looked up in S.media
   const videoUrl = src => /^https?:\/\//.test(src) || !S.media ? src : S.media.replace(/\/?$/, "/") + src;
@@ -68,16 +95,10 @@
 
     <section class="sp-next">
       <div class="sp-includes">
-        <h2>What the full reel includes</h2>
+        <h2>${feedback ? "What a finished version would include" : "What the full reel includes"}</h2>
         <ul>${S.includes.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
       </div>
-      <div class="sp-cta">
-        <h2>Like it?</h2>
-        ${S.offer ? `<p>${esc(S.offer)}</p>` : ""}
-        <div class="sp-buttons">
-          <a class="btn btn-primary" href="${esc(mailto)}">${MAIL}Email us about the full reel</a>
-          <a class="btn btn-outline" href="../../index.html#pricing">See pricing and FAQ</a>
-        </div>
+      <div class="sp-cta">${cta}
         <p class="sp-sign">— ${esc(S.from)} at Iterra Maps · <a href="mailto:${esc(S.email)}">${esc(S.email)}</a></p>
       </div>
     </section>

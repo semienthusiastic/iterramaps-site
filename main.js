@@ -243,18 +243,25 @@ document.querySelectorAll(".js-year").forEach(el => { el.textContent = new Date(
 document.querySelectorAll(".js-form").forEach(form => {
   const status = form.querySelector(".form-status"), btn = form.querySelector("button[type=submit]");
   const say = (msg, kind) => { status.hidden = false; status.className = `form-status ${kind}`; status.textContent = msg; };
+  // fill text and hidden fields from the link (e.g. feedback.html?company=…&tour=… from a sample page)
+  const params = new URLSearchParams(location.search);
+  form.querySelectorAll("input[type=text][name], input[type=hidden][name]").forEach(f => {
+    const v = params.get(f.name);
+    if (v && !f.value) f.value = v.slice(0, 300);
+  });
   form.addEventListener("submit", async e => {
     e.preventDefault();
     if (!form.checkValidity()) {
       const bad = form.querySelector(":invalid");
-      say(bad && bad.type === "email" ? "Please enter a valid email address." : "Please fill in the required fields.", "err");
+      say(bad && bad.type === "email" ? "Please enter a valid email address." : (form.dataset.invalid || "Please fill in the required fields."), "err");
       bad?.focus();
       return;
     }
     const data = new FormData(form);
     if (data.get("_gotcha")) return; // a bot filled the hidden field
     data.delete("_gotcha");
-    const subject = form.dataset.subject || "Website enquiry";
+    const who = (data.get("company") || "").trim();
+    const subject = (form.dataset.subject || "Website enquiry") + (who ? `: ${who}` : "");
     if (!FORM_ENDPOINT) {
       // no form service yet: hand over to the visitor's email app
       const lines = [];
@@ -269,7 +276,9 @@ document.querySelectorAll(".js-form").forEach(form => {
       const res = await fetch(FORM_ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } });
       if (!res.ok) throw new Error(res.status);
       form.reset();
-      window.location.href = "thanks.html";
+      const done = form.dataset.done ? document.getElementById(form.dataset.done) : null;
+      if (done) { form.hidden = true; done.hidden = false; done.scrollIntoView({ block: "start" }); done.focus?.(); }
+      else window.location.href = "thanks.html";
     } catch {
       say(`That didn’t send. Please try again, or email ${CONTACT_EMAIL}.`, "err");
     } finally { btn.disabled = false; btn.textContent = label; }
