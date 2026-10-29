@@ -13,13 +13,13 @@
   S.includes = S.includes || (S.mode === "sale" ? [
     "Every stop on the itinerary, on the real roads, trails and sea crossings",
     "Your logo and route colours",
-    "Widescreen and vertical versions (square too, in the tour pack)",
-    "One round of changes (two in the tour pack)",
-    "First draft within 5 working days (a tour pack within 3 weeks)",
+    "Widescreen, vertical and square versions, up to 4K",
+    "One round of changes",
+    "First version within 5 working days",
   ] : [
     "Every stop on the itinerary, on the real roads, trails and sea crossings",
     "Your logo and route colours",
-    "Widescreen, vertical and square versions",
+    "Widescreen, vertical and square versions, up to 4K",
     "Stop names, and an elevation profile for hilly routes",
     "Your corrections, so the route matches the tour exactly",
   ]);
@@ -30,6 +30,11 @@
   const DL = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8m0 0L4.5 6.5M8 10l3.5-3.5M2.5 13.5h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const MAIL = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12v9H2zM2.5 4l5.5 4.5L13.5 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
   const LOGO = '<svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#0e1b24" stroke-width="3"/><ellipse cx="32" cy="32" rx="12" ry="27" fill="none" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M5 32H59" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M11 46C22 50 30 30 38 28C46 26 46 18 50 14" fill="none" stroke="#ff5a36" stroke-width="5.5" stroke-linecap="round"/><circle cx="11" cy="46" r="4.5" fill="#0e1b24"/><circle cx="50" cy="14" r="5.5" fill="#fff" stroke="#0e1b24" stroke-width="3.5"/></svg>';
+
+  // cookie choice and Google Analytics (does nothing until an ID is set in consent.js)
+  if (!document.querySelector('script[src$="consent.js"]')) {
+    const ck = document.createElement("script"); ck.src = "../../consent.js"; ck.defer = true; document.head.appendChild(ck);
+  }
 
   document.documentElement.style.setProperty("--client", S.accent || "#0b7a75");
 
@@ -108,7 +113,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <div class="cols"><span class="brand-name">Iterra <span>Maps</span></span><span>Animated route maps</span><a href="mailto:${esc(S.email)}">${esc(S.email)}</a></div>
-      <div class="cols"><a href="../../privacy.html">Privacy notice</a><span>Map data in videos © OpenStreetMap contributors</span><span>© ${new Date().getFullYear()} Iterra Maps</span></div>
+      <div class="cols"><a href="../../privacy.html">Privacy notice</a><a href="#" class="js-cookie-settings">Cookie settings</a><span>Map data in videos © OpenStreetMap contributors</span><span>© ${new Date().getFullYear()} Iterra Maps</span></div>
     </div>
   </footer>`;
 
@@ -125,10 +130,19 @@
     });
     // only one video plays at a time
     v.addEventListener("play", () => document.querySelectorAll(".sp-video video").forEach(o => { if (o !== v) o.pause(); }));
+    // Google Analytics event (only sent if the visitor accepted analytics cookies): which prospect watched which video
+    let played = false;
+    v.addEventListener("play", () => {
+      if (played || typeof window.gtag !== "function") return; played = true;
+      window.gtag("event", "sample_video_play", { company: S.company, tour: S.tour, video: v.getAttribute("src") || "" });
+    });
   });
 
   // Download buttons: browsers ignore "download" on links to another address (the videos are on media.iterramaps.com),
   // so fetch the file and save it from here instead. If that fails, open the video in a new tab.
+  document.querySelectorAll(".sp-dl").forEach(a => a.addEventListener("click", () => {
+    if (typeof window.gtag === "function") window.gtag("event", "sample_video_download", { company: S.company, tour: S.tour, video: a.getAttribute("href") || "" });
+  }));
   document.querySelectorAll(".sp-dl").forEach(a => a.addEventListener("click", async e => {
     if (new URL(a.href, location.href).origin === location.origin) return;
     e.preventDefault();
