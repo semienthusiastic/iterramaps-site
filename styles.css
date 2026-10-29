@@ -268,3 +268,15 @@ legend { font-size: 14px; font-weight: 600; margin-bottom: 10px; padding: 0; }
 .need h3 { color: #fff; font-weight: 700; font-size: 20px; margin: 0 0 10px; }
 .need ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
 .steps { grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 40px 28px; } /* five steps fit on one row on laptops */
+
+/* pricing: short clips and extras */
+.extras { margin-top: 48px; max-width: 860px; }
+.extras table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 16px; }
+.extras th, .extras td { text-align: left; vertical-align: top; padding: 12px 0; border-top: 1px solid var(--line); }
+.extras th { font-weight: 600; padding-right: 24px; width: 52%; }
+.extras td { color: var(--body); }
+@media (max-width: 640px) {
+  .extras tr { display: block; border-top: 1px solid var(--line); padding: 12px 0; }
+  .extras th, .extras td { display: block; width: auto; border: 0; padding: 0; }
+  .extras td { margin-top: 2px; }
+}
