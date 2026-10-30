@@ -65,10 +65,10 @@
       <fieldset class="fb-q">
         <legend>3. If this were a paid service, what would feel fair for one tour’s video?</legend>
         <div class="pills">
-          <label><input type="radio" name="fair_price" value="Under €100"> Under €100</label>
-          <label><input type="radio" name="fair_price" value="€100–200"> €100–200</label>
-          <label><input type="radio" name="fair_price" value="€200–400"> €200–400</label>
-          <label><input type="radio" name="fair_price" value="More than €400"> More than €400</label>
+          <label><input type="radio" name="fair_price" value="Under $100" data-usd="Under $100" data-eur="Under €100"> <span data-usd="Under $100" data-eur="Under €100">Under $100</span></label>
+          <label><input type="radio" name="fair_price" value="$100–200" data-usd="$100–200" data-eur="€100–200"> <span data-usd="$100–200" data-eur="€100–200">$100–200</span></label>
+          <label><input type="radio" name="fair_price" value="$200–400" data-usd="$200–400" data-eur="€200–400"> <span data-usd="$200–400" data-eur="€200–400">$200–400</span></label>
+          <label><input type="radio" name="fair_price" value="More than $400" data-usd="More than $400" data-eur="More than €400"> <span data-usd="More than $400" data-eur="More than €400">More than $400</span></label>
           <label><input type="radio" name="fair_price" value="We wouldn't pay for this"> We wouldn’t pay for this</label>
         </div>
       </fieldset>
@@ -206,6 +206,7 @@
     else document.querySelectorAll(".js-back").forEach(function (a) { if (history.length < 2) a.hidden = true; });
   })();
 </script>
+<script src="/currency.js" defer></script>
 <script src="/consent.js" defer></script>
 <script src="main.js" defer></script>
 </body>
