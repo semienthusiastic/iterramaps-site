@@ -3,10 +3,10 @@
    no banner, no "Cookie settings" link, no Google requests.
    Choice is kept in this browser for 12 months, then we ask again. */
 (function () {
-  const GA_ID = "G-XXXXXXXXXX";               // ← paste your Measurement ID here
+  const GA_ID = "G-GKXKNKSLET";               // ← paste your Measurement ID here
   const KEY = "iterra.consent";
   const MAX_AGE = 365 * 24 * 3600 * 1000;
-  const enabled = /^G-[A-Z0-9]{6,}$/.test(GA_ID) && GA_ID !== "G-XXXXXXXXXX";
+  const enabled = /^G-[A-Z0-9]{6,}$/.test(GA_ID) && GA_ID !== "G-GKXKNKSLET";
 
   function ready(fn) { document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", fn) : fn(); }
   if (!enabled) {
