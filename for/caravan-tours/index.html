@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- EDIT 1 of 2: the page title and link preview (what shows when the link is pasted into email, Slack or WhatsApp) -->
+<title>Your tour in motion: a sample for Caravan Tours · Iterra Maps</title>
+<meta property="og:title" content="Your tour in motion: a sample for Caravan Tours">
+<meta property="og:description" content="An animated route map of the Grand Canyon, Bryce &amp; Zion tour, Phoenix to Las Vegas, made by Iterra Maps.">
+<meta property="og:image" content="https://iterramaps.com/for/caravan-k7p2/poster.jpg">
+<!-- keep this page out of Google -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0e1b24">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../sample-page.css">
+
+<!-- EDIT 2 of 2: everything else on the page comes from here -->
+<script>
+window.SAMPLE = {
+  company: "Caravan Tours",                 // as you'd write it in an email
+  firstName: "",                           // e.g. "Siobhán" for "Hi Siobhán," (leave "" for no greeting)
+  tour: "Grand Canyon, Bryce & Zion",                       // e.g. "the Dingle Way, 8 days"
+  intro: "We’ve turned your Grand Canyon, Bryce & Zion tour into a short animated route map, day by day from Phoenix to Las Vegas on the real roads. It’s a sample of a service we’re offering for the 2027 season.",                               // optional: one or two sentences in your own words; "" uses the standard text
+  accent: "#2945AB",                       // the client's brand colour (used for small touches, not the buttons)
+  logo: "",                                // e.g. "logo.png" in this folder; "" shows the company name instead
+  media: "https://media.iterramaps.com/samples/caravan/",  // where this prospect's videos are on R2
+
+  videos: [                                // file names in the R2 folder above; poster images stay in this folder
+    { src: "wide.mp4",     aspect: "16:9", label: "Widescreen, for your website and YouTube", poster: "poster.jpg" },
+    { src: "vertical.mp4", aspect: "9:16", label: "Vertical, for Reels, TikTok and Stories" },
+  ],
+
+  mode: "feedback",                        // "feedback": asks for their opinion, no prices (feedback round)
+                                           // "sale": shows the offer below, the pricing link and "Email us about the full reel"
+  note: "We’re making route videos for a small number of tour operators for 2027: one for each tour page, beside your tour map, with vertical and square versions for social media and email. If that’s of interest, let us know and we’ll send a price. The sample is yours to keep either way.",                                // optional, feedback mode: your own words above the feedback button; "" uses the standard text
+  offer: "",                               // sale mode only, e.g. "The full video is $179, or $159 each for five or more."
+  from: "Patrick",                         // signs off the note: "— Patrick at Iterra Maps"
+  email: "hello@iterramaps.com",
+};
+</script>
+</head>
+<body>
+<noscript><p style="padding:24px">This page needs JavaScript to show the videos. You can email <a href="mailto:hello@iterramaps.com">hello@iterramaps.com</a> for a direct link.</p></noscript>
+<div id="sample-page"></div>
+<script src="../sample-page.js" defer></script>
+</body>
+</html>
