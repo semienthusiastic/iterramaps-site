@@ -6,7 +6,7 @@
   const GA_ID = "G-GKXKNKSLET";               // ← paste your Measurement ID here
   const KEY = "iterra.consent";
   const MAX_AGE = 365 * 24 * 3600 * 1000;
-  const enabled = /^G-[A-Z0-9]{6,}$/.test(GA_ID) && GA_ID !== "G-GKXKNKSLET";
+  const enabled = /^G-[A-Z0-9]{6,}$/.test(GA_ID) && !/^G-X+$/.test(GA_ID);
 
   function ready(fn) { document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", fn) : fn(); }
   if (!enabled) {
