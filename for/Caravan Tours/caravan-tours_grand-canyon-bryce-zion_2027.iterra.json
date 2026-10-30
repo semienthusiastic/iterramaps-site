@@ -1,0 +1,1095 @@
+{
+ "schema": 6,
+ "app": "Iterra Maps",
+ "title": "Caravan: Grand Canyon, Bryce & Zion",
+ "units": "mi",
+ "video": {
+  "aspect": "16:9",
+  "resolution": 1080,
+  "fps": 30,
+  "quality": "high"
+ },
+ "brand": {
+  "logo": null,
+  "logoCorner": "tr",
+  "logoSize": 16,
+  "logoOpacity": 1,
+  "mark": true
+ },
+ "customIcons": [],
+ "fonts": [],
+ "endCard": {
+  "on": true,
+  "title": "Grand Canyon, Bryce & Zion",
+  "text": "caravan.com · 1-800-CARAVAN",
+  "showLogo": true,
+  "duration": 3,
+  "look": "solid",
+  "bg": "#031C50",
+  "fg": "#ffffff"
+ },
+ "style": {
+  "id": "look-cycling",
+  "name": "Cycling Trail",
+  "savedAt": "2026-10-22T00:00:00.000Z",
+  "include": {}
+ },
+ "sections": [
+  {
+   "schema": 6,
+   "app": "Iterra Maps",
+   "meta": {
+    "title": "Grand Canyon, Bryce & Zion",
+    "subtitle": "8 days · Phoenix to Las Vegas"
+   },
+   "stops": [
+    {
+     "id": "6nmk0id",
+     "name": "Phoenix",
+     "lng": -111.9867,
+     "lat": 33.4528,
+     "pause": 0.5,
+     "showSign": true,
+     "named": true,
+     "details": {
+      "on": true,
+      "type": "",
+      "icon": "",
+      "nights": 1,
+      "summary": "Day 1 · Arrival",
+      "lines": [
+       {
+        "icon": "ph:airplane-tilt",
+        "text": "Fly into Sky Harbor"
+       },
+       {
+        "icon": "ph:hand-waving",
+        "text": "Welcome briefing, 6 pm"
+       }
+      ],
+      "showFor": null,
+      "photo": ""
+     }
+    },
+    {
+     "id": "dr45qk6",
+     "name": "Montezuma Castle",
+     "lng": -111.8349,
+     "lat": 34.6116,
+     "pause": 0.4,
+     "showSign": true,
+     "named": true
+    },
+    {
+     "id": "5nf9pdr",
+     "name": "Sedona",
+     "lng": -111.761,
+     "lat": 34.8697,
+     "pause": 0.5,
+     "showSign": true,
+     "named": true,
+     "details": {
+      "on": true,
+      "type": "",
+      "icon": "",
+      "nights": 0,
+      "summary": "Day 2",
+      "lines": [
+       {
+        "icon": "ph:shopping-bag",
+        "text": "Artist colony, free time"
+       }
+      ],
+      "showFor": null,
+      "photo": ""
+     }
+    },
+    {
+     "id": "irds5u6",
+     "name": "Grand Canyon",
+     "lng": -112.139,
+     "lat": 36.057,
+     "pause": 0.5,
+     "showSign": true,
+     "named": true,
+     "details": {
+      "on": true,
+      "type": "",
+      "icon": "",
+      "nights": 2,
+      "summary": "Days 2–3 · South Rim",
+      "lines": [
+       {
+        "icon": "ph:bed",
+        "text": "Lodge inside the park"
+       },
+       {
+        "icon": "ph:binoculars",
+        "text": "A full day at the canyon"
+       }
+      ],
+      "showFor": null,
+      "photo": ""
+     }
+    },
+    {
+     "id": "1s81mdc",
+     "name": "Desert View",
+     "lng": -111.8254,
+     "lat": 36.0422,
+     "pause": 0.4,
+     "showSign": true,
+     "named": true
+    },
+    {
+     "id": "l9ii722",
+     "name": "Monument Valley",
+     "lng": -110.1123,
+     "lat": 36.9831,
+     "pause": 0.5,
+     "showSign": true,
+     "named": true,
+     "details": {
+      "on": true,
+      "type": "",
+      "icon": "",
+      "nights": 0,
+      "summary": "Day 4",
+      "lines": [
+       {
+        "icon": "ph:jeep",
+        "text": "Navajo-guided jeep tour"
+       },
+       {
+        "icon": "ph:storefront",
+        "text": "Navajo & Hopi trading post"
+       }
+      ],
+      "showFor": null,
+      "photo": ""
+     }
+    },
+    {
+     "id": "tq10srx",
+     "name": "Lake Powell",
+     "lng": -111.488,
+     "lat": 36.997,
+     "pause": 0.5,
+     "showSign": true,
+     "named": true,
+     "details": {
+      "on": true,
+      "type": "",
+      "icon": "",
+      "nights": 2,
+      "summary": "Days 4–5",
+      "lines": [
+       {
+        "icon": "ph:bed",
+        "text": "Lake Powell Resort"
+       }
+      ],
+      "showFor": null,
+      "photo": ""
+     }
+    },
+    {
+     "id": "pangykw",
+     "name": "Antelope Canyon",
+     "lng": -111.4105,
+     "lat": 36.903,
+     "pause": 0.5,
+     "showSign": true,
+     "named": true,
+     "details": {
+      "on": true,
+      "type": "",
+      "icon": "",
+      "nights": 0,
+      "summary": "Day 5 · Upper Antelope",
+      "lines": [
+       {
+        "icon": "ph:person-simple-hike",
+        "text": "Guided slot canyon visit"
+       }
+      ],
+      "showFor": null,
+      "photo": ""
+     }
+    },
+    {
+     "id": "ibttwe4",
+     "name": "Horseshoe Bend",
+     "lng": -111.5022,
+     "lat": 36.8766,
+     "pause": 0.4,
+     "showSign": true,
+     "named": true
+    },
+    {
+     "id": "ldemml7",
+     "name": "Lake Powell",
+     "lng": -111.488,
+     "lat": 36.997,
+     "pause": 0.5,
+     "showSign": false,
+     "named": true,
+     "details": {
+      "on": true,
+      "type": "",
+      "icon": "",
+      "nights": 0,
+      "summary": "Day 5 · Afternoon",
+      "lines": [
+       {
+        "icon": "ph:boat",
+        "text": "Boat cruise on Lake Powell"
+       }
+      ],
+      "showFor": null,
+      "photo": ""
+     }
+    },
+    {
+     "id": "dth8q3c",
+     "name": "Kanab",
+     "lng": -112.5263,
+     "lat": 37.0475,
+     "pause": 0.4,
+     "showSign": true,
+     "named": true
+    },
+    {
+     "id": "3c2gykk",
+     "name": "Bryce Canyon",
+     "lng": -112.1697,
+     "lat": 37.6403,
+     "pause": 0.5,
+     "showSign": true,
+     "named": true,
+     "details": {
+      "on": true,
+      "type": "",
+      "icon": "",
+      "nights": 0,
+      "summary": "Day 6",
+      "lines": [
+       {
+        "icon": "ph:mountains",
+        "text": "Hoodoos and viewpoints"
+       }
+      ],
+      "showFor": null,
+      "photo": ""
+     }
+    },
+    {
+     "id": "x9kveu2",
+     "name": "Zion area",
+     "lng": -113.182,
+     "lat": 37.2025,
+     "pause": 0.5,
+     "showSign": true,
+     "named": true,
+     "details": {
+      "on": true,
+      "type": "",
+      "icon": "",
+      "nights": 2,
+      "summary": "Days 6–7 · Virgin, Utah",
+      "lines": [
+       {
+        "icon": "ph:bed",
+        "text": "Hotel near Zion"
+       }
+      ],
+      "showFor": null,
+      "photo": ""
+     }
+    },
+    {
+     "id": "y4cmld7",
+     "name": "Zion",
+     "lng": -112.9869,
+     "lat": 37.2001,
+     "pause": 0.5,
+     "showSign": true,
+     "named": true,
+     "details": {
+      "on": true,
+      "type": "",
+      "icon": "",
+      "nights": 0,
+      "summary": "Day 7 · National park",
+      "lines": [
+       {
+        "icon": "ph:binoculars",
+        "text": "Guided tour of the park"
+       },
+       {
+        "icon": "ph:fork-knife",
+        "text": "Dinner included"
+       }
+      ],
+      "showFor": null,
+      "photo": ""
+     }
+    },
+    {
+     "id": "us0pqp2",
+     "name": "Zion area",
+     "lng": -113.182,
+     "lat": 37.2025,
+     "pause": 0,
+     "showSign": false,
+     "named": true
+    },
+    {
+     "id": "csoglw4",
+     "name": "Las Vegas",
+     "lng": -115.1537,
+     "lat": 36.084,
+     "pause": 0.5,
+     "showSign": true,
+     "named": true,
+     "keepEnd": true,
+     "details": {
+      "on": true,
+      "type": "",
+      "icon": "",
+      "nights": 0,
+      "summary": "Day 8 · Tour ends",
+      "lines": [
+       {
+        "icon": "ph:sparkle",
+        "text": "A drive past the Strip"
+       },
+       {
+        "icon": "ph:airplane-tilt",
+        "text": "At the airport by 11 am"
+       }
+      ],
+      "showFor": null,
+      "photo": ""
+     }
+    }
+   ],
+   "legs": [
+    {
+     "id": "jshk0jl",
+     "from": "6nmk0id",
+     "to": "dr45qk6",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": [
+      [
+       -111.9261,
+       33.4936
+      ]
+     ]
+    },
+    {
+     "id": "03ml8ax",
+     "from": "dr45qk6",
+     "to": "5nf9pdr",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": []
+    },
+    {
+     "id": "6xh079q",
+     "from": "5nf9pdr",
+     "to": "irds5u6",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": [
+      [
+       -111.651,
+       35.198
+      ]
+     ]
+    },
+    {
+     "id": "j036wbg",
+     "from": "irds5u6",
+     "to": "1s81mdc",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": []
+    },
+    {
+     "id": "t22r1xh",
+     "from": "1s81mdc",
+     "to": "l9ii722",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": [
+      [
+       -111.4135,
+       35.8758
+      ],
+      [
+       -110.2541,
+       36.7253
+      ]
+     ]
+    },
+    {
+     "id": "asu3fp3",
+     "from": "l9ii722",
+     "to": "tq10srx",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": [
+      [
+       -110.2541,
+       36.7253
+      ]
+     ]
+    },
+    {
+     "id": "8nnpifv",
+     "from": "tq10srx",
+     "to": "pangykw",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": []
+    },
+    {
+     "id": "s3eoaoz",
+     "from": "pangykw",
+     "to": "ibttwe4",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": []
+    },
+    {
+     "id": "b7toi8m",
+     "from": "ibttwe4",
+     "to": "ldemml7",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": []
+    },
+    {
+     "id": "7p1pe0h",
+     "from": "ldemml7",
+     "to": "dth8q3c",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": []
+    },
+    {
+     "id": "lx14p1g",
+     "from": "dth8q3c",
+     "to": "3c2gykk",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": []
+    },
+    {
+     "id": "h7rgj9k",
+     "from": "3c2gykk",
+     "to": "x9kveu2",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": []
+    },
+    {
+     "id": "qqkfnlc",
+     "from": "x9kveu2",
+     "to": "y4cmld7",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": []
+    },
+    {
+     "id": "ljworje",
+     "from": "y4cmld7",
+     "to": "us0pqp2",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": []
+    },
+    {
+     "id": "vi75pv9",
+     "from": "us0pqp2",
+     "to": "csoglw4",
+     "mode": "road-car",
+     "icon": "ph:bus",
+     "color": "#C80000",
+     "speedMode": "master",
+     "speed": 20,
+     "durationMode": "auto",
+     "duration": 5,
+     "useRealTiming": false,
+     "autoSwitch": true,
+     "ferryIcon": "ph:boat",
+     "trainIcon": "emoji:🚆",
+     "segs": [],
+     "coords": null,
+     "key": null,
+     "track": null,
+     "pending": true,
+     "failed": false,
+     "via": [
+      [
+       -115.1724,
+       36.1162
+      ]
+     ]
+    }
+   ],
+   "signs": [],
+   "map": {
+    "basemap": "designer",
+    "theme": "original",
+    "customStyleUrl": "",
+    "attribution": "",
+    "labels": true,
+    "pois": false,
+    "projection": "mercator",
+    "styleFile": null,
+    "recipe": {
+     "land": {
+      "color": "#f4ecdc"
+     },
+     "water": {
+      "color": "#a9cbe0",
+      "outline": true,
+      "outlineColor": "#8fb4cc",
+      "outlineWidth": 0.8,
+      "rivers": true,
+      "riverColor": "#9fc2d8",
+      "riverWidth": 1
+     },
+     "landcover": {
+      "on": true,
+      "opacity": 0.45,
+      "wood": "#dfe2c8",
+      "grass": "#efe7d0",
+      "farmland": "#efe8d6",
+      "wetland": "#d8e6dc",
+      "sand": "#f0dfbd",
+      "ice": "#f4f8fb",
+      "rock": "#e6d3b5"
+     },
+     "urban": {
+      "on": true,
+      "color": "#ebe1cd",
+      "opacity": 0.8
+     },
+     "parks": {
+      "on": true,
+      "color": "#e9e2c9",
+      "opacity": 0.6,
+      "outline": false
+     },
+     "relief": {
+      "on": true,
+      "opacity": 0.5
+     },
+     "roads": {
+      "motorway": {
+       "on": true,
+       "color": "#e2d6bf",
+       "width": 0.9,
+       "casing": false,
+       "casingColor": "#000000"
+      },
+      "main": {
+       "on": true,
+       "color": "#ffffff",
+       "width": 1,
+       "casing": true,
+       "casingColor": "#dccfb6"
+      },
+      "secondary": {
+       "on": true,
+       "color": "#ffffff",
+       "width": 1,
+       "casing": true,
+       "casingColor": "#e0d9cc"
+      },
+      "minor": {
+       "on": true,
+       "color": "#ffffff",
+       "width": 1,
+       "casing": false,
+       "casingColor": "#e3ddd2"
+      },
+      "paths": {
+       "on": false,
+       "color": "#c9bfae",
+       "width": 1,
+       "casing": false,
+       "casingColor": "#ffffff"
+      },
+      "rail": {
+       "on": true,
+       "color": "#c4bdb3",
+       "width": 1,
+       "dashed": true
+      },
+      "ferry": {
+       "on": true,
+       "color": "#8fb3c4",
+       "width": 1
+      },
+      "tunnelsFaded": true
+     },
+     "boundaries": {
+      "country": {
+       "on": true,
+       "color": "#b6a9b8",
+       "width": 1,
+       "dashed": true
+      },
+      "region": {
+       "on": true,
+       "color": "#a89c88",
+       "width": 1,
+       "dashed": true
+      }
+     },
+     "buildings": {
+      "on": true,
+      "color": "#e0d9cf",
+      "opacity": 0.8
+     },
+     "labels": {
+      "font": "inter",
+      "language": "en",
+      "country": {
+       "on": true,
+       "size": 14,
+       "color": "#6b5a6e",
+       "halo": "#f2efe9",
+       "haloWidth": 1.4,
+       "weight": "bold",
+       "upper": true,
+       "spacing": 0.15
+      },
+      "city": {
+       "on": true,
+       "size": 15,
+       "color": "#031C50",
+       "halo": "#f4ecdc",
+       "haloWidth": 1.4,
+       "weight": "bold",
+       "upper": false,
+       "spacing": 0
+      },
+      "town": {
+       "on": true,
+       "size": 13,
+       "color": "#2e3a52",
+       "halo": "#f4ecdc",
+       "haloWidth": 1.4,
+       "weight": "regular",
+       "upper": false,
+       "spacing": 0
+      },
+      "village": {
+       "on": true,
+       "size": 11.5,
+       "color": "#5a6170",
+       "halo": "#f4ecdc",
+       "haloWidth": 1.4,
+       "weight": "regular",
+       "upper": false,
+       "spacing": 0
+      },
+      "water": {
+       "on": true,
+       "size": 12,
+       "color": "#5f8ea0",
+       "halo": "#e7f0f3",
+       "haloWidth": 1,
+       "weight": "italic",
+       "upper": false,
+       "spacing": 0
+      },
+      "roads": {
+       "on": false,
+       "size": 11,
+       "color": "#6b6b6b",
+       "halo": "#ffffff",
+       "haloWidth": 1.4,
+       "weight": "regular",
+       "upper": false,
+       "spacing": 0
+      },
+      "peaks": {
+       "on": false,
+       "size": 11,
+       "color": "#7a6a55",
+       "halo": "#f2efe9",
+       "haloWidth": 1.4,
+       "weight": "italic",
+       "upper": false,
+       "spacing": 0
+      },
+      "pois": {
+       "on": false,
+       "size": 11,
+       "color": "#6b6b6b",
+       "halo": "#ffffff",
+       "haloWidth": 1.4,
+       "weight": "regular",
+       "upper": false,
+       "spacing": 0
+      }
+     },
+     "detail": 0,
+     "adjust": {
+      "saturation": 0,
+      "brightness": 0,
+      "warmth": 0
+     }
+    }
+   },
+   "route": {
+    "width": 5,
+    "style": "solid",
+    "outline": true,
+    "outlineColor": "#ffffff",
+    "outlineWidth": 1.2,
+    "ghost": true,
+    "ghostOpacity": 0.35,
+    "iconSize": 36,
+    "iconBadge": true,
+    "iconFlip": true,
+    "customRotate": false,
+    "turnSmoothing": "medium"
+   },
+   "camera": {
+    "mode": "smart",
+    "zoom": 12,
+    "maxZoom": 14,
+    "pitch": 0,
+    "followHeading": false,
+    "intro": 3,
+    "outro": 3,
+    "padding": 14
+   },
+   "timing": {
+    "method": "length",
+    "speed": 20,
+    "easeOn": true,
+    "target": 82,
+    "seaFactor": 2
+   },
+   "overlays": {
+    "titleCard": true,
+    "legLabel": true,
+    "distance": true,
+    "panel": "custom",
+    "accent": "#C80000",
+    "endMarkers": "dots",
+    "ferryNames": true,
+    "font": "inter",
+    "panelBg": "#031C50",
+    "panelFg": "#ffffff",
+    "panelOpacity": 0.94,
+    "details": {
+     "layout": "auto",
+     "zoom": false,
+     "photos": true,
+     "icons": "line",
+     "iconSet": "oldwest",
+     "box": {
+      "shape": "rounded",
+      "radius": 8,
+      "title": 1.25,
+      "text": 1.2,
+      "pad": 1.6
+     }
+    },
+    "cards": {
+     "shape": "rounded",
+     "radius": 6,
+     "size": 1,
+     "pad": 1.1,
+     "weight": 700,
+     "upper": false,
+     "spacing": 0,
+     "border": 0,
+     "borderColor": "route",
+     "accent": "top",
+     "shadow": "soft",
+     "pointer": "triangle",
+     "marker": "circle",
+     "badge": "text",
+     "anim": "pop"
+    },
+    "finish": {
+     "vignette": 0,
+     "grain": 0,
+     "grainType": "film",
+     "tint": 0,
+     "tintColor": "#ff9a3c",
+     "fog": 0,
+     "fogColor": "#ffffff"
+    }
+   },
+   "legDefaults": {
+    "color": "#C80000",
+    "colorMode": "single",
+    "palette": [
+     "#2bb24c",
+     "#ff8a00",
+     "#1e88e5",
+     "#e53935",
+     "#8e24aa",
+     "#00897b"
+    ],
+    "icons": {
+     "road-car": "ph:bus",
+     "road-bike": "ph:person-simple-bike",
+     "road-foot": "ph:person-simple-walk",
+     "arc": "ph:airplane",
+     "straight": "arrow",
+     "track": "ph:person-simple-bike"
+    },
+    "ferryIcon": "ph:boat",
+    "trainIcon": "emoji:🚆",
+    "autoSwitch": true
+   },
+   "terrain": {
+    "hillshade": {
+     "on": true,
+     "strength": 0.5,
+     "light": 315
+    },
+    "threeD": {
+     "on": false,
+     "exaggeration": 1.5
+    },
+    "contours": {
+     "on": false,
+     "interval": "auto",
+     "labels": true,
+     "opacity": 0.7
+    },
+    "profile": {
+     "on": false,
+     "height": 16,
+     "climb": true,
+     "current": true
+    }
+   }
+  }
+ ],
+ "transitions": []
+}
