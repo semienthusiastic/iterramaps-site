@@ -1,7 +1,10 @@
 /* Iterra Maps — site script
    1. Hero: a looping mini version of the product (route draws, van drives, signs pop up, distance counts).
-   2. Showreel: filters. Each card shows its image with a play button; on a computer, the mouse resting on a card
-      plays the video silently in the card (nothing plays by itself); clicking or tapping opens it full size in a pop-up.
+   2. "More journeys" (the original showreel cards): each card shows its image with a play button; on a computer, the
+      mouse resting on a card plays the video silently in the card; clicking or tapping opens it full size in a pop-up.
+   2b. Showcase chapters: each video loads as its chapter comes near and plays silently while on screen (not with
+      reduced motion or data saver); the big players have play/pause and full screen, the smaller cuts open full size.
+   2c. The phone menu.
    3. Forms: send to Formspree when FORM_ENDPOINT is set, otherwise open the visitor's email app. */
 
 // ---- Settings -------------------------------------------------------------
@@ -96,7 +99,7 @@ document.querySelectorAll(".js-year").forEach(el => { el.textContent = new Date(
   const saveData = navigator.connection?.saveData;
   const PLAY = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg>';
   const hint = document.querySelector(".js-reel-hint");
-  if (hint && !hoverPlay) hint.textContent = canHover ? "Click a reel to watch it full size." : "Tap a reel to watch it full size.";
+  if (hint) hint.textContent = canHover ? "Click any journey to watch it full size." : "Tap any journey to watch it full size.";
 
   // ---- the pop-up player
   const dlg = document.getElementById("reel-player");
@@ -237,6 +240,104 @@ document.querySelectorAll(".js-year").forEach(el => { el.textContent = new Date(
     else if (r.classList.contains("no-image")) load(r);
   }), { rootMargin: "400px 0px" });
   reels.forEach(r => io.observe(r));
+})();
+
+// ---- 2b. Showcase chapters ----------------------------------------------------------
+(function showcase() {
+  const root = document.getElementById("showcase");
+  if (!root) return;
+  const saveData = navigator.connection?.saveData;
+  const auto = !reduceMotion && !saveData;
+  const desktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+  const vids = [...root.querySelectorAll("video.sc-video")];
+
+  // the pop-up player (shared with "More journeys")
+  const dlg = document.getElementById("reel-player");
+  function openVideo(src, aspect, title, poster, opener) {
+    if (!dlg || typeof dlg.showModal !== "function") { window.open(src, "_blank", "noopener"); return; }
+    const dv = dlg.querySelector("video"), [aw, ah] = (aspect || "16:9").split(":").map(Number);
+    dlg.classList.toggle("vertical", ah > aw);
+    dlg.style.setProperty("--ar", `${aw} / ${ah}`);
+    dlg.style.setProperty("--arw", String(aw / ah));
+    dlg.querySelector("#reel-player-title").textContent = title;
+    dv.setAttribute("aria-label", title);
+    if (poster) dv.poster = poster; else dv.removeAttribute("poster");
+    dv.src = src;
+    dlg.showModal();
+    dv.play().catch(() => {});
+    dlg.addEventListener("close", () => opener?.focus(), { once: true });
+  }
+
+  // which videos play by themselves: all of them on a computer; on a phone, not the six daily clips
+  vids.forEach(v => { v._auto = auto && (desktop || !v.closest(".sc-day")); });
+  const load = v => {
+    if (v.getAttribute("src")) return;
+    // a video that won't play by itself shows a frame from a few seconds in (the #t= part), not a blank box
+    v.src = v.dataset.src + (!v._auto && v.dataset.thumb ? `#t=${v.dataset.thumb}` : "");
+  };
+  vids.forEach(v => v.addEventListener("error", () => {
+    (v.closest(".sc-player, .sc-mini") || v.parentElement).classList.add("sc-missing");
+    console.warn(`Showcase: couldn't load ${v.dataset.src}`);
+  }));
+
+  // the big players: play/pause, progress, full screen
+  root.querySelectorAll(".sc-player").forEach(pl => {
+    const v = pl.querySelector("video"), tg = pl.querySelector(".sc-toggle"), bar = pl.querySelector(".sc-bar i"), time = pl.querySelector(".sc-time");
+    pl.classList.add("paused"); tg.setAttribute("aria-label", "Play video");
+    v.addEventListener("play", () => { pl.classList.remove("paused"); pl.classList.add("playing"); tg.setAttribute("aria-label", "Pause video"); });
+    v.addEventListener("pause", () => { pl.classList.add("paused"); pl.classList.remove("playing"); tg.setAttribute("aria-label", "Play video"); });
+    v.addEventListener("timeupdate", () => { if (v.duration) bar.style.width = `${(v.currentTime / v.duration * 100).toFixed(2)}%`; time.textContent = fmt(v.currentTime); });
+    tg.addEventListener("click", () => {
+      load(v);
+      if (v.paused) { v._held = false; v.play().catch(() => {}); } else { v._held = true; v.pause(); } // a pause by the visitor sticks
+    });
+    pl.querySelector(".sc-full").addEventListener("click", e => { v.pause(); openVideo(v.dataset.src, "16:9", pl.dataset.title, v.poster, e.currentTarget); });
+  });
+  root.querySelectorAll(".sc-mini").forEach(b => b.addEventListener("click", () => {
+    if (b.classList.contains("sc-missing")) return;
+    b.querySelector("video")?.pause();
+    openVideo(b.dataset.full, b.dataset.aspect, b.dataset.title, "", b);
+  }));
+
+  // load each video shortly before it comes into view; play it silently while it's on screen
+  const near = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { near.unobserve(en.target); load(en.target); } }), { rootMargin: "500px 0px" });
+  const onScreen = new IntersectionObserver(es => es.forEach(en => {
+    const v = en.target;
+    if (en.isIntersecting && v._auto && !v._held && !dlg?.open) { load(v); v.play().catch(() => {}); }
+    else if (!en.isIntersecting) v.pause();
+  }), { threshold: 0.35 });
+  vids.forEach(v => { if (!v._auto) v.preload = "metadata"; near.observe(v); onScreen.observe(v); });
+
+  // the chapter buttons follow the scroll
+  const chips = [...root.querySelectorAll(".sc-nav a")], scroller = root.querySelector(".sc-nav-inner");
+  const spy = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return;
+    chips.forEach(c => {
+      if (c.getAttribute("href") !== `#${en.target.id}`) { c.removeAttribute("aria-current"); return; }
+      c.setAttribute("aria-current", "true");
+      if (scroller.scrollWidth > scroller.clientWidth) scroller.scrollTo({ left: c.offsetLeft - 16, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }), { rootMargin: "-40% 0px -55% 0px" });
+  root.querySelectorAll(".sc-ch").forEach(s => spy.observe(s));
+})();
+
+// ---- 2c. Phone menu --------------------------------------------------------------------
+(function menu() {
+  const btn = document.querySelector(".nav-toggle"), panel = document.getElementById("nav-panel");
+  if (!btn || !panel) return;
+  const isOpen = () => btn.getAttribute("aria-expanded") === "true";
+  const set = open => {
+    btn.setAttribute("aria-expanded", String(open));
+    btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    panel.hidden = !open;
+    document.body.classList.toggle("menu-open", open);
+  };
+  btn.addEventListener("click", () => set(!isOpen()));
+  panel.addEventListener("click", e => { if (e.target.closest("a")) set(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && isOpen()) { set(false); btn.focus(); } });
+  document.addEventListener("click", e => { if (isOpen() && !e.target.closest(".site-header")) set(false); });
+  window.matchMedia("(min-width: 721px)").addEventListener("change", e => { if (e.matches) set(false); });
 })();
 
 // ---- 3. Forms -------------------------------------------------------------------

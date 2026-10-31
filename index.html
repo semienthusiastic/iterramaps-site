@@ -32,12 +32,21 @@
       <span class="brand-name">Iterra <span>Maps</span></span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="#showreel">Showreel</a>
+      <a href="#showcase">Showcase</a>
       <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn-ink" href="sample.html">Get a free sample</a>
+      <a class="btn btn-ink" href="sample.html"><span class="nav-cta-long">Get a free sample</span><span class="nav-cta-short">Free sample</span></a>
     </nav>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path class="nt-open" d="M3 5.5h14M3 10h14M3 14.5h14"/><path class="nt-close" d="M5 5l10 10M15 5L5 15"/></svg></button>
+    <div class="nav-panel" id="nav-panel" hidden>
+      <a href="#showcase">Showcase <span>5 journeys</span></a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="sample.html">Send an itinerary, get a free sample</a>
+      <p><a href="mailto:hello@iterramaps.com">hello@iterramaps.com</a></p>
+    </div>
   </div>
 </header>
 
@@ -51,7 +60,7 @@
         <p class="lead">We turn your tours into short animated map videos. The route draws itself along real roads, walking trails, ferry crossings and mountain passes, with your stops, your logo and your colours. Ready for your tour pages, Instagram, YouTube and email.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="sample.html">Send an itinerary — free sample</a>
-          <a class="btn btn-outline" href="#showreel"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg>See the showreel</a>
+          <a class="btn btn-outline" href="#showcase"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg>See the showcase</a>
         </div>
         <p class="facts"><span>16:9 · 9:16 · 1:1 · up to 4K</span><span>First draft in 5 working days</span></p>
       </div>
@@ -120,25 +129,227 @@
 
   <section class="band-white" aria-label="Who it's for">
     <ul class="wrap for-list">
-      <li>Made for</li><li>Tour operators</li><li>Travel agencies</li><li>Walking &amp; cycling holidays</li><li>Coach tours</li><li>Cruise &amp; ferry lines</li><li>Cycling events &amp; rides</li>
+      <li>Made for</li><li><a href="#sc-coach">Coach tours</a></li><li><a href="#sc-walking">Walking &amp; cycling holidays</a></li><li><a href="#sc-events">Cycling events &amp; rides</a></li><li><a href="#sc-cruise">Cruise &amp; ferry lines</a></li><li><a href="#sc-rail">Rail &amp; tailor-made trips</a></li><li>Tour operators</li><li>Travel agencies</li>
     </ul>
   </section>
 
-  <!-- SHOWREEL: each card shows its <img> (from the media folder on GitHub) at rest and plays the file in data-video (on Cloudflare R2, media.iterramaps.com/site/showreel/) on hover / in the pop-up. If an image is missing, a frame of the video is shown instead (data-thumb="12" picks the second; default is near the end). See DEPLOY.md step 8. -->
-  <section class="section" id="showreel" aria-labelledby="reel-title">
-    <div class="wrap">
-      <div class="section-head">
-        <div><p class="eyebrow plain">Showreel</p><h2 class="h2" id="reel-title">Every kind of journey.</h2></div>
-        <div class="filters" role="group" aria-label="Filter the showreel">
-          <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
-          <button class="chip" type="button" data-filter="road" aria-pressed="false">Road &amp; rail</button>
-          <button class="chip" type="button" data-filter="active" aria-pressed="false">Walking &amp; cycling</button>
-          <button class="chip" type="button" data-filter="sea" aria-pressed="false">Islands &amp; sea</button>
-          <button class="chip" type="button" data-filter="air" aria-pressed="false">Flights</button>
+<!-- SHOWCASE: five chapters, one per kind of client. Videos are on Cloudflare R2 (media.iterramaps.com/site/showcase/<chapter>/…);
+       the big players' poster images are in media/showcase/ on GitHub. Each video loads as its chapter comes near and plays
+       silently while on screen; the smaller cuts open full size when clicked. The brands in the videos are made up. -->
+  <section class="showcase" id="showcase" aria-labelledby="sc-title">
+    <span id="showreel" aria-hidden="true"></span>
+    <div class="wrap sc-intro">
+      <p class="eyebrow">Showcase</p>
+      <div class="sc-intro-grid">
+        <h2 class="sc-h2" id="sc-title">Made for your kind of trip.</h2>
+        <p class="lead">Five journeys, each made for a different kind of travel business, in its own brand and in every shape. Find the one closest to yours.</p>
+      </div>
+    </div>
+    <nav class="sc-nav" aria-label="Showcase chapters">
+      <div class="sc-nav-inner">
+        <a href="#sc-coach" aria-current="true"><span>01</span>Coach &amp; escorted tours</a>
+        <a href="#sc-walking"><span>02</span>Walking &amp; cycling holidays</a>
+        <a href="#sc-events"><span>03</span>Cycling events</a>
+        <a href="#sc-cruise"><span>04</span>Cruises &amp; islands</a>
+        <a href="#sc-rail"><span>05</span>Rail &amp; custom trips</a>
+      </div>
+    </nav>
+
+    <section class="sc-ch sc-ink" id="sc-coach" aria-labelledby="sc-coach-t">
+      <div class="wrap">
+        <div class="sc-head">
+          <div><p class="sc-kicker">01 · Coach &amp; escorted tours</p><h3 class="sc-title" id="sc-coach-t">A week in the Rockies, in ninety seconds.</h3></div>
+          <p class="sc-lead">Every overnight town and highlight on the real highways, with a card for each day in your own words. It sits beside the itinerary on your tour page, and the vertical cut goes to social media.</p>
+        </div>
+        <div class="sc-main">
+          <div class="sc-player" data-title="The Canadian Rockies by coach">
+            <video class="sc-video" muted playsinline loop preload="none" poster="media/showcase/coach-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/coach/wide.mp4" aria-label="The Canadian Rockies by coach"></video>
+            <div class="sc-controls">
+              <button type="button" class="sc-btn sc-toggle" aria-label="Pause video"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z"/><path class="i-play" d="M4 2.2L13.5 8 4 13.8z"/></svg></button>
+              <div class="sc-bar" aria-hidden="true"><i></i></div>
+              <span class="sc-time" aria-hidden="true">0:00</span>
+              <button type="button" class="sc-btn sc-full" data-aspect="16:9"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Full screen</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="sc-row">
+          <figure class="sc-shape sc-shape-tall">
+            <div class="sc-phone"><button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/coach/vertical.mp4" data-aspect="9:16" data-title="The Canadian Rockies by coach, vertical" aria-label="Play full size: The Canadian Rockies by coach, vertical">
+              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/coach/vertical.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
+              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
+            </button></div>
+            <figcaption>9:16 · Reels, TikTok, Stories</figcaption>
+          </figure>
+          <figure class="sc-shape sc-shape-sq">
+            <button type="button" class="sc-mini sc-mini-sq" data-full="https://media.iterramaps.com/site/showcase/coach/square.mp4" data-aspect="1:1" data-title="The Canadian Rockies by coach, square" aria-label="Play full size: The Canadian Rockies by coach, square">
+              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/coach/square.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
+              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
+            </button>
+            <figcaption>1:1 · Feeds and email</figcaption>
+          </figure>
+          <div class="sc-side">
+            <p class="sc-kicker">One route, every shape</p>
+            <ul class="sc-points"><li><span class="sc-num">1</span><span><strong>A card for each day,</strong> with the hotels, meals and highlights from your itinerary.</span></li><li><span class="sc-num">2</span><span><strong>Shaded mountains and a distance counter,</strong> so the scale of the trip lands at a glance.</span></li><li><span class="sc-num">3</span><span><strong>Widescreen, vertical and square,</strong> up to 4K, all included.</span></li></ul>
+            <a class="btn btn-primary" href="sample.html">Get a free sample of one of your tours</a>
+            <p class="sc-demo">Demo brand: Tamarack &amp; Pine Coachways (made up for this showcase)</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="reels">
+    <section class="sc-ch sc-paper" id="sc-walking" aria-labelledby="sc-walking-t">
+      <div class="wrap sc-split">
+        <div class="sc-split-media"><div class="sc-player" data-title="The Camino, Sarria to Santiago">
+            <video class="sc-video" muted playsinline loop preload="none" poster="media/showcase/walking-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/walking/wide.mp4" aria-label="The Camino, Sarria to Santiago"></video>
+            <div class="sc-controls">
+              <button type="button" class="sc-btn sc-toggle" aria-label="Pause video"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z"/><path class="i-play" d="M4 2.2L13.5 8 4 13.8z"/></svg></button>
+              <div class="sc-bar" aria-hidden="true"><i></i></div>
+              <span class="sc-time" aria-hidden="true">0:00</span>
+              <button type="button" class="sc-btn sc-full" data-aspect="16:9"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Full screen</span></button>
+            </div>
+          </div></div>
+        <div class="sc-split-text">
+          <p class="sc-kicker">02 · Walking &amp; cycling holidays</p>
+          <h3 class="sc-title" id="sc-walking-t">Every stage, every climb, on the real trail.</h3>
+          <p class="sc-lead">From your GPX files or the itinerary. The elevation profile fills as the walker moves, and each overnight town gets its card.</p>
+          <p class="sc-meta">Sarria → Santiago de Compostela · 5 stages · about 115 km</p>
+          <p class="sc-demo">Demo brand: Slow Roads Camino (made up)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sc-ch sc-white" id="sc-events" aria-labelledby="sc-events-t">
+      <div class="wrap">
+        <div class="sc-head">
+          <div><p class="sc-kicker">03 · Cycling events &amp; rides</p><h3 class="sc-title" id="sc-events-t">One video for the route reveal. One clip a day for the countdown.</h3></div>
+          <p class="sc-lead">Riders share them, sponsors get seen, and each day’s towns and roads are clear before anyone clips in.</p>
+        </div>
+        <div class="sc-events">
+          <div class="sc-events-main">
+            <div class="sc-player" data-title="The Lakeshore 330, the route video">
+            <video class="sc-video" muted playsinline loop preload="none" poster="media/showcase/events-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/events/wide.mp4" aria-label="The Lakeshore 330, the route video"></video>
+            <div class="sc-controls">
+              <button type="button" class="sc-btn sc-toggle" aria-label="Pause video"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z"/><path class="i-play" d="M4 2.2L13.5 8 4 13.8z"/></svg></button>
+              <div class="sc-bar" aria-hidden="true"><i></i></div>
+              <span class="sc-time" aria-hidden="true">0:00</span>
+              <button type="button" class="sc-btn sc-full" data-aspect="16:9"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Full screen</span></button>
+            </div>
+          </div>
+            <p class="sc-cap">The route video · 16:9</p>
+          </div>
+          <div class="sc-events-days">
+            <div class="sc-days"><figure class="sc-day">
+              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-1.mp4" data-aspect="9:16" data-title="Day 1: Grand Haven to Pentwater" aria-label="Play full size: Day 1: Grand Haven to Pentwater">
+              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-1.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
+              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
+            </button>
+              <figcaption>Day 1 · Pentwater</figcaption>
+            </figure><figure class="sc-day">
+              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-2.mp4" data-aspect="9:16" data-title="Day 2: Pentwater to Manistee" aria-label="Play full size: Day 2: Pentwater to Manistee">
+              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-2.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
+              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
+            </button>
+              <figcaption>Day 2 · Manistee</figcaption>
+            </figure><figure class="sc-day">
+              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-3.mp4" data-aspect="9:16" data-title="Day 3: Manistee to Glen Arbor" aria-label="Play full size: Day 3: Manistee to Glen Arbor">
+              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-3.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
+              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
+            </button>
+              <figcaption>Day 3 · Glen Arbor</figcaption>
+            </figure><figure class="sc-day">
+              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-4.mp4" data-aspect="9:16" data-title="Day 4: Glen Arbor to Traverse City" aria-label="Play full size: Day 4: Glen Arbor to Traverse City">
+              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-4.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
+              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
+            </button>
+              <figcaption>Day 4 · Traverse City</figcaption>
+            </figure><figure class="sc-day">
+              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-5.mp4" data-aspect="9:16" data-title="Day 5: Traverse City to Charlevoix" aria-label="Play full size: Day 5: Traverse City to Charlevoix">
+              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-5.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
+              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
+            </button>
+              <figcaption>Day 5 · Charlevoix</figcaption>
+            </figure><figure class="sc-day">
+              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-6.mp4" data-aspect="9:16" data-title="Day 6: Charlevoix to Mackinaw City" aria-label="Play full size: Day 6: Charlevoix to Mackinaw City">
+              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-6.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
+              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
+            </button>
+              <figcaption>Day 6 · Mackinaw City</figcaption>
+            </figure></div>
+            <p class="sc-demo">Demo: the Lakeshore 330, a made-up ride</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sc-ch sc-sea" id="sc-cruise" aria-labelledby="sc-cruise-t">
+      <div class="wrap">
+        <div class="sc-head">
+          <div><p class="sc-kicker">04 · Cruises, ferries &amp; islands</p><h3 class="sc-title" id="sc-cruise-t">Seven nights of fjords and glaciers, port by port.</h3></div>
+          <p class="sc-lead">Sea days and ports of call on one map, with a card for each port. Made for a voyage page, an email or a travel show.</p>
+        </div>
+        <div class="sc-main">
+          <div class="sc-player" data-title="Alaska’s Inside Passage">
+            <video class="sc-video" muted playsinline loop preload="none" poster="media/showcase/cruise-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/cruise/wide.mp4" aria-label="Alaska’s Inside Passage"></video>
+            <div class="sc-controls">
+              <button type="button" class="sc-btn sc-toggle" aria-label="Pause video"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z"/><path class="i-play" d="M4 2.2L13.5 8 4 13.8z"/></svg></button>
+              <div class="sc-bar" aria-hidden="true"><i></i></div>
+              <span class="sc-time" aria-hidden="true">0:00</span>
+              <button type="button" class="sc-btn sc-full" data-aspect="16:9"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Full screen</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="sc-row">
+          <figure class="sc-shape sc-shape-tall">
+            <div class="sc-phone"><button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/cruise/vertical.mp4" data-aspect="9:16" data-title="Alaska’s Inside Passage, vertical" aria-label="Play full size: Alaska’s Inside Passage, vertical">
+              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/cruise/vertical.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
+              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
+            </button></div>
+            <figcaption>9:16 · Reels, TikTok, Stories</figcaption>
+          </figure>
+          <figure class="sc-shape sc-shape-sq">
+            <button type="button" class="sc-mini sc-mini-sq" data-full="https://media.iterramaps.com/site/showcase/cruise/square.mp4" data-aspect="1:1" data-title="Alaska’s Inside Passage, square" aria-label="Play full size: Alaska’s Inside Passage, square">
+              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/cruise/square.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
+              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
+            </button>
+            <figcaption>1:1 · Feeds and email</figcaption>
+          </figure>
+          <div class="sc-side">
+            <p class="sc-kicker">Ports and passages</p>
+            <ul class="sc-points"><li><span class="sc-num">1</span><span><strong>Every port of call,</strong> with the excursions you sell.</span></li><li><span class="sc-num">2</span><span><strong>Sea crossings drawn as sea crossings,</strong> not as roads.</span></li><li><span class="sc-num">3</span><span><strong>Widescreen, vertical and square,</strong> up to 4K, all included.</span></li></ul>
+            <a class="btn btn-primary" href="sample.html">Get a free sample of one of your tours</a>
+            <p class="sc-demo">Demo brand: Northwater Small Ship Cruises (made up)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sc-ch sc-ink sc-last" id="sc-rail" aria-labelledby="sc-rail-t">
+      <div class="wrap sc-split sc-split-rev">
+        <div class="sc-split-text">
+          <p class="sc-kicker">05 · Rail &amp; custom itineraries</p>
+          <h3 class="sc-title" id="sc-rail-t">Four famous trains, one journey.</h3>
+          <p class="sc-lead">Rail, flights, ferries and roads: whatever your clients travel on, the map follows it, in a look as polished as the trip.</p>
+          <p class="sc-meta">Zurich → Tirano · 8 days · the Glacier Express and the Bernina Express</p>
+          <p class="sc-demo">Demo brand: Alpine Line Rail Journeys (made up)</p>
+        </div>
+        <div class="sc-split-media"><div class="sc-player" data-title="Switzerland by rail">
+            <video class="sc-video" muted playsinline loop preload="none" poster="media/showcase/rail-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/rail/wide.mp4" aria-label="Switzerland by rail"></video>
+            <div class="sc-controls">
+              <button type="button" class="sc-btn sc-toggle" aria-label="Pause video"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z"/><path class="i-play" d="M4 2.2L13.5 8 4 13.8z"/></svg></button>
+              <div class="sc-bar" aria-hidden="true"><i></i></div>
+              <span class="sc-time" aria-hidden="true">0:00</span>
+              <button type="button" class="sc-btn sc-full" data-aspect="16:9"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Full screen</span></button>
+            </div>
+          </div></div>
+      </div>
+    </section>
+
+    <div class="wrap sc-more">
+      <div class="sc-more-head">
+        <h3>More journeys</h3>
+        <p>The brands in these examples are made up. Your sample comes in your own.</p>
+      </div>
+      <div class="reels reels-compact">
         <article class="reel" data-cat="road" data-video="https://media.iterramaps.com/site/showreel/connemara-day-tour_1280x720_30fps.mp4">
           <div class="reel-media">
             <img src="media/connemara-day-tour.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
@@ -182,7 +393,7 @@
           <div class="reel-body"><h3>Dublin to the Maldives</h3><p>A honeymoon in two flights, via Dubai.</p><ul class="tags"><li>Flights</li><li>Long haul</li></ul></div>
         </article>
       </div>
-      <p class="note"><span class="js-reel-hint">Hover over a reel to preview it, or click to watch it full size.</span> Want to see one of your own tours? <a href="sample.html">Ask for a free sample</a>.</p>
+      <p class="note"><span class="js-reel-hint">Click any journey to watch it full size.</span> Want to see one of your own tours? <a href="sample.html">Ask for a free sample</a>.</p>
     </div>
   </section>
 
