@@ -89,9 +89,6 @@ p { margin: 0; }
 @media (max-width: 520px) { .hero-visual { padding-bottom: 96px; } .phone { left: 0; width: 30%; } }
 
 /* who it's for */
-.band-white { background: var(--surface); border-block: 1px solid var(--line); }
-.for-list { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 32px; padding-block: 22px; font-size: 15px; font-weight: 500; color: var(--body); list-style: none; margin: 0; }
-.for-list li:first-child { font: 500 12px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 
 /* sections */
 .section { padding-block: clamp(64px, 9vw, 96px); }
@@ -318,14 +315,13 @@ legend { font-size: 14px; font-weight: 600; margin-bottom: 10px; padding: 0; }
 @media (max-width: 360px) { .site-header .brand-name { font-size: 19px; } }
 
 /* ---- showcase ---- */
-.for-list a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
-.for-list a:hover { color: var(--route-text); border-color: currentColor; }
-.showcase { padding-top: clamp(64px, 9vw, 96px); }
+.showcase { padding-top: clamp(64px, 9vw, 96px); background: var(--surface); border-top: 1px solid var(--line); } /* the showcase sits on white, a step up from the off-white hero */
+.showcase .reel { background: var(--ground); } /* "More journeys" cards: off-white on the white showcase */
 .sc-intro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px 48px; align-items: end; margin-top: 16px; }
 .sc-h2 { font: 800 clamp(44px, 6.4vw, 76px)/0.98 var(--display); letter-spacing: -.03em; }
 .sc-intro .lead { margin-bottom: 6px; }
 
-.sc-nav { position: sticky; top: 0; z-index: 15; margin-top: 40px; padding: 10px 0; background: color-mix(in srgb, var(--ground) 92%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-block: 1px solid var(--line); }
+.sc-nav { position: sticky; top: 0; z-index: 15; margin-top: 40px; padding: 10px 0; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-block: 1px solid var(--line); }
 .sc-nav-inner { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x proximity; }
 .sc-nav-inner::-webkit-scrollbar { display: none; }
 .sc-nav a { flex: none; scroll-snap-align: start; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #cbd3cf; background: var(--surface); text-decoration: none; font-size: 15px; font-weight: 500; white-space: nowrap; transition: background .2s ease, color .2s ease; }
