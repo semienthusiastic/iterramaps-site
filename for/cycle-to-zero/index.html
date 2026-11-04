@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- EDIT 1 of 2: the page title and link preview (what shows when the link is pasted into email, Slack or WhatsApp) -->
+<title>Your tour in motion: a sample for Cycle to Zero · Iterra Maps</title>
+<meta property="og:title" content="Your ride in motion: a sample for Cycle to Zero">
+<meta property="og:description" content="An animated route map of Cycle to Zero Day 1, from the Golden Gate Bridge to camp at Guerneville, made by Iterra Maps.">
+<meta property="og:image" content="https://iterramaps.com/for/cycle-to-zero/poster.jpg">
+<!-- keep this page out of Google -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0e1b24">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../sample-page.css">
+
+<!-- EDIT 2 of 2: everything else on the page comes from here -->
+<script>
+window.SAMPLE = {
+  company: "Cycle to Zero",                 // as you'd write it in an email
+  firstName: "David",                           // e.g. "Siobhán" for "Hi Siobhán," (leave "" for no greeting)
+  tour: "Cycle to Zero, Day 1",                       // e.g. "the Dingle Way, 8 days"
+  intro: "We’ve turned Day 1 of Cycle to Zero into a short animated route map: from Fort Baker under the Golden Gate Bridge, through Marin and Sonoma past the rest stops and lunch in Santa Rosa, to camp at Guerneville. It follows last year’s route, and we can update it once the 2027 routes are set.",
+  accent: "#FF0065",                       // the client's brand colour (used for small touches, not the buttons)
+  logo: "logo.png",                                // e.g. "logo.png" in this folder; "" shows the company name instead
+  media: "https://media.iterramaps.com/samples/cycle-to-zero/",  // where this prospect's videos are on R2
+
+  videos: [                                // file names in the R2 folder above; poster images stay in this folder
+    { src: "wide.mp4",     aspect: "16:9", label: "Widescreen, for your website, rider emails and YouTube", poster: "poster.jpg" },
+    { src: "vertical.mp4", aspect: "9:16", label: "Vertical, for Instagram and riders’ fundraising posts" },
+  ],
+
+  mode: "sale",                            // "feedback": asks for their opinion, no prices (feedback round)
+                                           // "sale": shows the offer below, the pricing link and "Email us about the full reel"
+  note: "",                                // feedback mode only
+  offer: "A day clip like this one is $79, or $69 each for five or more, and a video of the whole ride, all three days, is $179. For example, the whole ride plus five day clips (Days 1 to 3, the other Day 2 route and the 1-Day route) would be $524.",
+  from: "Patrick",                         // signs off the note: "— Patrick at Iterra Maps"
+  email: "hello@iterramaps.com",
+};
+</script>
+</head>
+<body>
+<noscript><p style="padding:24px">This page needs JavaScript to show the videos. You can email <a href="mailto:hello@iterramaps.com">hello@iterramaps.com</a> for a direct link.</p></noscript>
+<div id="sample-page"></div>
+<script src="../sample-page.js" defer></script>
+</body>
+</html>
