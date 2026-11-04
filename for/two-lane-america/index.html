@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- EDIT 1 of 2: the page title and link preview (what shows when the link is pasted into email, Slack or WhatsApp) -->
+<title>Your tour in motion: a sample for Two Lane America · Iterra Maps</title>
+<meta property="og:title" content="Your tour in motion: a sample for Two Lane America">
+<meta property="og:description" content="An animated route map of Route 66 from Chicago to St. Louis on the old road through Illinois, made by Iterra Maps.">
+<meta property="og:image" content="https://iterramaps.com/for/two-lane-america/poster.jpg">
+<!-- keep this page out of Google -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0e1b24">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../sample-page.css">
+
+<!-- EDIT 2 of 2: everything else on the page comes from here -->
+<script>
+window.SAMPLE = {
+  company: "Two Lane America",                 // as you'd write it in an email
+  firstName: "Austin",                           // e.g. "Siobhán" for "Hi Siobhán," (leave "" for no greeting)
+  tour: "Route 66: Chicago to St. Louis",                       // e.g. "the Dingle Way, 8 days"
+  intro: "We’ve animated the first stretch of Route 66, Chicago to St. Louis, on the old road through Illinois: off the interstate wherever the old alignment still runs, through Wilmington, Dwight, Pontiac, Springfield and Litchfield. Send us your own route and we’ll match it exactly, back roads and all.",
+  accent: "#E13A44",                       // the client's brand colour (used for small touches, not the buttons)
+  logo: "logo.png",                                // e.g. "logo.png" in this folder; "" shows the company name instead
+  media: "https://media.iterramaps.com/samples/two-lane-america/",  // where this prospect's videos are on R2
+
+  videos: [                                // file names in the R2 folder above; poster images stay in this folder
+    { src: "wide.mp4",     aspect: "16:9", label: "Widescreen, for your Route 66 tour page and YouTube", poster: "poster.jpg" },
+    { src: "vertical.mp4", aspect: "9:16", label: "Vertical, for Instagram and Facebook Reels" },
+  ],
+
+  mode: "sale",                            // "feedback": asks for their opinion, no prices (feedback round)
+                                           // "sale": shows the offer below, the pricing link and "Email us about the full reel"
+  note: "",                                // feedback mode only
+  offer: "A video of a whole tour is $179, or $159 each for five or more. Short clips of one day or one leg are $79, or $69 each for five or more: for example, your 13-day Route 66 tour as one video plus a clip for each day would be $1,076.",
+  from: "Patrick",                         // signs off the note: "— Patrick at Iterra Maps"
+  email: "hello@iterramaps.com",
+};
+</script>
+</head>
+<body>
+<noscript><p style="padding:24px">This page needs JavaScript to show the videos. You can email <a href="mailto:hello@iterramaps.com">hello@iterramaps.com</a> for a direct link.</p></noscript>
+<div id="sample-page"></div>
+<script src="../sample-page.js" defer></script>
+</body>
+</html>
