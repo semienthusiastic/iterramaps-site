@@ -63,7 +63,7 @@
     </header>
     <div class="pg-player">
       <figure class="rt-video">
-        <video controls playsinline preload="metadata" poster="../../media/showcase/cruise-wide.jpg" src="https://media.iterramaps.com/site/showcase/cruise/wide.mp4" aria-label="Animated route map: Alaska's Inside Passage"></video>
+        <video controls muted loop playsinline preload="metadata" data-autoplay poster="../../media/showcase/cruise-wide.jpg" src="https://media.iterramaps.com/site/showcase/cruise/wide.mp4" aria-label="Animated route map: Alaska's Inside Passage"></video>
         <figcaption>Widescreen 16:9, 1 minute 23 seconds. Northwater Small Ship Cruises is a made-up brand for this example.</figcaption>
       </figure>
       <ul class="pg-chips" aria-label="Jump to a moment in the video"><li class="pg-chips-t">Jump to</li><li><button type="button" class="pg-chip" data-at="0"><b>0:00</b>Title card</button></li><li><button type="button" class="pg-chip" data-at="25"><b>0:25</b>Port card: Ketchikan</button></li><li><button type="button" class="pg-chip" data-at="41"><b>0:41</b>Juneau</button></li><li><button type="button" class="pg-chip" data-at="62"><b>1:02</b>Glacier Bay</button></li><li><button type="button" class="pg-chip" data-at="80"><b>1:20</b>End card</button></li></ul>
@@ -86,8 +86,8 @@
             <h2 id="shapes-t">The same route, in every shape</h2>
             <p>One route gives you the full set: widescreen for the website, vertical for Reels and Stories, square for feeds, and a GIF that plays inside an email.</p>
           </div>
-          <figure class="rt-shape rt-shape-tall"><video controls muted playsinline loop preload="metadata" src="https://media.iterramaps.com/site/showcase/cruise/vertical.mp4#t=4" aria-label="Vertical version"></video><figcaption>Vertical 9:16</figcaption></figure>
-          <figure class="rt-shape rt-shape-sq"><video controls muted playsinline loop preload="metadata" src="https://media.iterramaps.com/site/showcase/cruise/square.mp4#t=4" aria-label="Square version"></video><figcaption>Square 1:1</figcaption></figure>
+          <figure class="rt-shape rt-shape-tall"><video controls muted playsinline loop preload="metadata" data-autoplay src="https://media.iterramaps.com/site/showcase/cruise/vertical.mp4#t=4" aria-label="Vertical version"></video><figcaption>Vertical 9:16</figcaption></figure>
+          <figure class="rt-shape rt-shape-sq"><video controls muted playsinline loop preload="metadata" data-autoplay src="https://media.iterramaps.com/site/showcase/cruise/square.mp4#t=4" aria-label="Square version"></video><figcaption>Square 1:1</figcaption></figure>
           <figure class="pg-gif"><img src="../../media/showcase/cruise.gif" alt="The route as a looping GIF" loading="lazy"><figcaption>GIF for email, 600 px</figcaption></figure>
         </div>
       </section>
@@ -189,6 +189,23 @@ document.querySelectorAll('[data-at]').forEach(b => b.addEventListener('click', 
     marks.forEach(m => { const b = m.getBoundingClientRect(); m.parentElement.classList.toggle('is-reached', atBottom || b.top + b.height / 2 <= line); }); };
   addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
   addEventListener('resize', update); update();
+})();
+// videos play by themselves, silently, while they are on screen (not with reduced motion or data saver on);
+// a video the visitor pauses stays paused, and the sound comes on only if they unmute it
+(function autoplay() {
+  const vids = [...document.querySelectorAll('video[data-autoplay]')];
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || navigator.connection?.saveData) return;
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting && e.intersectionRatio >= 0.25) { if (v.paused && !v._userPaused) { v._ours = true; v.muted = true; v.play().catch(() => { v._ours = false; }); } }
+    else if (!e.isIntersecting && !v.paused) { v._ours = true; v.pause(); } // off screen: pause
+  }), { threshold: [0, 0.25, 0.5] });
+  vids.forEach(v => {
+    v.addEventListener('pause', () => { if (v._ours) v._ours = false; else if (!v.ended) v._userPaused = true; });
+    v.addEventListener('play', () => { v._ours = false; v._userPaused = false; });
+    io.observe(v);
+  });
 })();
 </script>
 </body>
