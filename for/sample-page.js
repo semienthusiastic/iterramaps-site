@@ -73,7 +73,7 @@
     const file = `${slug(S.company) || "iterra"}-${slug(S.tour) || "sample"}-${String(v.aspect || "16:9").replace(":", "x")}.mp4`;
     return `<figure class="sp-video${tall ? " tall" : ""}" style="--r:${r.toFixed(4)}">
       <div class="sp-frame" style="aspect-ratio:${r.toFixed(4)}">
-        <video controls playsinline preload="metadata"${v.poster ? ` poster="${esc(v.poster)}"` : ""} src="${esc(v.src)}" aria-label="${esc(v.label || "Sample video")}"></video>
+        <video controls muted loop playsinline preload="metadata" data-autoplay${v.poster ? ` poster="${esc(v.poster)}"` : ""} src="${esc(v.src)}" aria-label="${esc(v.label || "Sample video")}"></video>
         <p class="sp-missing" hidden>This video is on its way.</p>
       </div>
       <figcaption><span>${esc(v.label || "")}</span>
@@ -129,14 +129,38 @@
       console.warn(`Sample page: couldn't load ${v.getAttribute("src")}`);
     });
     // only one video plays at a time
-    v.addEventListener("play", () => document.querySelectorAll(".sp-video video").forEach(o => { if (o !== v) o.pause(); }));
-    // Google Analytics event (only sent if the visitor accepted analytics cookies): which prospect watched which video
+    v.addEventListener("play", () => document.querySelectorAll(".sp-video video").forEach(o => { if (o !== v && !o.paused) { o._ours = true; o.pause(); } }));
+    // Google Analytics event (only sent if the visitor accepted analytics cookies): which prospect watched which video.
+    // A video starting by itself doesn't count; the visitor pressing play, unmuting or going full screen does.
     let played = false;
-    v.addEventListener("play", () => {
+    const watched = how => {
       if (played || typeof window.gtag !== "function") return; played = true;
-      window.gtag("event", "sample_video_play", { company: S.company, tour: S.tour, video: v.getAttribute("src") || "" });
-    });
+      window.gtag("event", "sample_video_play", { company: S.company, tour: S.tour, video: v.getAttribute("src") || "", how });
+    };
+    v.addEventListener("play", () => { if (!v._ours) watched("play"); });
+    v.addEventListener("volumechange", () => { if (!v.muted && v.volume > 0) watched("unmute"); });
+    v.addEventListener("fullscreenchange", () => { if (document.fullscreenElement === v) watched("fullscreen"); });
+    v.addEventListener("webkitbeginfullscreen", () => watched("fullscreen"));
   });
+
+  // The videos play by themselves, silently, while on screen (one at a time; not with reduced motion or data saver on).
+  // A video the visitor pauses stays paused.
+  (function autoplay() {
+    const vids = [...document.querySelectorAll(".sp-video video[data-autoplay]")];
+    if (!vids.length || !("IntersectionObserver" in window)) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || navigator.connection?.saveData) return;
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting && e.intersectionRatio >= 0.25) { if (v.paused && !v._userPaused && !vids.some(o => o !== v && !o.paused)) start(v); } // never takes over from a video already playing
+      else if (!e.isIntersecting && !v.paused) { v._ours = true; v.pause(); } // off screen: pause
+    }), { threshold: [0, 0.25, 0.5] });
+    const start = v => { v._ours = true; v.muted = true; v.play().catch(() => { v._ours = false; }); };
+    vids.forEach(v => {
+      v.addEventListener("pause", () => { if (v._ours) v._ours = false; else if (!v.ended) v._userPaused = true; });
+      v.addEventListener("play", () => setTimeout(() => { v._ours = false; v._userPaused = false; }, 0)); // after the play listeners above have looked
+      io.observe(v);
+    });
+  })();
 
   // Download buttons: browsers ignore "download" on links to another address (the videos are on media.iterramaps.com),
   // so fetch the file and save it from here instead. If that fails, open the video in a new tab.
