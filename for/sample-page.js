@@ -68,9 +68,11 @@
 
   // video files live on R2 (media.iterramaps.com); a plain file name is looked up in S.media
   const videoUrl = src => /^https?:\/\//.test(src) || !S.media ? src : S.media.replace(/\/?$/, "/") + src;
-  const videos = S.videos.filter(v => v && v.src).map(v => Object.assign({}, v, { src: videoUrl(v.src) })).map((v, i) => {
+  let vi = 0; // one running number for every video on the page
+  const videoList = list => (list || []).filter(v => v && v.src).map(v => Object.assign({}, v, { src: videoUrl(v.src) })).map(v => {
+    const i = vi++;
     const r = ratio(v.aspect), tall = r < 1;
-    const file = `${slug(S.company) || "iterra"}-${slug(S.tour) || "sample"}-${String(v.aspect || "16:9").replace(":", "x")}.mp4`;
+    const file = v.file || `${slug(S.company) || "iterra"}-${slug(S.tour) || "sample"}-${String(v.aspect || "16:9").replace(":", "x")}.mp4`;
     return `<figure class="sp-video${tall ? " tall" : ""}" style="--r:${r.toFixed(4)}">
       <div class="sp-frame" style="aspect-ratio:${r.toFixed(4)}">
         <video controls muted loop playsinline preload="metadata" data-autoplay${v.poster ? ` poster="${esc(v.poster)}"` : ""} src="${esc(v.src)}" aria-label="${esc(v.label || "Sample video")}"></video>
@@ -80,6 +82,14 @@
         <a class="sp-dl" href="${esc(v.src)}" download="${esc(file)}" data-i="${i}">${DL}<span>Download MP4</span></a></figcaption>
     </figure>`;
   }).join("");
+  const videos = videoList(S.videos);
+  // optional second row, e.g. an extra clip: more: { title: "…", text: "…", videos: [ … ] }
+  const moreVideos = S.more ? videoList(S.more.videos) : "";
+  const more = moreVideos ? `
+    <section class="sp-more-vids" aria-label="${esc(S.more.title || "More videos")}">
+      ${S.more.title ? `<h2>${esc(S.more.title)}</h2>` : ""}${S.more.text ? `<p>${esc(S.more.text)}</p>` : ""}
+      <div class="sp-videos">${moreVideos}</div>
+    </section>` : "";
 
   document.getElementById("sample-page").innerHTML = `
   <div class="sp-stripe" aria-hidden="true"></div>
@@ -96,7 +106,7 @@
       <p class="lead">${intro}</p>
     </section>
 
-    <section class="sp-videos" aria-label="Sample videos">${videos || '<p class="small">Videos coming soon.</p>'}</section>
+    <section class="sp-videos" aria-label="Sample videos">${videos || '<p class="small">Videos coming soon.</p>'}</section>${more}
 
     <section class="sp-next">
       <div class="sp-includes">

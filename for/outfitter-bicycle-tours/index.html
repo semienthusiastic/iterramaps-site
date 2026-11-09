@@ -21,7 +21,7 @@ window.SAMPLE = {
   company: "Outfitter Bicycle Tours",                 // as you'd write it in an email
   firstName: "Jamie",                           // e.g. "Siobhán" for "Hi Siobhán," (leave "" for no greeting)
   tour: "Best of Provence: Relaxed",                       // e.g. "the Dingle Way, 8 days"
-  intro: "We’ve turned your Provence 7-night relaxed tour into a short animated route map, ride by ride from your own Ride with GPS routes: from the Avignon TGV transfer to L’Isle-sur-la-Sorgue, Gordes and the Luberon loop, Bédoin under Mont Ventoux, Vaison-la-Romaine and the Montbrun out-and-back, and back again.",                               // optional: one or two sentences in your own words; "" uses the standard text
+  intro: "We’ve turned your Provence 7-night relaxed tour into a short animated route map, ride by ride from your own Ride with GPS routes: from the Avignon TGV transfer to L’Isle-sur-la-Sorgue, Gordes and the Luberon loop, Bédoin under Mont Ventoux (with the Ventoux option in red), Vaison-la-Romaine and the Montbrun out-and-back, and back again.",                               // optional: one or two sentences in your own words; "" uses the standard text
   accent: "#A8673C",                       // the client's brand colour (used for small touches, not the buttons)
   logo: "logo.svg",                                // e.g. "logo.png" in this folder; "" shows the company name instead
   media: "https://media.iterramaps.com/samples/outfitter-bicycle-tours/",  // where this prospect's videos are on R2
@@ -30,6 +30,11 @@ window.SAMPLE = {
     { src: "wide.mp4",     aspect: "16:9", label: "Widescreen, for your Provence landing page and YouTube", poster: "poster.jpg" },
     { src: "vertical.mp4", aspect: "9:16", label: "Vertical, for Instagram Reels and Stories" },
   ],
+  more: {                                  // the full-feature clip Jamie asked for
+    title: "Day 5, with everything switched on",
+    text: "Bédoin to Vaison-la-Romaine, with the Mont Ventoux option in red riding alongside the main route. Then we follow the riders up the mountain in 3D, with the elevation profile filling in as they climb.",
+    videos: [ { src: "day-5-ventoux.mp4", aspect: "16:9", label: "Full-feature clip: two ways to Vaison", file: "outfitter-bicycle-tours-day-5-mont-ventoux-16x9.mp4" } ],
+  },
 
   mode: "sale",                            // "feedback": asks for their opinion, no prices (feedback round)
                                            // "sale": shows the offer below, the pricing link and "Email us about the full reel"

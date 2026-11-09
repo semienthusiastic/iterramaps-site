@@ -44,3 +44,9 @@
 
 /* feedback mode */
 .sp-time { font-weight: 400; opacity: .85; }
+
+/* optional second row of videos (window.SAMPLE.more) */
+.sp-more-vids { margin-top: clamp(40px, 6vw, 64px); }
+.sp-more-vids h2 { margin: 0 0 6px; }
+.sp-more-vids > p { margin: 0 0 18px; max-width: 62ch; color: var(--muted); }
+.sp-more-vids .sp-videos { max-width: 900px; }
