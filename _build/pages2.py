@@ -1,6 +1,6 @@
 # The cycling events page, the four new showcase pages, and the pages carried over from the live site.
 from pages import *
-import core
+import core, html
 
 def shell_madefor(m, title, desc, main, faq):
     body = f'''  <div class="wrap">
@@ -251,7 +251,7 @@ def carry(path, cur, kind):
     main = re.sub(r'(<video[^>]*?) preload="metadata"([^>]*?) src="', r'\1 preload="none"\2 data-src="', main)
     main = re.sub(r'data-src="([^"#]+)#t=([\d.]+)"', r'data-thumb="\2" data-src="\1"', main)
     main = re.sub(r'data-src="' + re.escape(R2) + r'([a-z]+)/([a-z0-9-]+)\.mp4"', lambda m: f'data-src="{R2}{m.group(1)}/{m.group(2)}{".web" if m.group(1) in core.WEB_READY else ""}.mp4"', main)
-    page(path, title.replace('&amp;', '&'), desc.replace('&amp;', '&').replace('&#x27;', "'"), main, cur=cur, main_cls='rt pg', og=og, ld=lds + [bc])
+    page(path, html.unescape(title), html.unescape(desc), main, cur=cur, main_cls='rt pg', og=og, ld=lds + [bc])
 
 def carry_privacy():
     s = open(LEG + 'privacy.html').read()
