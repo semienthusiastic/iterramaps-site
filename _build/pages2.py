@@ -246,6 +246,9 @@ def carry(path, cur, kind):
     for g in re.findall(r'<figure class="pg-gif">.*?</figure>', main, re.S):
         src = re.search(r'src="/([^"]+)"', g).group(1)
         if not os.path.exists(OUT + src): main = main.replace(g, '').replace('rt-shapes pg-shapes4', 'rt-shapes', 1)
+    # the looks page: a still from each look as its poster
+    for k in ('wine', 'relief', 'vintage', 'midnight', 'relief-vertical'):
+        main = main.replace(f'src="{R2}looks/{k}.mp4', f'poster="/media/showcase/looks-{k}.jpg" src="{R2}looks/{k}.mp4')
     # the main film is marked so the "jump to" buttons find it; videos load only when needed
     main = main.replace('data-autoplay poster=', 'data-autoplay data-main poster=', 1)
     main = re.sub(r'(<video[^>]*?) preload="metadata"([^>]*?) src="', r'\1 preload="none"\2 data-src="', main)

@@ -29,10 +29,9 @@ def images():
         k = os.path.basename(f)[:-9]; im = Image.open(f)
         save(im.resize((1280, 720), Image.LANCZOS), OUT + f'media/showcase/{k}-wide.jpg')
         save(im.resize((640, 360), Image.LANCZOS), OUT + f'media/showcase/{k}-card.jpg', 72)
-    # stand-in posters for the vertical and square players, cut from the widescreen still (replace with real stills later)
-    im = Image.open(LEG + 'media/showcase/charity-wide.jpg'); w, h = im.size
-    save(im.crop(((w - h * 9 // 16) // 2, 0, (w + h * 9 // 16) // 2, h)).resize((540, 960), Image.LANCZOS), OUT + 'media/showcase/charity-vertical.jpg')
-    save(im.crop(((w - h) // 2, 0, (w + h) // 2, h)).resize((720, 720), Image.LANCZOS), OUT + 'media/showcase/charity-square.jpg')
+    # stills for the vertical, square and looks players, taken from the middle of each video
+    for f in glob.glob(LEG + 'media/showcase/*.jpg'):
+        if not f.endswith('-wide.jpg'): shutil.copy(f, OUT + 'media/showcase/')
     for f in glob.glob(LIVE + 'media/showcase/*.gif'): shutil.copy(f, OUT + 'media/showcase/')
     for k in ('going-to-the-sun-road', 'million-dollar-highway', 'miami-to-key-west', 'tour-du-mont-blanc', 'cyclades-island-hop', 'dublin-to-the-maldives'):
         save(Image.open(LEG + f'media/{k}.jpg').resize((640, 360), Image.LANCZOS), OUT + f'media/{k}-card.jpg', 72)
@@ -49,7 +48,7 @@ def assets():
         if 'munsterbus' not in f: s = s.replace('<html lang="en-IE">', '<html lang="en-US">')
         s = re.sub(r'\s*// sale mode only, e\.g\. "The full reel is €149[^\n]*', '   // sale mode only: the offer text', s)
         open(f, 'w').write(s)
-    s = open(OUT + 'feedback.html').read().replace('We’re asking a few tour operators for honest opinions before we launch.', 'We’re asking a few tour operators for their honest opinions.'); open(OUT + 'feedback.html', 'w').write(s)
+    s = us(open(OUT + 'feedback.html').read()).replace('We’re asking a few tour operators for honest opinions before we launch.', 'We’re asking a few tour operators for their honest opinions.'); open(OUT + 'feedback.html', 'w').write(s)
 
 def sitemap():
     urls = ''.join(f'  <url><loc>{BASE}/{p}</loc><lastmod>{TODAY}</lastmod></url>\n' for p, ix in PAGES if ix)

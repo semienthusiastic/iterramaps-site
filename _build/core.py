@@ -2,7 +2,7 @@
 import html, json, re, os, hashlib
 import os as _os
 HERE = _os.path.dirname(_os.path.abspath(__file__)) + '/'
-LIVE = _os.environ.get('SITE_LIVE', '/home/claude/site-live/')   # a copy of the site as it is on GitHub now: fonts, brand, /for/ pages and so on are taken from here
+LIVE = _os.environ.get('SITE_LIVE', '/home/claude/iterramaps-site/')   # a copy of the site as it is on GitHub now: fonts, brand, /for/ pages and so on are taken from here
 LEG = HERE + 'legacy/'                   # frozen inputs: the six page bodies written before this generator, the earlier styles, the original poster stills
 OUT = _os.environ.get('SITE_OUT', '/home/claude/site-new/')     # the site as built
 SRC = HERE + 'src/'
@@ -109,8 +109,15 @@ def footer():
   <video controls playsinline preload="none"></video>
 </dialog>
 '''
+# US spelling and terms on every public page (decided 13 Nov). Applied to the finished page, so earlier page bodies follow too.
+US = [(r'\bcolour', 'color'), (r'\bColour', 'Color'), (r'\bworking day', 'business day'), (r'\bWorking day', 'Business day'), (r'\borganis', 'organiz'), (r'\bOrganis', 'Organiz'),
+      (r'\bprogramme', 'program'), (r'\btravell', 'travel'), (r'\blicence', 'license'), (r'\benquir', 'inquir'), (r'\bWalking holidays\b', 'Walking tours'), (r'\bwalking holidays\b', 'walking tours'),
+      (r'\bWalking holiday\b', 'Walking tour'), (r'walking and cycling holidays', 'walking and cycling tours'), (r'\bfavourite', 'favorite'), (r'\bcentre\b', 'center'), (r'\bmetres\b', 'meters')]
+def us(doc):
+    for a, b in US: doc = re.sub(a, b, doc)
+    return doc
 PAGES = []   # (url path, indexed?) for the sitemap and the link check
-def page(path, title, desc, body, cur='', index=True, og=None, ld=(), main_cls='', preload_img=None, lang='en'):
+def page(path, title, desc, body, cur='', index=True, og=None, ld=(), main_cls='', preload_img=None, lang='en-US'):
     """Write one page inside the shared head, header and footer. path: '' for home, 'pricing/' or 'sample.html'."""
     url = f'{BASE}/{path}'
     og = og or '/og-image.png'
@@ -152,7 +159,7 @@ def page(path, title, desc, body, cur='', index=True, og=None, ld=(), main_cls='
 '''
     f = OUT + (path if path.endswith('.html') else path + 'index.html')
     os.makedirs(os.path.dirname(f), exist_ok=True)
-    open(f, 'w').write(doc)
+    open(f, 'w').write(us(doc))
     PAGES.append((path, index))
 
 def bc_ld(items):   # items: [(name, path)]
@@ -166,7 +173,7 @@ def crumbs(items, cls='rt-crumbs'):   # [(name, path or None)], last one is the 
         out.append(f'<span aria-current="page">{e(n)}</span>' if last else (f'<a href="/{u}">{e(n)}</a>' if u is not None else f'<span>{e(n)}</span>'))
     return f'<nav class="{cls}" aria-label="Breadcrumb">' + ' <span aria-hidden="true">›</span> '.join(out) + '</nav>'
 # Films whose small web copy (wide.web.mp4 and so on) is on R2: add the folder name here, e.g. {'napa', 'charity'}, and rebuild.
-WEB_READY = set()
+WEB_READY = {'charity', 'looks'}
 def video(src, label, poster_=None, aspect='wide', auto=False, main=False, thumb=None):
     if src.startswith(R2) and src[len(R2):].split('/')[0] in WEB_READY: src = src[:-4] + '.web.mp4'
     a = f' poster="{poster_}"' if poster_ else ''

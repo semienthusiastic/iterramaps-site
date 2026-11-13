@@ -117,6 +117,9 @@ const players = [];
     v.addEventListener("timeupdate", () => { if (v.duration) bar.style.width = `${(v.currentTime / v.duration * 100).toFixed(2)}%`; time.textContent = fmt(v.currentTime); });
     v.addEventListener("error", () => {
       if (!v._loaded) return;
+      // a small web copy that isn't on R2 yet: play the full-size original instead
+      const cur = srcOf(v);
+      if (/\.web\.mp4$/.test(cur)) { v.dataset.src = cur.replace(/\.web\.mp4$/, ".mp4"); v._loaded = false; const play = !v.paused || v._auto; load(v); if (play) v.play().catch(() => {}); return; }
       const shape = v.closest(".rt-shape"); if (shape) { shape.remove(); return; }   // a missing extra shape closes up
       box.classList.add(v.getAttribute("poster") ? "vp-novideo" : "vp-missing"); console.warn(`Video: couldn't load ${srcOf(v)}`);
     }, true);
@@ -213,7 +216,7 @@ $$(".js-form").forEach(form => {
     if (data.get("_gotcha")) return;   // a bot filled the hidden field
     data.delete("_gotcha");
     const who = (data.get("company") || "").trim();
-    const subject = (form.dataset.subject || "Website enquiry") + (who ? `: ${who}` : "");
+    const subject = (form.dataset.subject || "Website inquiry") + (who ? `: ${who}` : "");
     if (!FORM_ENDPOINT) {
       const lines = []; for (const [k, v] of data.entries()) if (v && typeof v === "string") lines.push(`${k.replace(/_/g, " ")}: ${v}`);
       location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
