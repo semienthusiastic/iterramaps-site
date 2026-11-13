@@ -1,403 +1,114 @@
 <!doctype html>
-<html lang="en-IE">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Iterra Maps — Animated route maps for tour operators</title>
-<meta name="description" content="Short animated map videos of your tours: the route draws itself along real roads, trails and ferry crossings, in your brand. For tour operators, walking and cycling holidays and events.">
+<title>Iterra Maps: animated route map videos for tour operators and events</title>
+<meta name="description" content="Short animated map videos of your tours and rides: the route draws itself along the real roads, day by day, in your brand. For cycling tours, events and charity rides, coach tours and more. Free sample of your own route.">
 <link rel="canonical" href="https://iterramaps.com/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preload" href="fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="/media/showcase/napa-wide.jpg" fetchpriority="high">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Iterra Maps — Your itineraries, in motion">
-<meta property="og:description" content="Animated route map videos for tour operators, walking and cycling holidays and events.">
+<meta property="og:site_name" content="Iterra Maps">
+<meta property="og:title" content="Iterra Maps: animated route map videos for tour operators and events">
+<meta property="og:description" content="Short animated map videos of your tours and rides: the route draws itself along the real roads, day by day, in your brand. For cycling tours, events and charity rides, coach tours and more. Free sample of your own route.">
 <meta property="og:url" content="https://iterramaps.com/">
 <meta property="og:image" content="https://iterramaps.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://iterramaps.com/og-image.png">
 <meta name="theme-color" content="#0e1b24">
-<link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Iterra Maps","url":"https://iterramaps.com/","email":"hello@iterramaps.com","description":"Animated route map videos for tour operators, travel agencies, walking and cycling holidays and events.","areaServed":["IE","GB","US"],"address":{"@type":"PostalAddress","addressLocality":"Dublin","addressCountry":"IE"}}
-</script>
+<link rel="stylesheet" href="/assets/site.css?v=49ef705c">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Iterra Maps", "url": "https://iterramaps.com/", "logo": "https://iterramaps.com/brand/iterra-mark-512.png", "image": "https://iterramaps.com/og-image.png", "email": "hello@iterramaps.com", "description": "Animated route map videos for tour operators, cycling events, walking and cycling holidays, coach tours, cruises and rail journeys.", "areaServed": ["US", "IE", "GB"], "priceRange": "$$", "address": {"@type": "PostalAddress", "addressLocality": "Dublin", "addressCountry": "IE"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Iterra Maps", "url": "https://iterramaps.com/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What do you need from us?", "acceptedAnswer": {"@type": "Answer", "text": "Just the route: a GPX or Ride with GPS file, a link, a PDF or a list of stops. For walking and cycling, a route file gives the most exact line; for waymarked trails we can usually find the official route ourselves. Send your logo (ideally a transparent PNG or an SVG), your brand colours and your deadline. If you’d like a photo on each stop’s card, send one per stop that you own or have the rights to use."}}, {"@type": "Question", "name": "How long does it take?", "acceptedAnswer": {"@type": "Answer", "text": "A free sample usually takes 2 to 3 working days. For a full video, you get a first version within 5 working days of sending the route, for up to five videos. For bigger orders we agree a schedule with you. Need it sooner? Ask, and we’ll tell you honestly whether we can."}}, {"@type": "Question", "name": "Can it match our brand?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Route colours, map style, font, panel colours, your logo and your own vehicle icons can all be set to match, and they’re saved as your house style for every future video."}}, {"@type": "Question", "name": "How do we put the video on our website?", "acceptedAnswer": {"@type": "Answer", "text": "You get MP4 files in widescreen, vertical and square. They upload to your website, YouTube, Instagram or an email tool like any other video. If someone else looks after your website, we’re happy to answer their questions."}}, {"@type": "Question", "name": "Can we keep our routes private?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You choose how much the line shows: the exact roads, a simplified line, or simple curves from town to town. The distances and timing stay true whichever you pick."}}, {"@type": "Question", "name": "Who owns the videos?", "acceptedAnswer": {"@type": "Answer", "text": "You can use them in your own marketing, on any channel, for as long as you like. The map data credit (© OpenStreetMap contributors) stays in the corner, as the map licence requires."}}, {"@type": "Question", "name": "Is there music or a voice-over?", "acceptedAnswer": {"@type": "Answer", "text": "Videos are delivered silent, so they autoplay anywhere, including on your website. You can add your own track if you want one."}}, {"@type": "Question", "name": "What if the route changes?", "acceptedAnswer": {"@type": "Answer", "text": "Send the new file. Your route and style are saved, so we remake the videos it affects at half their price."}}, {"@type": "Question", "name": "What is the small Iterra Maps mark?", "acceptedAnswer": {"@type": "Answer", "text": "Each video carries a small, semi-transparent Iterra Maps mark in one corner. If you’d rather have it without, a clean version is <span data-usd=\"$29\" data-eur=\"€29\">$29</span> per video."}}]}</script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="site-header">
+<header class="hd">
+  <a class="skip" href="#main">Skip to content</a>
   <div class="wrap">
-    <a class="brand" href="./" aria-label="Iterra Maps home">
-      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#0e1b24" stroke-width="3"/><ellipse cx="32" cy="32" rx="12" ry="27" fill="none" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M5 32H59" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M11 46C22 50 30 30 38 28C46 26 46 18 50 14" fill="none" stroke="#ff5a36" stroke-width="5.5" stroke-linecap="round"/><circle cx="11" cy="46" r="4.5" fill="#0e1b24"/><circle cx="50" cy="14" r="5.5" fill="#fff" stroke="#0e1b24" stroke-width="3.5"/></svg>
-      <span class="brand-name">Iterra <span>Maps</span></span>
-    </a>
-    <nav class="nav" aria-label="Main">
-      <a href="#showcase">Showcase</a>
-      <a href="#how">How it works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn btn-ink" href="sample.html"><span class="nav-cta-long">Get a free sample</span><span class="nav-cta-short">Free sample</span></a>
+    <a class="brand" href="/" aria-label="Iterra Maps home"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#0e1b24" stroke-width="3"/><ellipse cx="32" cy="32" rx="12" ry="27" fill="none" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M5 32H59" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M11 46C22 50 30 30 38 28C46 26 46 18 50 14" fill="none" stroke="#ff5a36" stroke-width="5.5" stroke-linecap="round"/><circle cx="11" cy="46" r="4.5" fill="#0e1b24"/><circle cx="50" cy="14" r="5.5" fill="#fff" stroke="#0e1b24" stroke-width="3.5"/></svg><span class="brand-name">Iterra <span>Maps</span></span></a>
+    <nav class="hd-nav" aria-label="Main">
+      <a href="/showcase/">Showcase</a>
+      <div class="hd-dd">
+        <button type="button" class="hd-dd-btn" aria-expanded="false" aria-controls="hd-who">Who it’s for <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="hd-dd-panel" id="hd-who" hidden><a href="/made-for/cycling-tours/"><b>Cycling tours</b><span>Every day of the tour, on the real roads</span></a><a href="/made-for/cycling-events/"><b>Cycling events and charity rides</b><span>A route reveal, daily clips and your sponsors on screen</span></a><a href="/made-for/motorcoach-tours/"><b>Motorcoach and group tours</b><span>Every overnight stop and sight, day by day</span></a><a class="hd-dd-all" href="/made-for/">All kinds of trip</a></div>
+      </div>
+      <a href="/how-it-works/">How it works</a>
+      <a href="/pricing/">Pricing</a>
     </nav>
-    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path class="nt-open" d="M3 5.5h14M3 10h14M3 14.5h14"/><path class="nt-close" d="M5 5l10 10M15 5L5 15"/></svg></button>
-    <div class="nav-panel" id="nav-panel" hidden>
-      <a href="#showcase">Showcase <span>5 journeys</span></a>
-      <a href="#how">How it works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn btn-primary" href="sample.html">Send an itinerary, get a free sample</a>
+    <div class="hd-right">
+      <a class="btn btn-primary hd-cta" href="/sample.html"><span class="long">Get a free sample</span><span class="short">Free sample</span></a>
+      <button type="button" class="hd-toggle" aria-expanded="false" aria-controls="hd-panel" aria-label="Open menu"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path class="bars" d="M3 5.5h14M3 10h14M3 14.5h14"/><path class="x" d="M5 5l10 10M15 5L5 15"/></svg></button>
+    </div>
+    <div class="hd-panel" id="hd-panel" hidden>
+      <a class="l1" href="/showcase/">Showcase</a>
+      <a class="l1" href="/made-for/">Who it’s for</a>
+      <a class="l2" href="/made-for/cycling-tours/">Cycling tours</a><a class="l2" href="/made-for/cycling-events/">Cycling events and charity rides</a><a class="l2" href="/made-for/motorcoach-tours/">Motorcoach and group tours</a>
+      <a class="l1" href="/how-it-works/">How it works</a>
+      <a class="l1" href="/pricing/">Pricing</a>
+      <a class="btn btn-primary" href="/sample.html">Get a free sample</a>
       <p><a href="mailto:hello@iterramaps.com">hello@iterramaps.com</a></p>
     </div>
   </div>
 </header>
-
 <main id="main">
-  <!-- HERO: a live, looping example of the product -->
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero2" aria-labelledby="hero-title">
     <div class="wrap">
-      <div class="hero-copy">
-        <p class="eyebrow">Animated route maps for travel brands</p>
-        <h1 id="hero-title">Your itineraries, in motion.</h1>
-        <p class="lead">We turn your tours into short animated map videos. The route draws itself along real roads, walking trails, ferry crossings and mountain passes, with your stops, your logo and your colours. Ready for your tour pages, Instagram, YouTube and email.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="sample.html">Send an itinerary — free sample</a>
-          <a class="btn btn-outline" href="#showcase"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg>See the showcase</a>
-        </div>
-        <p class="facts"><span>16:9 · 9:16 · 1:1 · up to 4K</span><span>First draft in 5 working days</span></p>
+      <div class="hero2-top">
+        <p class="eyebrow">Animated route map videos for tour operators and events</p>
+        <h1 id="hero-title">Show the route before they book.</h1>
       </div>
-
-      <div class="hero-visual">
-        <div class="player">
-          <svg id="demo" viewBox="0 0 720 405" role="img" aria-labelledby="demo-title">
-            <title id="demo-title">Example frame: a van travels the west coast of Ireland from Athlone through Galway and Clifden to Westport, with stop signs and a distance counter</title>
-            <rect width="720" height="405" fill="#cfe0e6"/>
-            <path d="M250 0H720V405H310C300 370 262 352 268 318C274 290 236 280 228 252C220 222 252 205 240 178C228 150 196 146 204 116C212 86 250 84 246 52C243 28 236 16 250 0Z" fill="#f7f5ef"/>
-            <path d="M150 170C170 160 190 172 184 190C178 206 150 206 144 192C140 182 142 174 150 170Z" fill="#f7f5ef"/>
-            <path d="M190 300C200 294 214 298 212 308C210 318 194 318 190 310Z" fill="#f7f5ef"/>
-            <g fill="none" stroke="#e6dfcf"><path d="M300 380C380 340 460 360 540 320C600 290 660 300 720 270" stroke-width="3"/><path d="M330 120C420 140 520 110 720 150" stroke-width="3"/><path d="M470 296C500 220 560 190 600 120C620 80 660 60 720 50" stroke-width="2"/></g>
-            <g fill="none" stroke-linecap="round">
-              <path id="leg-all" d="M612 338C560 330 520 300 470 296C420 292 390 262 352 250C318 240 300 214 312 188C324 160 300 132 318 104C334 80 372 74 392 52" stroke="#ff5a36" stroke-width="6" opacity=".22" stroke-dasharray="2 10"/>
-              <path id="trail-glow" d="M612 338C560 330 520 300 470 296C420 292 390 262 352 250C318 240 300 214 312 188C324 160 300 132 318 104C334 80 372 74 392 52" stroke="#fff" stroke-width="12" opacity=".8"/>
-              <path id="trail" d="M612 338C560 330 520 300 470 296C420 292 390 262 352 250C318 240 300 214 312 188C324 160 300 132 318 104C334 80 372 74 392 52" stroke="#ff5a36" stroke-width="6"/>
-            </g>
-            <g id="stops" stroke="#fff" stroke-width="3">
-              <circle cx="612" cy="338" r="7" fill="#ff5a36"/>
-              <circle cx="470" cy="296" r="7" fill="#fff" stroke="#ff5a36"/>
-              <circle cx="352" cy="250" r="7" fill="#fff" stroke="#ff5a36"/>
-              <circle cx="392" cy="52" r="7" fill="#fff" stroke="#ff5a36"/>
-            </g>
-            <g id="signs" font-family="IBM Plex Sans, sans-serif" font-weight="600" font-size="14" text-anchor="middle">
-              <g class="sign" data-at="0"><rect x="566" y="302" width="74" height="26" rx="5" fill="#0e1b24"/><text x="603" y="320" fill="#fff">Athlone</text></g>
-              <g class="sign" data-at="1"><rect x="436" y="258" width="68" height="26" rx="5" fill="#0e1b24"/><text x="470" y="276" fill="#fff">Galway</text></g>
-              <g class="sign" data-at="2"><rect x="364" y="252" width="66" height="26" rx="5" fill="#0e1b24"/><text x="397" y="270" fill="#fff">Clifden</text></g>
-              <g class="sign" data-at="3"><rect x="404" y="40" width="82" height="26" rx="5" fill="#0e1b24"/><text x="445" y="58" fill="#fff">Westport</text></g>
-            </g>
-            <g id="van" transform="translate(312 188)">
-              <circle r="22" fill="#fff" stroke="#ff5a36" stroke-width="3"/>
-              <g id="van-body" fill="none" stroke="#0e1b24" stroke-width="2" stroke-linejoin="round"><path d="M-14 4V-5Q-14-8-11-8H3Q6-8 8-4L12 0V4Z"/><circle cx="-8" cy="5" r="2.6" fill="#fff"/><circle cx="6" cy="5" r="2.6" fill="#fff"/></g>
-            </g>
-            <g font-family="IBM Plex Sans, sans-serif">
-              <rect x="20" y="20" width="132" height="58" rx="8" fill="#0e1b24" opacity=".92"/>
-              <text x="34" y="42" font-size="12" fill="#b9c6cc">Distance</text>
-              <text id="dist" x="34" y="66" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="24" fill="#fff">0 km</text>
-            </g>
-            <g id="leglabel" font-family="IBM Plex Sans, sans-serif">
-              <rect x="226" y="342" width="268" height="40" rx="20" fill="#0e1b24" opacity=".92"/>
-              <circle cx="250" cy="362" r="4.5" fill="#ff5a36"/>
-              <text id="legtext" x="366" y="368" font-weight="600" font-size="16" fill="#fff" text-anchor="middle">Athlone → Galway</text>
-            </g>
-            <g><rect x="640" y="20" width="60" height="60" rx="10" fill="#fff" opacity=".9"/><text x="670" y="55" font-family="IBM Plex Mono, monospace" font-size="10" fill="#4a5a63" text-anchor="middle">YOUR LOGO</text></g>
-          </svg>
-          <div class="progress" aria-hidden="true"><i id="progress"></i></div>
-        </div>
-        <div class="phone" aria-hidden="true">
-          <svg viewBox="0 0 180 320">
-            <rect width="180" height="320" fill="#1b2433"/>
-            <path d="M0 0H120C110 40 130 70 112 100C96 124 70 120 60 150H0Z" fill="#2a3650"/>
-            <path d="M180 180V320H40C52 290 30 262 60 240C90 220 120 236 130 206C138 186 160 184 180 180Z" fill="#2a3650"/>
-            <path d="M30 60C40 90 50 104 58 120" fill="none" stroke="#ff5a36" stroke-width="4" stroke-linecap="round"/>
-            <path class="ferry" d="M58 120C70 150 100 170 112 196" fill="none" stroke="#ff5a36" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 8"/>
-            <circle cx="30" cy="60" r="5" fill="#ff5a36" stroke="#fff" stroke-width="2"/>
-            <circle cx="96" cy="166" r="14" fill="#fff" stroke="#ff5a36" stroke-width="2.5"/>
-            <path d="M88 167H104L101 172H91ZM95 160V166M95 160L100 165" fill="none" stroke="#0e1b24" stroke-width="1.8" stroke-linejoin="round"/>
-            <rect x="34" y="276" width="112" height="24" rx="12" fill="#0e1b24"/>
-            <text x="90" y="292" font-family="IBM Plex Sans, sans-serif" font-weight="600" font-size="10" fill="#fff" text-anchor="middle">Dublin → Holyhead</text>
-          </svg>
-        </div>
+      <figure class="hero2-visual">
+        <div class="vp vp-wide"><video controls muted loop playsinline preload="none" data-autoplay poster="/media/showcase/napa-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/napa/wide.mp4" aria-label="Animated route map: five days by bike in Napa and Sonoma"></video></div>
+        <figcaption>Napa and Sonoma by bike, five days. The tour brand in the video is made up. <a href="/showcase/napa-and-sonoma-by-bike/">See what’s in this video</a></figcaption>
+      </figure>
+      <div class="hero2-rest">
+        <p class="lead">We turn your itinerary into a short animated map video. The route draws itself along the real roads, day by day, with your stops, your logo and your colours. Ready for your tour page, Reels and emails.</p>
+        <div class="cta-row"><a class="btn btn-primary" href="/sample.html">Get a free sample</a><a class="btn btn-outline" href="/showcase/">See the showcase</a></div>
+        <p class="promise">Send one tour link. We reply within one working day and send a 15-second sample in your colours, usually within 2 to 3 working days. No cost, no obligation.</p>
+        <p class="facts"><span>From <span data-usd="$179" data-eur="€169">$179</span> per route video</span><span>Widescreen, vertical and square</span><span>First version in 5 working days</span></p>
       </div>
     </div>
   </section>
 
-<!-- SHOWCASE: five chapters, one per kind of client. Videos are on Cloudflare R2 (media.iterramaps.com/site/showcase/<chapter>/…);
-       the big players' poster images are in media/showcase/ on GitHub. Each video loads as its chapter comes near and plays
-       silently while on screen; the smaller cuts open full size when clicked. The brands in the videos are made up. -->
-  <section class="showcase" id="showcase" aria-labelledby="sc-title">
-    <span id="showreel" aria-hidden="true"></span>
-    <div class="wrap sc-intro">
-      <p class="eyebrow">Showcase</p>
-      <div class="sc-intro-grid">
-        <h2 class="sc-h2" id="sc-title">Made for your kind of trip.</h2>
-        <p class="lead">Five journeys, each made for a different kind of travel business, in its own brand and in every shape. Find the one closest to yours.</p>
-      </div>
-    </div>
-    <nav class="sc-nav" aria-label="Showcase chapters">
-      <div class="sc-nav-inner">
-        <a href="#sc-coach" aria-current="true"><span>01</span>Coach &amp; escorted tours</a>
-        <a href="#sc-walking"><span>02</span>Walking &amp; cycling holidays</a>
-        <a href="#sc-events"><span>03</span>Cycling events</a>
-        <a href="#sc-cruise"><span>04</span>Cruises &amp; islands</a>
-        <a href="#sc-rail"><span>05</span>Rail &amp; custom trips</a>
-      </div>
-    </nav>
-
-    <section class="sc-ch sc-ink" id="sc-coach" aria-labelledby="sc-coach-t">
-      <div class="wrap">
-        <div class="sc-head">
-          <div><p class="sc-kicker">01 · Coach &amp; escorted tours</p><h3 class="sc-title" id="sc-coach-t">A week in the Rockies, in ninety seconds.</h3></div>
-          <p class="sc-lead">Every overnight town and highlight on the real highways, with a card for each day in your own words. It sits beside the itinerary on your tour page, and the vertical cut goes to social media.</p>
-        </div>
-        <div class="sc-main">
-          <div class="sc-player" data-title="The Canadian Rockies by coach">
-            <video class="sc-video" muted playsinline loop preload="none" poster="media/showcase/coach-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/coach/wide.mp4" aria-label="The Canadian Rockies by coach"></video>
-            <div class="sc-controls">
-              <button type="button" class="sc-btn sc-toggle" aria-label="Pause video"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z"/><path class="i-play" d="M4 2.2L13.5 8 4 13.8z"/></svg></button>
-              <div class="sc-bar" aria-hidden="true"><i></i></div>
-              <span class="sc-time" aria-hidden="true">0:00</span>
-              <button type="button" class="sc-btn sc-full" data-aspect="16:9"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Full screen</span></button>
-            </div>
-          </div>
-        </div>
-        <div class="sc-row">
-          <figure class="sc-shape sc-shape-tall">
-            <div class="sc-phone"><button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/coach/vertical.mp4" data-aspect="9:16" data-title="The Canadian Rockies by coach, vertical" aria-label="Play full size: The Canadian Rockies by coach, vertical">
-              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/coach/vertical.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
-              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
-            </button></div>
-            <figcaption>9:16 · Reels, TikTok, Stories</figcaption>
-          </figure>
-          <figure class="sc-shape sc-shape-sq">
-            <button type="button" class="sc-mini sc-mini-sq" data-full="https://media.iterramaps.com/site/showcase/coach/square.mp4" data-aspect="1:1" data-title="The Canadian Rockies by coach, square" aria-label="Play full size: The Canadian Rockies by coach, square">
-              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/coach/square.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
-              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
-            </button>
-            <figcaption>1:1 · Feeds and email</figcaption>
-          </figure>
-          <div class="sc-side">
-            <p class="sc-kicker">One route, every shape</p>
-            <ul class="sc-points"><li><span class="sc-num">1</span><span><strong>A card for each day,</strong> with the hotels, meals and highlights from your itinerary.</span></li><li><span class="sc-num">2</span><span><strong>Shaded mountains and a distance counter,</strong> so the scale of the trip lands at a glance.</span></li><li><span class="sc-num">3</span><span><strong>Widescreen, vertical and square,</strong> up to 4K, all included.</span></li></ul>
-            <a class="btn btn-primary" href="sample.html">Get a free sample of one of your tours</a>
-            <p class="sc-demo">Demo brand: Tamarack &amp; Pine Coachways (made up for this showcase)</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sc-ch sc-paper" id="sc-walking" aria-labelledby="sc-walking-t">
-      <div class="wrap sc-split">
-        <div class="sc-split-media"><div class="sc-player" data-title="Napa and Sonoma by bike">
-            <video class="sc-video" muted playsinline loop preload="none" poster="media/showcase/napa-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/napa/wide.mp4" aria-label="Napa and Sonoma by bike"></video>
-            <div class="sc-controls">
-              <button type="button" class="sc-btn sc-toggle" aria-label="Pause video"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z"/><path class="i-play" d="M4 2.2L13.5 8 4 13.8z"/></svg></button>
-              <div class="sc-bar" aria-hidden="true"><i></i></div>
-              <span class="sc-time" aria-hidden="true">0:00</span>
-              <button type="button" class="sc-btn sc-full" data-aspect="16:9"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Full screen</span></button>
-            </div>
-          </div></div>
-        <div class="sc-split-text">
-          <p class="sc-kicker">02 · Walking &amp; cycling holidays</p>
-          <h3 class="sc-title" id="sc-walking-t">Every day, every climb, on the real roads.</h3>
-          <p class="sc-lead">From your GPX files or the itinerary. Each overnight town gets its card, the optional climb shows in its own colour, and the big climb gets a 3D view with its elevation profile.</p>
-          <p class="sc-meta">Healdsburg → Sonoma · 5 days · about 108 mi</p>
-          <p class="sc-demo">Demo brand: Vine &amp; Valley Cycling Co. (made up)</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="sc-ch sc-white" id="sc-events" aria-labelledby="sc-events-t">
-      <div class="wrap">
-        <div class="sc-head">
-          <div><p class="sc-kicker">03 · Cycling events &amp; rides</p><h3 class="sc-title" id="sc-events-t">One video for the route reveal. One clip a day for the countdown.</h3></div>
-          <p class="sc-lead">Riders share them, sponsors get seen, and each day’s towns and roads are clear before anyone clips in.</p>
-        </div>
-        <div class="sc-events">
-          <div class="sc-events-main">
-            <div class="sc-player" data-title="The Lakeshore 330, the route video">
-            <video class="sc-video" muted playsinline loop preload="none" poster="media/showcase/events-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/events/wide.mp4" aria-label="The Lakeshore 330, the route video"></video>
-            <div class="sc-controls">
-              <button type="button" class="sc-btn sc-toggle" aria-label="Pause video"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z"/><path class="i-play" d="M4 2.2L13.5 8 4 13.8z"/></svg></button>
-              <div class="sc-bar" aria-hidden="true"><i></i></div>
-              <span class="sc-time" aria-hidden="true">0:00</span>
-              <button type="button" class="sc-btn sc-full" data-aspect="16:9"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Full screen</span></button>
-            </div>
-          </div>
-            <p class="sc-cap">The route video · 16:9</p>
-          </div>
-          <div class="sc-events-days">
-            <div class="sc-days"><figure class="sc-day">
-              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-1.mp4" data-aspect="9:16" data-title="Day 1: Grand Haven to Pentwater" aria-label="Play full size: Day 1: Grand Haven to Pentwater">
-              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-1.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
-              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
-            </button>
-              <figcaption>Day 1 · Pentwater</figcaption>
-            </figure><figure class="sc-day">
-              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-2.mp4" data-aspect="9:16" data-title="Day 2: Pentwater to Manistee" aria-label="Play full size: Day 2: Pentwater to Manistee">
-              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-2.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
-              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
-            </button>
-              <figcaption>Day 2 · Manistee</figcaption>
-            </figure><figure class="sc-day">
-              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-3.mp4" data-aspect="9:16" data-title="Day 3: Manistee to Glen Arbor" aria-label="Play full size: Day 3: Manistee to Glen Arbor">
-              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-3.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
-              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
-            </button>
-              <figcaption>Day 3 · Glen Arbor</figcaption>
-            </figure><figure class="sc-day">
-              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-4.mp4" data-aspect="9:16" data-title="Day 4: Glen Arbor to Traverse City" aria-label="Play full size: Day 4: Glen Arbor to Traverse City">
-              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-4.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
-              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
-            </button>
-              <figcaption>Day 4 · Traverse City</figcaption>
-            </figure><figure class="sc-day">
-              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-5.mp4" data-aspect="9:16" data-title="Day 5: Traverse City to Charlevoix" aria-label="Play full size: Day 5: Traverse City to Charlevoix">
-              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-5.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
-              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
-            </button>
-              <figcaption>Day 5 · Charlevoix</figcaption>
-            </figure><figure class="sc-day">
-              <button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/events/day-6.mp4" data-aspect="9:16" data-title="Day 6: Charlevoix to Mackinaw City" aria-label="Play full size: Day 6: Charlevoix to Mackinaw City">
-              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/events/day-6.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
-              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
-            </button>
-              <figcaption>Day 6 · Mackinaw City</figcaption>
-            </figure></div>
-            <p class="sc-demo">Demo: the Lakeshore 330, a made-up ride</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sc-ch sc-sea" id="sc-cruise" aria-labelledby="sc-cruise-t">
-      <div class="wrap">
-        <div class="sc-head">
-          <div><p class="sc-kicker">04 · Cruises, ferries &amp; islands</p><h3 class="sc-title" id="sc-cruise-t">Seven nights of fjords and glaciers, port by port.</h3></div>
-          <p class="sc-lead">Sea days and ports of call on one map, with a card for each port. Made for a voyage page, an email or a travel show.</p>
-        </div>
-        <div class="sc-main">
-          <div class="sc-player" data-title="Alaska’s Inside Passage">
-            <video class="sc-video" muted playsinline loop preload="none" poster="media/showcase/cruise-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/cruise/wide.mp4" aria-label="Alaska’s Inside Passage"></video>
-            <div class="sc-controls">
-              <button type="button" class="sc-btn sc-toggle" aria-label="Pause video"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z"/><path class="i-play" d="M4 2.2L13.5 8 4 13.8z"/></svg></button>
-              <div class="sc-bar" aria-hidden="true"><i></i></div>
-              <span class="sc-time" aria-hidden="true">0:00</span>
-              <button type="button" class="sc-btn sc-full" data-aspect="16:9"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Full screen</span></button>
-            </div>
-          </div>
-        </div>
-        <div class="sc-row">
-          <figure class="sc-shape sc-shape-tall">
-            <div class="sc-phone"><button type="button" class="sc-mini sc-mini-tall" data-full="https://media.iterramaps.com/site/showcase/cruise/vertical.mp4" data-aspect="9:16" data-title="Alaska’s Inside Passage, vertical" aria-label="Play full size: Alaska’s Inside Passage, vertical">
-              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/cruise/vertical.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
-              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
-            </button></div>
-            <figcaption>9:16 · Reels, TikTok, Stories</figcaption>
-          </figure>
-          <figure class="sc-shape sc-shape-sq">
-            <button type="button" class="sc-mini sc-mini-sq" data-full="https://media.iterramaps.com/site/showcase/cruise/square.mp4" data-aspect="1:1" data-title="Alaska’s Inside Passage, square" aria-label="Play full size: Alaska’s Inside Passage, square">
-              <video class="sc-video" muted playsinline loop preload="none" data-src="https://media.iterramaps.com/site/showcase/cruise/square.mp4" data-thumb="3" aria-hidden="true" tabindex="-1"></video>
-              <span class="sc-mini-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.5L12 7 3 12.5z" fill="currentColor"/></svg></span>
-            </button>
-            <figcaption>1:1 · Feeds and email</figcaption>
-          </figure>
-          <div class="sc-side">
-            <p class="sc-kicker">Ports and passages</p>
-            <ul class="sc-points"><li><span class="sc-num">1</span><span><strong>Every port of call,</strong> with the excursions you sell.</span></li><li><span class="sc-num">2</span><span><strong>Sea crossings drawn as sea crossings,</strong> not as roads.</span></li><li><span class="sc-num">3</span><span><strong>Widescreen, vertical and square,</strong> up to 4K, all included.</span></li></ul>
-            <a class="btn btn-primary" href="sample.html">Get a free sample of one of your tours</a>
-            <p class="sc-demo">Demo brand: Northwater Small Ship Cruises (made up)</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sc-ch sc-ink sc-last" id="sc-rail" aria-labelledby="sc-rail-t">
-      <div class="wrap sc-split sc-split-rev">
-        <div class="sc-split-text">
-          <p class="sc-kicker">05 · Rail &amp; custom itineraries</p>
-          <h3 class="sc-title" id="sc-rail-t">Four famous trains, one journey.</h3>
-          <p class="sc-lead">Rail, flights, ferries and roads: whatever your clients travel on, the map follows it, in a look as polished as the trip.</p>
-          <p class="sc-meta">Zurich → Tirano · 8 days · the Glacier Express and the Bernina Express</p>
-          <p class="sc-demo">Demo brand: Alpine Line Rail Journeys (made up)</p>
-        </div>
-        <div class="sc-split-media"><div class="sc-player" data-title="Switzerland by rail">
-            <video class="sc-video" muted playsinline loop preload="none" poster="media/showcase/rail-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/rail/wide.mp4" aria-label="Switzerland by rail"></video>
-            <div class="sc-controls">
-              <button type="button" class="sc-btn sc-toggle" aria-label="Pause video"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-pause" d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z"/><path class="i-play" d="M4 2.2L13.5 8 4 13.8z"/></svg></button>
-              <div class="sc-bar" aria-hidden="true"><i></i></div>
-              <span class="sc-time" aria-hidden="true">0:00</span>
-              <button type="button" class="sc-btn sc-full" data-aspect="16:9"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Full screen</span></button>
-            </div>
-          </div></div>
-      </div>
-    </section>
-
-    <div class="wrap sc-more">
-      <div class="sc-more-head">
-        <h3>More journeys</h3>
-        <p>The brands in these examples are made up. Your sample comes in your own.</p>
-      </div>
-      <div class="reels reels-compact">
-        <article class="reel" data-cat="road" data-video="https://media.iterramaps.com/site/showreel/going-to-the-sun-road_1280x720_30fps.mp4">
-          <div class="reel-media">
-            <img src="media/going-to-the-sun-road.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
-            <span class="reel-len">0:28</span>
-          </div>
-          <div class="reel-body"><h3>Going-to-the-Sun Road</h3><p>Lake McDonald up to Logan Pass in Glacier National Park, in 3D with the climb.</p><ul class="tags"><li>Scenic drive</li><li>3D terrain</li></ul></div>
-        </article>
-        <article class="reel" data-cat="active" data-video="https://media.iterramaps.com/site/showreel/tour-du-mont-blanc-the-first-two-days_1280x720_30fps.mp4">
-          <div class="reel-media">
-            <img src="media/tour-du-mont-blanc.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
-            <span class="reel-len">0:23</span>
-          </div>
-          <div class="reel-body"><h3>Tour du Mont Blanc, days 1–2</h3><p>The real trail from Les Houches to Les Chapieux, in 3D with the climb.</p><ul class="tags"><li>Walking</li><li>3D terrain</li><li>GPX</li></ul></div>
-        </article>
-        <article class="reel" data-cat="road" data-video="https://media.iterramaps.com/site/showreel/the-million-dollar-highway_1280x720_30fps.mp4">
-          <div class="reel-media">
-            <img src="media/million-dollar-highway.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
-            <span class="reel-len">0:28</span>
-          </div>
-          <div class="reel-body"><h3>The Million Dollar Highway</h3><p>Ouray over Red Mountain Pass to Silverton on US 550, following the car.</p><ul class="tags"><li>Road trip</li><li>Chase camera</li></ul></div>
-        </article>
-        <article class="reel" data-cat="road sea" data-aspect="9:16" data-video="https://media.iterramaps.com/site/showreel/miami-to-key-west_720x1280_30fps.mp4">
-          <div class="reel-media">
-            <img src="media/miami-to-key-west.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
-            <span class="reel-len">0:25</span>
-          </div>
-          <div class="reel-body"><h3>Miami to Key West</h3><p>The Overseas Highway, island to island. Made for Reels.</p><ul class="tags"><li>Road trip</li><li>Vertical 9:16</li></ul></div>
-        </article>
-        <article class="reel" data-cat="sea" data-video="https://media.iterramaps.com/site/showreel/cyclades-island-hop_1280x720_30fps.mp4">
-          <div class="reel-media">
-            <img src="media/cyclades-island-hop.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
-            <span class="reel-len">0:23</span>
-          </div>
-          <div class="reel-body"><h3>Cyclades island hop</h3><p>Mykonos to Naxos to Santorini by ferry, on a night-time map.</p><ul class="tags"><li>Islands &amp; sea</li><li>Night map</li></ul></div>
-        </article>
-        <article class="reel" data-cat="air" data-video="https://media.iterramaps.com/site/showreel/honeymoon-dublin-to-the-maldives_1280x720_30fps.mp4">
-          <div class="reel-media">
-            <img src="media/dublin-to-the-maldives.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
-            <span class="reel-len">0:16</span>
-          </div>
-          <div class="reel-body"><h3>Dublin to the Maldives</h3><p>A honeymoon in two flights, via Dubai.</p><ul class="tags"><li>Flights</li><li>Long haul</li></ul></div>
-        </article>
-      </div>
-      <p class="note"><span class="js-reel-hint">Click any journey to watch it full size.</span> Want to see one of your own tours? <a href="sample.html">Ask for a free sample</a>.</p>
+  <section class="section" style="padding-top:0" aria-labelledby="who-title">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Who it’s for</p><h2 class="h2" id="who-title">Made for the way your trips run.</h2></div>
+      <ul class="aud aud-compact"><li><a class="card-link" href="/made-for/cycling-tours/"><div class="ph"><img src="/media/showcase/napa-card.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div><div class="bd"><p class="k">Cycling tours</p><h3>Show riders every day of the tour</h3><p>The real roads, the climbs, the longer option and the van transfers, with a card for each overnight town.</p><span class="go">For cycling tour operators</span></div></a></li><li><a class="card-link" href="/made-for/cycling-events/"><div class="ph"><img src="/media/showcase/charity-card.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div><div class="bd"><p class="k">Cycling events and charity rides</p><h3>A route reveal, then a clip for each day</h3><p>Rest stops, lunch stops and the overnight on the map, with your sponsors on screen from start to finish.</p><span class="go">For ride organisers</span></div></a></li><li><a class="card-link" href="/made-for/motorcoach-tours/"><div class="ph"><img src="/media/showcase/coach-card.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div><div class="bd"><p class="k">Motorcoach and group tours</p><h3>The whole tour, the way passengers travel it</h3><p>Every overnight stop, hotel and sight on the real highways, day by day.</p><span class="go">For coach tour companies</span></div></a></li></ul>
+      <p class="aud-also">Also made for <a href="/showcase/camino-sarria-to-santiago/">walking holidays</a>, <a href="/showcase/alaska-inside-passage/">cruises</a> and <a href="/showcase/switzerland-by-rail/">rail journeys</a>. <a href="/made-for/">See every kind of trip</a>.</p>
     </div>
   </section>
 
-  <dialog class="reel-player" id="reel-player" aria-labelledby="reel-player-title">
-    <div class="reel-player-head">
-      <h2 id="reel-player-title">Showreel</h2>
-      <button class="reel-player-close" type="button" aria-label="Close video"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+  <section class="sc-ch sc-ink" aria-labelledby="shape-t">
+    <div class="wrap">
+      <div class="sc-head">
+        <div><p class="sc-kicker">One route, every shape</p><h2 class="sc-title" id="shape-t">One video for your website. The same route for Reels and email.</h2></div>
+        <p class="sc-lead">Every order comes in widescreen, vertical and square, up to 4K. This one is a two-day charity ride in the Texas Hill Country: 129 miles, with every rest stop and the ride’s sponsors on screen.</p>
+      </div>
+      <div class="shapes3">
+        <figure class="s-wide"><div class="vp vp-wide"><video controls muted loop playsinline preload="none" data-autoplay poster="/media/showcase/charity-wide.jpg" data-src="https://media.iterramaps.com/site/showcase/charity/wide.mp4" aria-label="A two-day charity ride in the Texas Hill Country"></video></div><figcaption>16:9 · Website and YouTube</figcaption></figure>
+        <figure class="s-tall"><div class="vp vp-tall"><video controls muted loop playsinline preload="none" poster="/media/showcase/charity-vertical.jpg" data-src="https://media.iterramaps.com/site/showcase/charity/vertical.mp4" aria-label="The charity ride, vertical version"></video></div><figcaption>9:16 · Reels, Stories</figcaption></figure>
+        <figure class="s-sq"><div class="vp vp-sq"><video controls muted loop playsinline preload="none" poster="/media/showcase/charity-square.jpg" data-src="https://media.iterramaps.com/site/showcase/charity/square.mp4" aria-label="The charity ride, square version"></video></div><figcaption>1:1 · Feeds and email</figcaption></figure>
+      </div>
+      <div class="shapes3-foot">
+        <ul class="sc-points"><li><span class="sc-num">1</span><span><strong>A card for every stop,</strong> with its mile marker and what’s there.</span></li><li><span class="sc-num">2</span><span><strong>The climbing, mile by mile,</strong> on a profile that fills as the riders go.</span></li><li><span class="sc-num">3</span><span><strong>Sponsors in the corner and on the end card,</strong> each on a white tile so any logo reads.</span></li></ul>
+        <div class="row"><a class="btn btn-primary" href="/showcase/texas-hill-country-charity-ride/">See everything in this video</a><p class="sc-demo">The Cedar Hills Children’s Ride and its sponsors are made up for this example.</p></div>
+      </div>
     </div>
-    <video controls playsinline preload="none"></video>
-  </dialog>
+  </section>
+
+  <section class="section" aria-labelledby="sc-title">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Showcase</p><h2 class="h2" id="sc-title">See it on your kind of trip.</h2><p class="lead">Eight films, each made for a different kind of travel business. The brands in them are made up. Your sample comes in your own.</p></div>
+      <ul class="cards cards-compact"><li data-kind="cycling"><a class="card-link" href="/showcase/napa-and-sonoma-by-bike/"><div class="ph"><img src="/media/showcase/napa-card.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"><span class="len">1:58</span></div><div class="bd"><p class="k">Cycling tour</p><h3>Napa and Sonoma by bike</h3><p>Five days from Healdsburg to Sonoma on the real roads, with the Oakville Grade climbed in 3D.</p></div></a></li><li data-kind="events"><a class="card-link" href="/showcase/texas-hill-country-charity-ride/"><div class="ph"><img src="/media/showcase/charity-card.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"><span class="len">1:30</span></div><div class="bd"><p class="k">Charity ride</p><h3>A charity ride in the Texas Hill Country</h3><p>Every rest stop, lunch stop and the overnight, with the sponsors on screen from start to finish.</p></div></a></li><li data-kind="events"><a class="card-link" href="/showcase/lakeshore-330/"><div class="ph"><img src="/media/showcase/events-card.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"><span class="len">1:14</span></div><div class="bd"><p class="k">Multi-day ride</p><h3>The Lakeshore 330</h3><p>One video for the route reveal, and a 12-second clip for each of the six days.</p></div></a></li><li data-kind="coach"><a class="card-link" href="/showcase/canadian-rockies-by-coach/"><div class="ph"><img src="/media/showcase/coach-card.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"><span class="len">1:25</span></div><div class="bd"><p class="k">Coach tour</p><h3>The Canadian Rockies by coach</h3><p>Banff, Lake Louise, the Icefields Parkway and Jasper, with a card for each day.</p></div></a></li><li data-kind="cruise"><a class="card-link" href="/showcase/alaska-inside-passage/"><div class="ph"><img src="/media/showcase/cruise-card.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"><span class="len">1:23</span></div><div class="bd"><p class="k">Small-ship cruise</p><h3>Alaska&#x27;s Inside Passage by small ship</h3><p>Sea days and ports of call on one map, with a card for each port.</p></div></a></li><li data-kind="rail"><a class="card-link" href="/showcase/switzerland-by-rail/"><div class="ph"><img src="/media/showcase/rail-card.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"><span class="len">1:25</span></div><div class="bd"><p class="k">Rail journey</p><h3>Switzerland by rail</h3><p>Four famous trains in one journey, including the Glacier Express and the Bernina Express.</p></div></a></li><li data-kind="walking"><a class="card-link" href="/showcase/camino-sarria-to-santiago/"><div class="ph"><img src="/media/showcase/walking-card.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"><span class="len">1:23</span></div><div class="bd"><p class="k">Walking holiday</p><h3>The Camino, Sarria to Santiago</h3><p>The last five stages of the Camino Francés on foot, stage by stage.</p></div></a></li><li data-kind="looks"><a class="card-link" href="/showcase/one-route-many-looks/"><div class="ph"><img src="/media/showcase/napa-card.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"><span class="len">0:30</span></div><div class="bd"><p class="k">Looks</p><h3>One route, four looks</h3><p>The same bike tour made four ways, to show how far the look can change.</p></div></a></li></ul>
+      <p style="margin-top:28px"><a class="more-link" href="/showcase/">Open the showcase</a></p>
+    </div>
+  </section>
 
   <section class="section" style="padding-top:0" aria-labelledby="diff-title">
     <div class="wrap">
@@ -416,85 +127,47 @@
   <section class="band-ink" id="how" aria-labelledby="how-title">
     <div class="wrap section">
       <p class="eyebrow plain">How it works</p>
-      <h2 class="h2" id="how-title" style="margin-top:10px">From your route to finished video in five steps.</h2>
-      <ol class="steps">
+      <h2 class="h2" id="how-title" style="margin-top:10px">From your route to finished video in four steps.</h2>
+      <ol class="steps steps4">
         <li><h3>You send the route</h3><p>A GPX or Ride with GPS file, a link to the tour page, or just a list of stops, with your logo and deadline.</p></li>
         <li><h3>We build it</h3><p>A first version within 5 working days, on the real roads and trails, in your colours.</p></li>
         <li><h3>You review</h3><p>Ask for changes to timing, labels, colours or the camera. One round is included.</p></li>
         <li><h3>We deliver</h3><p>MP4s in widescreen, vertical and square, up to 4K, ready to post anywhere.</p></li>
-        <li><h3>Route changed?</h3><p>Send the new file and we remake the videos it affects, at half price.</p></li>
       </ol>
-      <div class="need">
-        <h3>What we need from you</h3>
-        <ul>
-          <li>The route: a GPX or Ride with GPS file, a tour page link, or a list of stops in order</li>
-          <li>Your logo, ideally a PNG with a transparent background or an SVG</li>
-          <li>Your brand colours, or we can take them from your website</li>
-          <li>The date you need the videos by</li>
-          <li>Anything you’d like on each stop’s card: nights, distances, climbing, highlights</li>
-          <li>Optional: one photo per stop, that you own or have the rights to use</li>
-        </ul>
-      </div>
+      <p style="margin-top:36px"><a class="more-link" href="/how-it-works/">What we need from you, and what you get</a></p>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="ch-title">
-    <div class="wrap channels">
-      <div><h2 class="h2" id="ch-title">One tour, every channel.</h2><p class="lead">Each order comes in the shapes you need, so the same journey works at the top of a tour page, in a Reel and in a newsletter.</p></div>
-      <ul class="channel-grid">
-        <li><b>16:9</b>Tour pages &amp; YouTube</li>
-        <li><b>9:16</b>Reels, TikTok &amp; Shorts</li>
-        <li><b>1:1</b>Feed posts &amp; ads</li>
-        <li><b>Poster frame</b>Brochures &amp; email</li>
-        <li><b>Loop</b>Trade-fair stands &amp; screens</li>
-        <li><b>Pre-departure</b>“Here’s your trip” emails</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section" id="pricing" style="padding-top:0" aria-labelledby="price-title">
+  <section class="section" id="pricing" aria-labelledby="price-title">
     <div class="wrap">
-      <p class="eyebrow plain">Pricing</p>
-      <h2 class="h2" id="price-title" style="margin-top:10px">Simple pricing, per video.</h2>
+      <div class="price-head">
+        <div><p class="eyebrow plain">Pricing</p><h2 class="h2" id="price-title" style="margin-top:10px">Simple pricing, per video.</h2></div>
+        <div class="cur-switch" role="group" aria-label="Show prices in"><button type="button" class="js-cur" data-cur="usd" aria-pressed="true">$ USD</button><button type="button" class="js-cur" data-cur="eur" aria-pressed="false">€ EUR</button></div>
+      </div>
       <p class="lead" style="margin-top:12px">You pay per video. Every video comes in widescreen, vertical and square, up to 4K, in your logo and colours.</p>
       <div class="plans">
         <div class="plan">
           <h3>One video</h3>
           <p class="price"><b><span data-usd="$179" data-eur="€169">$179</span></b><span>per route video</span></p>
           <ul><li>The whole route, up to 90 seconds</li><li>Up to 12 stops</li><li>Widescreen, vertical and square, up to 4K</li><li>One round of changes</li><li>First version within 5 working days</li></ul>
-          <a class="btn btn-outline" href="sample.html">Start with a free sample</a>
+          <a class="btn btn-outline" href="/sample.html">Start with a free sample</a>
         </div>
         <div class="plan featured">
-          <span class="badge">Approx. 10% off</span>
+          <span class="badge"><span data-usd="Save $20 a video" data-eur="Save €20 a video">Save $20 a video</span></span>
           <h3>5 or more</h3>
           <p class="price"><b><span data-usd="$159" data-eur="€149">$159</span></b><span>per video</span></p>
           <ul><li>For a set of tours, or an event’s route and daily clips</li><li>Everything in one video, for each of them</li><li>All in one matching style</li><li>Seven videos? <span data-usd="7 × $159 = $1,113" data-eur="7 × €149 = €1,043">7 × $159 = $1,113</span></li></ul>
-          <a class="btn btn-light" href="#contact">Talk to us</a>
+          <a class="btn btn-light" href="mailto:hello@iterramaps.com?subject=Quote%20for%20a%20set%20of%20route%20videos">Email us for a quote</a>
         </div>
         <div class="plan">
-          <span class="badge">Approx. 20% off</span>
+          <span class="badge"><span data-usd="Save $40 a video" data-eur="Save €40 a video">Save $40 a video</span></span>
           <h3>20 or more</h3>
           <p class="price"><b><span data-usd="$139" data-eur="€129">$139</span></b><span>per video</span></p>
           <ul><li>For a whole brochure or programme</li><li>Everything in one video, for each of them</li><li>All in one matching style</li><li>If 20 would cost less than your order, we make you 20 for that price</li></ul>
-          <a class="btn btn-outline" href="#contact">Talk to us</a>
+          <a class="btn btn-outline" href="mailto:hello@iterramaps.com?subject=Quote%20for%20a%20set%20of%20route%20videos">Email us for a quote</a>
         </div>
       </div>
-      <div class="extras">
-        <h3 class="plans-head">Short clips and extras</h3>
-        <table>
-          <tr><th scope="row">Short clip: one day or one leg, up to 20 seconds</th><td><ul class="tiers"><li><b><span data-usd="$79" data-eur="€79">$79</span></b> per clip</li><li><b><span data-usd="$69" data-eur="€69">$69</span></b> per clip when you order 5 or more (approx. 10% off)</li><li><b><span data-usd="$59" data-eur="€59">$59</span></b> per clip when you order 20 or more (approx. 20% off)</li></ul><span class="eg">For example, a clip for each day of a 7-day event: <span style="white-space:nowrap"><span data-usd="7 × $69 = $483" data-eur="7 × €69 = €483">7 × $69 = $483</span></span>.</span></td></tr>
-          <tr><th scope="row">Extra stops, over 12 on a route</th><td>+<span data-usd="$19" data-eur="€19">$19</span> per stop</td></tr>
-          <tr><th scope="row">Longer than 90 seconds</th><td>+<span data-usd="$69" data-eur="€69">$69</span> per extra minute</td></tr>
-          <tr><th scope="row">Clean version, without the small Iterra Maps mark</th><td>+<span data-usd="$29" data-eur="€29">$29</span> per video</td></tr>
-          <tr><th scope="row">Route changed after delivery</th><td>Half the video’s price to remake it</td></tr>
-        </table>
-      </div>
-      <div class="cur-row">
-        <p class="small"><span data-usd="Prices in US dollars." data-eur="Prices in euro.">Prices in US dollars.</span> You can use the videos in your own marketing on any channel.</p>
-        <div class="cur-switch" role="group" aria-label="Show prices in">
-          <button type="button" class="js-cur" data-cur="usd" aria-pressed="true">$ USD</button><button type="button" class="js-cur" data-cur="eur" aria-pressed="false">€ EUR</button>
-        </div>
-      </div>
+      <p style="margin-top:28px"><a class="more-link" href="/pricing/">Short clips, extras and what’s included</a></p>
     </div>
   </section>
 
@@ -502,15 +175,16 @@
     <div class="wrap">
       <div class="copy">
         <h2 id="free-title">Send one itinerary. Get a sample free.</h2>
-        <p>Paste a link to any tour on your site and we’ll send back a 15-second animated sample. No cost, no obligation.</p>
+        <p>Paste a link to any tour on your site. We reply within one working day and send a 15-second sample in your colours, usually within 2 to 3 working days. No cost, no obligation.</p>
       </div>
       <form class="form js-form" novalidate data-subject="Free sample request (home page)">
-        <label class="field" for="q-url">Link to the tour page<input id="q-url" name="tour_url" type="url" placeholder="https://yourcompany.com/tours/…" required></label>
-        <label class="field" for="q-email">Your email<input id="q-email" name="email" type="email" autocomplete="email" placeholder="you@yourcompany.com" required></label>
+        <label class="field" for="q-url">Link to the tour page<input id="q-url" name="tour_url" type="url" placeholder="https://yourcompany.com/tours/…" required data-missing="Please paste a link to one of your tours."></label>
+        <label class="field" for="q-email">Your email<input id="q-email" name="email" type="email" autocomplete="email" placeholder="you@yourcompany.com" required data-missing="Please add your email so we can send the sample."></label>
         <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn btn-ink" type="submit">Request my free sample</button>
+        <input type="hidden" name="from_page" value="">
+        <button class="btn btn-ink" type="submit">Send my itinerary</button>
         <p class="form-status" role="status" hidden></p>
-        <p class="small">We’ll only use your details to reply about the sample. <a href="privacy.html">Privacy notice</a></p>
+        <p class="small">We’ll only use your details to reply about the sample. <a href="/privacy.html">Privacy notice</a></p>
       </form>
     </div>
   </section>
@@ -518,34 +192,38 @@
   <section class="section" id="faq" aria-labelledby="faq-title">
     <div class="faq wrap">
       <h2 class="h2" id="faq-title" style="margin-bottom:28px">Questions</h2>
-      <details><summary>What do you need from us?</summary><p>Just the route: a GPX or Ride with GPS file, a link, a PDF or a list of stops. For walking and cycling, a route file gives the most exact line; for waymarked trails we can usually find the official route ourselves. Send your logo (ideally a transparent PNG or an SVG), your brand colours and your deadline. If you’d like a photo on each stop’s card, send one per stop that you own or have the rights to use.</p></details>
-      <details><summary>How long does it take?</summary><p>A first version within 5 working days of receiving the route, for up to five videos. For bigger orders we agree a schedule with you. Need it sooner? Ask, and we’ll tell you honestly whether we can.</p></details>
-      <details><summary>Can it match our brand?</summary><p>Yes. Route colours, map style, font, panel colours, your logo and your own vehicle icons can all be set to match, and they’re saved as your house style for every future video.</p></details>
-      <details><summary>Who owns the videos?</summary><p>You can use them in your own marketing, on any channel, for as long as you like. The map data credit (© OpenStreetMap contributors) stays in the corner, as the map licence requires.</p></details>
-      <details><summary>Is there music or a voice-over?</summary><p>Videos are delivered silent, so they autoplay anywhere, including on your website. You can add your own track if you want one.</p></details>
-      <details><summary>What if the route changes?</summary><p>Send the new file. Your route and style are saved, so we remake the videos it affects at half their price.</p></details>
-      <details><summary>What is the small Iterra Maps mark?</summary><p>Each video carries a small, semi-transparent Iterra Maps mark in one corner. If you’d rather have it without, a clean version is <span data-usd="$29" data-eur="€29">$29</span> per video.</p></details>
+<details><summary>What do you need from us?</summary><p>Just the route: a GPX or Ride with GPS file, a link, a PDF or a list of stops. For walking and cycling, a route file gives the most exact line; for waymarked trails we can usually find the official route ourselves. Send your logo (ideally a transparent PNG or an SVG), your brand colours and your deadline. If you’d like a photo on each stop’s card, send one per stop that you own or have the rights to use.</p></details>
+<details><summary>How long does it take?</summary><p>A free sample usually takes 2 to 3 working days. For a full video, you get a first version within 5 working days of sending the route, for up to five videos. For bigger orders we agree a schedule with you. Need it sooner? Ask, and we’ll tell you honestly whether we can.</p></details>
+<details><summary>Can it match our brand?</summary><p>Yes. Route colours, map style, font, panel colours, your logo and your own vehicle icons can all be set to match, and they’re saved as your house style for every future video.</p></details>
+<details><summary>How do we put the video on our website?</summary><p>You get MP4 files in widescreen, vertical and square. They upload to your website, YouTube, Instagram or an email tool like any other video. If someone else looks after your website, we’re happy to answer their questions.</p></details>
+<details><summary>Can we keep our routes private?</summary><p>Yes. You choose how much the line shows: the exact roads, a simplified line, or simple curves from town to town. The distances and timing stay true whichever you pick.</p></details>
+<details><summary>Who owns the videos?</summary><p>You can use them in your own marketing, on any channel, for as long as you like. The map data credit (© OpenStreetMap contributors) stays in the corner, as the map licence requires.</p></details>
+<details><summary>Is there music or a voice-over?</summary><p>Videos are delivered silent, so they autoplay anywhere, including on your website. You can add your own track if you want one.</p></details>
+<details><summary>What if the route changes?</summary><p>Send the new file. Your route and style are saved, so we remake the videos it affects at half their price.</p></details>
+<details><summary>What is the small Iterra Maps mark?</summary><p>Each video carries a small, semi-transparent Iterra Maps mark in one corner. If you’d rather have it without, a clean version is &lt;span data-usd=&quot;$29&quot; data-eur=&quot;€29&quot;&gt;$29&lt;/span&gt; per video.</p></details>
     </div>
   </section>
 </main>
-
-<footer class="site-footer">
+<footer class="ft">
   <div class="wrap">
-    <div class="cols">
-      <span class="brand-name">Iterra <span>Maps</span></span>
-      <span>Animated route maps</span>
-      <a href="mailto:hello@iterramaps.com">hello@iterramaps.com</a>
+    <div class="ft-top">
+      <div class="ft-brand">
+        <span class="brand-name">Iterra <span>Maps</span></span>
+        <p>Animated route map videos for tour operators and events.</p>
+        <a href="mailto:hello@iterramaps.com">hello@iterramaps.com</a>
+      </div>
+      <nav aria-labelledby="ft-sc"><h2 id="ft-sc">Showcase</h2><ul><li><a href="/showcase/napa-and-sonoma-by-bike/">Napa and Sonoma by bike</a></li><li><a href="/showcase/texas-hill-country-charity-ride/">A charity ride in the Texas Hill Country</a></li><li><a href="/showcase/lakeshore-330/">The Lakeshore 330</a></li><li><a href="/showcase/canadian-rockies-by-coach/">The Canadian Rockies by coach</a></li><li><a href="/showcase/alaska-inside-passage/">Alaska&#x27;s Inside Passage by small ship</a></li><li><a href="/showcase/switzerland-by-rail/">Switzerland by rail</a></li><li><a href="/showcase/camino-sarria-to-santiago/">The Camino, Sarria to Santiago</a></li><li><a href="/showcase/one-route-many-looks/">One route, four looks</a></li><li><a href="/showcase/">All films</a></li></ul></nav>
+      <nav aria-labelledby="ft-mf"><h2 id="ft-mf">Who it’s for</h2><ul><li><a href="/made-for/cycling-tours/">Cycling tours</a></li><li><a href="/made-for/cycling-events/">Cycling events and charity rides</a></li><li><a href="/made-for/motorcoach-tours/">Motorcoach and group tours</a></li><li><a href="/made-for/">All kinds of trip</a></li></ul></nav>
+      <nav aria-labelledby="ft-co"><h2 id="ft-co">Iterra Maps</h2><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/sample.html">Get a free sample</a></li><li><a href="/privacy.html">Privacy notice</a></li><li><a href="#" class="js-cookie-settings">Cookie settings</a></li></ul></nav>
     </div>
-    <div class="cols">
-      <a href="privacy.html">Privacy notice</a>
-      <a href="#" class="js-cookie-settings">Cookie settings</a>
-      <span>Map data in videos © OpenStreetMap contributors</span>
-      <span>© <span class="js-year">2026</span> Iterra Maps</span>
-    </div>
+    <div class="ft-base"><span>Map data in videos © OpenStreetMap contributors</span><span>© <span class="js-year">2026</span> Iterra Maps</span></div>
   </div>
 </footer>
-<script src="/currency.js" defer></script>
-<script src="/consent.js" defer></script>
-<script src="main.js" defer></script>
+<dialog class="reel-player" id="reel-player" aria-labelledby="reel-player-title">
+  <div class="reel-player-head"><h2 id="reel-player-title">Video</h2><button class="reel-player-close" type="button" aria-label="Close video"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button></div>
+  <video controls playsinline preload="none"></video>
+</dialog>
+<script src="/consent.js?v=3d381189" defer></script>
+<script src="/assets/site.js?v=b00581ed" defer></script>
 </body>
 </html>

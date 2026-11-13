@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://iterramaps.com/</loc></url>
-  <url><loc>https://iterramaps.com/sample.html</loc></url>
-  <url><loc>https://iterramaps.com/privacy.html</loc></url>
+  <url><loc>https://iterramaps.com/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/pricing/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/how-it-works/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/sample.html</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/showcase/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/made-for/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/made-for/cycling-events/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/showcase/canadian-rockies-by-coach/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/showcase/lakeshore-330/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/showcase/switzerland-by-rail/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/showcase/camino-sarria-to-santiago/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/made-for/cycling-tours/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/made-for/motorcoach-tours/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/showcase/alaska-inside-passage/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/showcase/napa-and-sonoma-by-bike/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/showcase/one-route-many-looks/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/showcase/texas-hill-country-charity-ride/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://iterramaps.com/privacy.html</loc><lastmod>2026-11-13</lastmod></url>
 </urlset>

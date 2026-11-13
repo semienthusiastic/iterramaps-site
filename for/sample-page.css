@@ -43,7 +43,7 @@
 .sp-private { margin-top: 40px; max-width: 46em; }
 
 /* feedback mode */
-.sp-time { font-weight: 400; opacity: .85; }
+.sp-time { font-weight: 400; }
 
 /* optional second row of videos (window.SAMPLE.more) */
 .sp-more-vids { margin-top: clamp(40px, 6vw, 64px); }
