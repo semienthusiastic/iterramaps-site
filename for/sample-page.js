@@ -12,10 +12,10 @@
   // what a finished video includes: sales wording only on "sale" pages
   S.includes = S.includes || (S.mode === "sale" ? [
     "Every stop on the itinerary, on the real roads, trails and sea crossings",
-    "Your logo and route colours",
+    "Your logo and route colors",
     "Widescreen, vertical and square versions, up to 4K",
     "One round of changes",
-    "First version within 5 working days",
+    "First version within 5 business days",
   ] : [
     "Every stop on the itinerary, on the real roads, trails and sea crossings",
     "Your logo and route colours",
@@ -46,9 +46,9 @@
     : `<strong class="sp-client-name">${esc(S.company)}</strong>`;
 
   const feedback = S.mode !== "sale";
-  const subject = feedback ? `Feedback: ${S.tour} (${S.company})` : `Full reel: ${S.tour} (${S.company})`;
+  const subject = feedback ? `Feedback: ${S.tour} (${S.company})` : S.ask ? `Route videos for ${S.company}` : `Full reel: ${S.tour} (${S.company})`;
   const body = feedback ? `Hi ${S.from},\n\nThanks for the sample. Here's what we think:\n\n`
-    : `Hi ${S.from},\n\nThanks for the sample. We'd like to talk about the full reel for ${S.tour}.\n\n`;
+    : S.ask ? `Hi ${S.from},\n\nThanks for the samples. We'd like to talk about videos for ${S.tour}.\n\n` : `Hi ${S.from},\n\nThanks for the sample. We'd like to talk about the full reel for ${S.tour}.\n\n`;
   const mailto = `mailto:${S.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   // feedback form on the main site, with this prospect's details filled in
   const formUrl = "../../feedback.html?" + new URLSearchParams({ company: S.company, tour: S.tour, page: location.href.split(/[?#]/)[0] });
@@ -62,20 +62,20 @@
         <h2>Like it?</h2>
         ${S.offer ? `<p>${esc(S.offer)}</p>` : ""}
         <div class="sp-buttons">
-          <a class="btn btn-primary" href="${esc(mailto)}">${MAIL}Email us about the full reel</a>
-          <a class="btn btn-outline" href="../../index.html#pricing">See pricing and FAQ</a>
+          <a class="btn btn-primary" href="${esc(mailto)}">${MAIL}${esc(S.ask || "Email us about the full reel")}</a>
+          <a class="btn btn-outline" href="/pricing/">See pricing</a>
         </div>`;
 
   // video files live on R2 (media.iterramaps.com); a plain file name is looked up in S.media
   const videoUrl = src => /^https?:\/\//.test(src) || !S.media ? src : S.media.replace(/\/?$/, "/") + src;
   let vi = 0; // one running number for every video on the page
-  const videoList = list => (list || []).filter(v => v && v.src).map(v => Object.assign({}, v, { src: videoUrl(v.src) })).map(v => {
+  const videoList = list => (list || []).filter(v => v && v.src).map(v => Object.assign({}, v, { src: videoUrl(v.src), web: v.web ? videoUrl(v.web) : "" })).map(v => {
     const i = vi++;
     const r = ratio(v.aspect), tall = r < 1;
     const file = v.file || `${slug(S.company) || "iterra"}-${slug(S.tour) || "sample"}-${String(v.aspect || "16:9").replace(":", "x")}.mp4`;
     return `<figure class="sp-video${tall ? " tall" : ""}" style="--r:${r.toFixed(4)}">
       <div class="sp-frame" style="aspect-ratio:${r.toFixed(4)}">
-        <video controls muted loop playsinline preload="metadata" data-autoplay${v.poster ? ` poster="${esc(v.poster)}"` : ""} src="${esc(v.src)}" aria-label="${esc(v.label || "Sample video")}"></video>
+        <video controls muted loop playsinline preload="metadata" data-autoplay${v.poster ? ` poster="${esc(v.poster)}"` : ""} src="${esc(v.web || v.src)}"${v.web ? ` data-full="${esc(v.src)}"` : ""} aria-label="${esc(v.label || "Sample video")}"></video>
         <p class="sp-missing" hidden>This video is on its way.</p>
       </div>
       <figcaption><span>${esc(v.label || "")}</span>
@@ -110,7 +110,7 @@
 
     <section class="sp-next">
       <div class="sp-includes">
-        <h2>${feedback ? "What a finished version would include" : "What the full reel includes"}</h2>
+        <h2>${feedback ? "What a finished version would include" : S.ask ? "What every video includes" : "What the full reel includes"}</h2>
         <ul>${S.includes.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
       </div>
       <div class="sp-cta">${cta}
@@ -135,6 +135,7 @@
   document.querySelectorAll(".sp-video").forEach(fig => {
     const v = fig.querySelector("video");
     v.addEventListener("error", () => {
+      if (v.dataset.full && v.getAttribute("src") !== v.dataset.full) { v.src = v.dataset.full; return; } // web copy not uploaded yet: play the full file
       v.hidden = true; fig.querySelector(".sp-missing").hidden = false; fig.querySelector(".sp-dl").hidden = true;
       console.warn(`Sample page: couldn't load ${v.getAttribute("src")}`);
     });

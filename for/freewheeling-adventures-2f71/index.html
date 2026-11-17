@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- EDIT 1 of 2: the page title and link preview (what shows when the link is pasted into email, Slack or WhatsApp) -->
+<title>Your tour in motion: a sample for Freewheeling Adventures · Iterra Maps</title>
+<meta property="og:title" content="Your tour in motion: a sample for Freewheeling Adventures">
+<meta property="og:description" content="Animated route maps of the Okanagan &amp; Kettle Valley Railway bike tour, made by Iterra Maps.">
+<meta property="og:image" content="https://iterramaps.com/for/freewheeling-adventures-2f71/poster.jpg">
+<!-- keep this page out of Google -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0e1b24">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../sample-page.css">
+
+<!-- EDIT 2 of 2: everything else on the page comes from here -->
+<script>
+window.SAMPLE = {
+  company: "Freewheeling Adventures",
+  firstName: "Brianna",
+  tour: "your Okanagan & Kettle Valley Railway tour",
+  intro: "Here are two samples: the whole tour from Vernon to Oliver in widescreen, and Day 3 through Myra Canyon in vertical, as you asked. Both are in your colors, with your logo, and follow the Okanagan Rail Trail and the Kettle Valley Rail Trail.",
+  accent: "#C02026",                       // Freewheeling red
+  logo: "logo.png",                        // their logo on their site blue (#2774ab)
+  media: "https://media.iterramaps.com/samples/freewheeling-adventures/",
+
+  // src: the full-quality file (download button); web: the lighter copy the page plays (falls back to src)
+  videos: [
+    { src: "wide.mp4",     web: "wide.web.mp4",     aspect: "16:9", label: "The full tour, Vernon to Oliver: widescreen, for your website and YouTube", poster: "poster.jpg",          file: "freewheeling-okanagan-kvr-full-tour-16x9.mp4" },
+    { src: "vertical.mp4", web: "vertical.web.mp4", aspect: "9:16", label: "Day 3, Myra Canyon: vertical, for Reels, TikTok and Stories",              poster: "poster-vertical.jpg", file: "freewheeling-myra-canyon-day-3-9x16.mp4" },
+  ],
+
+  mode: "sale",                            // she asked for pricing
+  ask: "Email us about your videos",
+  offer: "Pricing is per video, in US dollars: $179 for a full route video, or $159 each for five or more. Short clips of a single day are $79, or $69 each for five or more.",
+  from: "Patrick",
+  email: "hello@iterramaps.com",
+};
+</script>
+</head>
+<body>
+<noscript><p style="padding:24px">This page needs JavaScript to show the videos. You can email <a href="mailto:hello@iterramaps.com">hello@iterramaps.com</a> for a direct link.</p></noscript>
+<div id="sample-page"></div>
+<script src="../sample-page.js" defer></script>
+</body>
+</html>
