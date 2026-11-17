@@ -157,6 +157,15 @@ def page(path, title, desc, body, cur='', index=True, og=None, ld=(), main_cls='
 </body>
 </html>
 '''
+    # every player gets a still: a video with no poster takes /media/showcase/<film>-<shape>.jpg when that file exists
+    def _poster(m):
+        tag = m.group(0)
+        if ' poster=' in tag: return tag
+        k = re.search(r'data-src="' + re.escape(R2) + r'([a-z0-9-]+)/([a-z0-9-]+?)(?:\.web)?\.mp4"', tag)
+        if not k: return tag
+        img = f'/media/showcase/{k.group(1)}-{k.group(2)}.jpg'
+        return tag.replace('<video ', f'<video poster="{img}" ', 1) if os.path.exists(OUT + img.lstrip('/')) else tag
+    doc = re.sub(r'<video [^>]*>', _poster, doc)
     f = OUT + (path if path.endswith('.html') else path + 'index.html')
     os.makedirs(os.path.dirname(f), exist_ok=True)
     open(f, 'w').write(us(doc))
@@ -173,7 +182,7 @@ def crumbs(items, cls='rt-crumbs'):   # [(name, path or None)], last one is the 
         out.append(f'<span aria-current="page">{e(n)}</span>' if last else (f'<a href="/{u}">{e(n)}</a>' if u is not None else f'<span>{e(n)}</span>'))
     return f'<nav class="{cls}" aria-label="Breadcrumb">' + ' <span aria-hidden="true">›</span> '.join(out) + '</nav>'
 # Films whose small web copy (wide.web.mp4 and so on) is on R2: add the folder name here, e.g. {'napa', 'charity'}, and rebuild.
-WEB_READY = {'charity', 'looks'}
+WEB_READY = {'charity', 'looks', 'coach', 'cruise', 'rail', 'walking', 'events'}
 def video(src, label, poster_=None, aspect='wide', auto=False, main=False, thumb=None):
     if src.startswith(R2) and src[len(R2):].split('/')[0] in WEB_READY: src = src[:-4] + '.web.mp4'
     a = f' poster="{poster_}"' if poster_ else ''
