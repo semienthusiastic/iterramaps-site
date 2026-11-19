@@ -104,7 +104,7 @@ def events():
 # ---------------------------------------------------------------- new showcase pages (films already on R2)
 def showcase_page(slug, crumb, title, desc, eyebrow, h1, lead, caption, in_title, in_cards, shapes_text, send, upload='2026-11-01', extra=''):
     s = SC[slug]; k = s['key']; mf = MF.get(s['mf']) if s['mf'] else None
-    has_shapes = k in ('coach', 'cruise', 'rail', 'napa', 'charity')
+    has_shapes = k in SHAPED
     shapes = ''
     if has_shapes:
         shapes = bridge("That's the widescreen version. What about phones and feeds?") + stop('02', 'Every shape', 'shapes-t', f'''        <div class="rt-shapes">

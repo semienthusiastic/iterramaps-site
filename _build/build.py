@@ -5,7 +5,7 @@ from PIL import Image
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import core
 from core import *
-import pages, pages2
+import pages, pages2, pages3
 TODAY = datetime.date.today().isoformat()
 
 def copy_static():
@@ -78,7 +78,7 @@ if __name__ == '__main__':
     copy_static(); images(); assets()
     dates = json.load(open(HERE + 'dates.json'))
     pages.home(); pages.pricing(); pages.how(); pages.sample(); pages.thanks(); pages.notfound(); pages.showcase_index(); pages.madefor_index()
-    pages2.events(); pages2.new_showcases(dates)
+    pages2.events(); pages2.new_showcases(dates); pages3.batch2_showcases(dates)
     for p in ('made-for/cycling-tours/', 'made-for/motorcoach-tours/'): pages2.carry(p, 'made-for', 'madefor')
     for p in ('showcase/alaska-inside-passage/', 'showcase/napa-and-sonoma-by-bike/', 'showcase/one-route-many-looks/', 'showcase/texas-hill-country-charity-ride/'): pages2.carry(p, 'showcase', 'showcase')
     pages2.carry_privacy()

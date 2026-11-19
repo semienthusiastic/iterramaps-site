@@ -30,10 +30,25 @@ SHOWCASES = [
       blurb='Four famous trains in one journey, including the Glacier Express and the Bernina Express.'),
  dict(slug='camino-sarria-to-santiago', key='walking', name='The Camino, Sarria to Santiago', kind='walking', tag='Walking holiday', meta='5 stages · about 115 km', dur=83, mf=None,
       blurb='The last five stages of the Camino Francés on foot, stage by stage.'),
+ dict(slug='danube-cycle-path-passau-to-vienna', key='danube', name='The Danube Cycle Path', kind='cycling', tag='Cycling tour', meta='8 days · Passau to Vienna', dur=83, mf='cycling-tours',
+      blurb='Eight days down the river from Passau to Vienna, through Linz, Melk and the Wachau.'),
+ dict(slug='loire-chateaux-by-bike', key='loire', name='Châteaux of the Loire by bike', kind='cycling', tag='Cycling tour', meta='5 days · Blois to Azay-le-Rideau', dur=78, mf='cycling-tours',
+      blurb='Chambord, Chenonceau and Villandry on the way, on an old-style map.'),
+ dict(slug='puglia-by-bike', key='puglia', name='Puglia by bike', kind='cycling', tag='Cycling tour', meta='5 days · Alberobello to Polignano a Mare', dur=73, mf='cycling-tours',
+      blurb='The trulli and white towns of the Itria Valley, then down to the Adriatic.'),
+ dict(slug='vermont-fall-foliage-by-bike', key='vermont', name='Vermont in fall color', kind='cycling', tag='Cycling tour', meta='5 days · a loop from Woodstock', dur=78, mf='cycling-tours',
+      blurb='An inn-to-inn loop from Woodstock, with covered bridges and village stores.'),
+ dict(slug='otago-central-rail-trail', key='otago', name='The Otago Central Rail Trail', kind='cycling', tag='Rail trail', meta='4 days · Clyde to Middlemarch', dur=78, mf='cycling-tours',
+      blurb="Four days on New Zealand's best-known rail trail, gorge, tunnels and all."),
+ dict(slug='mallorca-sa-calobra-day', key='mallorca', name='Sa Calobra day in Mallorca', kind='cycling', tag='Training camp', meta='1 day · then the climb in 3D', dur=101, mf='cycling-tours',
+      blurb='The whole ride from Port de Pollença, then the Sa Calobra hairpins again in 3D.'),
+ dict(slug='alpe-dhuez-and-col-du-galibier', key='tdf', name="Alpe d'Huez and the Galibier", kind='cycling', tag='Climbs in 3D', meta='2 climbs · both in 3D', dur=83, mf='cycling-tours',
+      blurb='Two Tour de France legends, each ridden in 3D with a live elevation profile.'),
  dict(slug='one-route-many-looks', key='looks', name='One route, four looks', kind='looks', tag='Looks', meta='4 looks · 30 seconds each', dur=30, mf=None, poster='napa',
       blurb='The same bike tour made four ways, to show how far the look can change.'),
 ]
 SC = {s['slug']: s for s in SHOWCASES}
+BATCH2 = {'danube', 'loire', 'puglia', 'vermont', 'otago', 'mallorca', 'tdf'}  # kept out of the footer list, which stays short
 KINDS = [('cycling', 'Cycling tours'), ('events', 'Events and rides'), ('coach', 'Coach tours'), ('cruise', 'Cruises'), ('rail', 'Rail'), ('walking', 'Walking'), ('looks', 'Looks')]
 # ---- every audience page that exists
 MADEFOR = [
@@ -87,7 +102,7 @@ def header(cur):
 </header>
 '''
 def footer():
-    sc = ''.join(f'<li><a href="/showcase/{s["slug"]}/">{e(s["name"])}</a></li>' for s in SHOWCASES)
+    sc = ''.join(f'<li><a href="/showcase/{s["slug"]}/">{e(s["name"])}</a></li>' for s in SHOWCASES if s['key'] not in BATCH2)
     mf = ''.join(f'<li><a href="/made-for/{m["slug"]}/">{e(m["name"])}</a></li>' for m in MADEFOR)
     return f'''<footer class="ft">
   <div class="wrap">
@@ -182,7 +197,8 @@ def crumbs(items, cls='rt-crumbs'):   # [(name, path or None)], last one is the 
         out.append(f'<span aria-current="page">{e(n)}</span>' if last else (f'<a href="/{u}">{e(n)}</a>' if u is not None else f'<span>{e(n)}</span>'))
     return f'<nav class="{cls}" aria-label="Breadcrumb">' + ' <span aria-hidden="true">›</span> '.join(out) + '</nav>'
 # Films whose small web copy (wide.web.mp4 and so on) is on R2: add the folder name here, e.g. {'napa', 'charity'}, and rebuild.
-WEB_READY = {'charity', 'looks', 'coach', 'cruise', 'rail', 'walking', 'events'}
+WEB_READY = {'charity', 'looks', 'coach', 'cruise', 'rail', 'walking', 'events', 'danube', 'loire', 'puglia', 'vermont', 'otago', 'mallorca', 'tdf'}
+SHAPED = {'coach', 'cruise', 'rail', 'napa', 'charity', 'danube', 'loire', 'puglia', 'vermont', 'otago', 'mallorca', 'tdf'}  # films with vertical and square versions
 def video(src, label, poster_=None, aspect='wide', auto=False, main=False, thumb=None):
     if src.startswith(R2) and src[len(R2):].split('/')[0] in WEB_READY: src = src[:-4] + '.web.mp4'
     a = f' poster="{poster_}"' if poster_ else ''
@@ -197,8 +213,16 @@ def aud_cards(h='h3'):
         f'<div class="bd"><p class="k">{e(m["name"])}</p><{h}>{e(m["h"])}</{h}><p>{e(m["p"])}</p><span class="go">{e(m["go"])}</span></div></a></li>' for m in MADEFOR) + '</ul>'
 def cta_band(h='See one of your own tours as a moving map', p=PROMISE):
     return f'''<div class="cta-band"><div><h2>{e(h)}</h2><p>{e(p)}</p></div><div class="cta-row"><a class="btn btn-primary" href="/sample.html">{CTA}</a><a class="btn btn-outline" href="/pricing/">See pricing</a></div></div>'''
+def _more(skip, n=8):
+    """Up to n other films: the same kind of trip first, then one of each other kind."""
+    me = SC[skip]['kind'] if skip in SC else None
+    same = [s for s in SHOWCASES if s['slug'] != skip and s['kind'] == me]
+    other, seen = [], set()
+    for s in SHOWCASES:
+        if s['slug'] != skip and s['kind'] != me and s['kind'] not in seen: other.append(s); seen.add(s['kind'])
+    return (same[:n - min(len(other), 4)] + other)[:n]
 def more_showcases(skip):
-    return '<nav class="rt-more" aria-labelledby="more-t">\n      <h2 id="more-t">More showcases</h2>\n      <ul>' + ''.join(f'<li><a href="/showcase/{s["slug"]}/">{e(s["name"])}</a></li>' for s in SHOWCASES if s['slug'] != skip) + '<li><a href="/showcase/">All films</a></li></ul>\n    </nav>'
+    return '<nav class="rt-more" aria-labelledby="more-t">\n      <h2 id="more-t">More showcases</h2>\n      <ul>' + ''.join(f'<li><a href="/showcase/{s["slug"]}/">{e(s["name"])}</a></li>' for s in _more(skip)) + '<li><a href="/showcase/">All films</a></li></ul>\n    </nav>'
 def more_madefor(skip):
     other = [('walking holidays', 'camino-sarria-to-santiago'), ('cruises', 'alaska-inside-passage'), ('rail journeys', 'switzerland-by-rail')]
     return ('<nav class="rt-more" aria-labelledby="more-t">\n      <h2 id="more-t">Also made for</h2>\n      <ul>' + ''.join(f'<li><a href="/made-for/{m["slug"]}/">{e(m["name"])}</a></li>' for m in MADEFOR if m['slug'] != skip)
