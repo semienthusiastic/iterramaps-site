@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- EDIT 1 of 2: the page title and link preview (what shows when the link is pasted into email, Slack or WhatsApp) -->
+<title>Your ride in motion: a sample for the Twin Cities Bike Tour · Iterra Maps</title>
+<meta property="og:title" content="Your ride in motion: a sample for the Twin Cities Bike Tour">
+<meta property="og:description" content="An animated route map of the 2027 Twin Cities Bike Tour, made by Iterra Maps.">
+<meta property="og:image" content="https://iterramaps.com/for/bikemn/poster.jpg">
+<!-- keep this page out of Google -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0e1b24">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../sample-page.css">
+
+<!-- EDIT 2 of 2: everything else on the page comes from here -->
+<script>
+window.SAMPLE = {
+  company: "BikeMN",
+  firstName: "Ted",
+  tour: "the 2027 Twin Cities Bike Tour",
+  intro: "Here are the final 17 miles of your 2027 main route, from the Theodore Wirth trailhead through downtown, down the Mississippi past the Stone Arch Bridge, by Minnehaha Falls and round Lake Nokomis to the finish. It follows your own Ride with GPS track, in the ride's colors and logo.",
+  accent: "#F07A2E",                       // the ride's orange
+  logo: "logo.png",                        // the Twin Cities Bike Tour badge
+  media: "https://media.iterramaps.com/samples/bikemn/",
+  videos: [
+    { src: "wide.mp4",     web: "wide.web.mp4",     aspect: "16:9", label: "Widescreen, for your website, YouTube and registration emails", poster: "poster.jpg",          file: "twin-cities-bike-tour-2027-final-17-miles-16x9.mp4" },
+    { src: "vertical.mp4", web: "vertical.web.mp4", aspect: "9:16", label: "Vertical, for Instagram, Reels and Stories",                       poster: "poster-vertical.jpg", file: "twin-cities-bike-tour-2027-final-17-miles-9x16.mp4" },
+    { src: "square.mp4",   web: "square.web.mp4",   aspect: "1:1",  label: "Square, for Facebook and email newsletters",                       poster: "poster-square.jpg",   file: "twin-cities-bike-tour-2027-final-17-miles-1x1.mp4" },
+  ],
+  mode: "feedback",
+  note: "This is a slice of the route. The full loop, all 49.5 miles with every rest stop, can be made the same way, along with short clips for each section and versions for your shorter routes. If you'd like that for 2027, let us know and we'll come back to you with a price and timings. If it isn't for you, a quick word on why would still help us. The video is yours to keep either way.",
+  offer: "",
+  from: "Patrick",
+  email: "hello@iterramaps.com",
+};
+</script>
+</head>
+<body>
+<noscript><p style="padding:24px">This page needs JavaScript to show the videos. You can email <a href="mailto:hello@iterramaps.com">hello@iterramaps.com</a> for a direct link.</p></noscript>
+<div id="sample-page"></div>
+<script src="../sample-page.js" defer></script>
+</body>
+</html>
