@@ -18,7 +18,7 @@
     "First version within 5 business days",
   ] : [
     "Every stop on the itinerary, on the real roads, trails and sea crossings",
-    "Your logo and route colours",
+    "Your logo and route colors",
     "Widescreen, vertical and square versions, up to 4K",
     "Stop names, and an elevation profile for hilly routes",
     "Your corrections, so the route matches the tour exactly",
@@ -28,6 +28,7 @@
   const slug = s => String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   const ratio = a => { const [w, h] = String(a || "16:9").split(":").map(Number); return w > 0 && h > 0 ? w / h : 16 / 9; };
   const DL = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8m0 0L4.5 6.5M8 10l3.5-3.5M2.5 13.5h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const FS = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const MAIL = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12v9H2zM2.5 4l5.5 4.5L13.5 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
   const LOGO = '<svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#0e1b24" stroke-width="3"/><ellipse cx="32" cy="32" rx="12" ry="27" fill="none" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M5 32H59" stroke="#0e1b24" stroke-opacity=".28" stroke-width="2.5"/><path d="M11 46C22 50 30 30 38 28C46 26 46 18 50 14" fill="none" stroke="#ff5a36" stroke-width="5.5" stroke-linecap="round"/><circle cx="11" cy="46" r="4.5" fill="#0e1b24"/><circle cx="50" cy="14" r="5.5" fill="#fff" stroke="#0e1b24" stroke-width="3.5"/></svg>';
 
@@ -78,8 +79,12 @@
         <video controls muted loop playsinline preload="metadata" data-autoplay${v.poster ? ` poster="${esc(v.poster)}"` : ""} src="${esc(v.web || v.src)}"${v.web ? ` data-full="${esc(v.src)}"` : ""} aria-label="${esc(v.label || "Sample video")}"></video>
         <p class="sp-missing" hidden>This video is on its way.</p>
       </div>
-      <figcaption><span>${esc(v.label || "")}</span>
-        <a class="sp-dl" href="${esc(v.src)}" download="${esc(file)}" data-i="${i}">${DL}<span>Download MP4</span></a></figcaption>
+      <figcaption>${v.label ? `<span class="sp-label">${esc(v.label)}</span>` : ""}
+        <span class="sp-actions">
+          <button type="button" class="sp-fs" data-i="${i}">${FS}<span>Watch full screen</span></button>
+          <a class="sp-dl" href="${esc(v.src)}" download="${esc(file)}" data-i="${i}">${DL}<span>Download HD file</span></a>
+        </span>
+        <span class="sp-quality">The download is the full-quality file: <b class="sp-res">the full-resolution video</b>.</span></figcaption>
     </figure>`;
   }).join("");
   const videos = videoList(S.videos);
@@ -106,6 +111,7 @@
       <p class="lead">${intro}</p>
     </section>
 
+    ${videos ? `<p class="sp-howto">The videos below are small previews. Press <b>Watch full screen</b> to see each one at full size, and use the download buttons to save the full-quality files.</p>` : ""}
     <section class="sp-videos" aria-label="Sample videos">${videos || '<p class="small">Videos coming soon.</p>'}</section>${more}
 
     <section class="sp-next">
@@ -136,7 +142,7 @@
     const v = fig.querySelector("video");
     v.addEventListener("error", () => {
       if (v.dataset.full && v.getAttribute("src") !== v.dataset.full) { v.src = v.dataset.full; return; } // web copy not uploaded yet: play the full file
-      v.hidden = true; fig.querySelector(".sp-missing").hidden = false; fig.querySelector(".sp-dl").hidden = true;
+      v.hidden = true; fig.querySelector(".sp-missing").hidden = false; fig.querySelector(".sp-dl").hidden = true; fig.querySelector(".sp-fs").hidden = true; fig.querySelector(".sp-quality").hidden = true;
       console.warn(`Sample page: couldn't load ${v.getAttribute("src")}`);
     });
     // only one video plays at a time
@@ -152,6 +158,31 @@
     v.addEventListener("volumechange", () => { if (!v.muted && v.volume > 0) watched("unmute"); });
     v.addEventListener("fullscreenchange", () => { if (document.fullscreenElement === v) watched("fullscreen"); });
     v.addEventListener("webkitbeginfullscreen", () => watched("fullscreen"));
+  });
+
+  // "Watch full screen": the same video, from the start, filling the screen, switched to the full-quality file.
+  // iPhones only allow their own player full screen; anywhere without full screen, the file opens in a new tab.
+  document.querySelectorAll(".sp-video").forEach(fig => {
+    const v = fig.querySelector("video"), btn = fig.querySelector(".sp-fs"), dl = fig.querySelector(".sp-dl");
+    const resLabel = () => {
+      const w = v.videoWidth, h = v.videoHeight; if (!w || !h) return;
+      const m = Math.min(w, h), name = m >= 2160 ? "4K" : m >= 1440 ? "Quad HD" : m >= 1080 ? "Full HD" : m >= 720 ? "HD" : "";
+      fig.querySelector(".sp-res").textContent = `${name ? name + ", " : ""}${w} × ${h} pixels`;
+    };
+    v.addEventListener("loadedmetadata", resLabel); resLabel();
+    const toFull = () => { // the full-quality file, from the start
+      if (v.dataset.full && v.getAttribute("src") !== v.dataset.full) { v.src = v.dataset.full; }
+      v.currentTime = 0; v._ours = true; v.play().catch(() => {});
+    };
+    btn.addEventListener("click", () => {
+      const req = v.requestFullscreen || v.webkitRequestFullscreen;
+      if (req) {
+        Promise.resolve(req.call(v)).then(toFull).catch(() => window.open(dl.href, "_blank", "noopener"));
+      } else if (v.webkitEnterFullscreen) { // iPhone: its own player, with the preview file (switching files would close it)
+        try { v.currentTime = 0; v.play().catch(() => {}); v.webkitEnterFullscreen(); } catch { window.open(dl.href, "_blank", "noopener"); }
+      } else window.open(dl.href, "_blank", "noopener");
+      if (typeof window.gtag === "function") window.gtag("event", "sample_video_fullscreen_button", { company: S.company, tour: S.tour, video: dl.getAttribute("href") || "" });
+    });
   });
 
   // The videos play by themselves, silently, while on screen (one at a time; not with reduced motion or data saver on).
@@ -198,7 +229,7 @@
   document.querySelectorAll(".sp-dl").forEach(a => {
     fetch(a.href, { method: "HEAD" }).then(r => {
       const n = +r.headers.get("content-length");
-      if (r.ok && n) a.querySelector("span").textContent = `Download MP4 (${(n / 1048576).toFixed(1)} MB)`;
+      if (r.ok && n) a.querySelector("span").textContent = `Download HD file (${(n / 1048576).toFixed(0)} MB)`;
     }).catch(() => {});
   });
 

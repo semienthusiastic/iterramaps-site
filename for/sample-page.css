@@ -19,7 +19,16 @@
 .sp-frame video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
 .sp-missing { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; color: #c9d3d8; font-size: 15px; padding: 16px; text-align: center; }
 .sp-missing[hidden] { display: none; }
-.sp-video figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding-top: 12px; font-size: 15px; color: var(--muted); }
+.sp-howto { margin: 0 0 18px; max-width: 62ch; color: var(--body); font-size: 16px; }
+.sp-video figcaption { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 12px; font-size: 15px; color: var(--muted); }
+.sp-actions { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; }
+.sp-actions > .sp-fs, .sp-actions > .sp-dl { flex: 1 1 11.5em; justify-content: center; text-align: center; white-space: normal; line-height: 1.2; padding-block: 6px; }
+.sp-fs { display: inline-flex; align-items: center; gap: 7px; min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--ink); background: var(--ink); color: #fff; font: inherit; font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; }
+.sp-fs:hover { filter: brightness(1.08); }
+.sp-fs:focus-visible, .sp-dl:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.sp-fs[hidden], .sp-quality[hidden] { display: none; }
+.sp-quality { font-size: 13.5px; line-height: 1.4; }
+.sp-quality b { font-weight: 600; color: var(--ink); }
 .sp-dl { display: inline-flex; align-items: center; gap: 7px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--line-strong); color: var(--ink); text-decoration: none; font-weight: 600; font-size: 14px; background: var(--surface); white-space: nowrap; }
 .sp-dl:hover { border-color: var(--ink); color: var(--ink); }
 .sp-dl[hidden] { display: none; }
